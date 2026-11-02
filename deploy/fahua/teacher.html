@@ -433,7 +433,7 @@
   </figure>
 
   <ul class="plain">
-    <li><strong>一品：</strong>工时 60 对 14，管线赢；现金 6,500 对 8,110，管线反而贵——固定成本还没摊开。</li>
+    <li><strong>一品：</strong>工时 60 对 14，管线赢；现金 ¥0.65 万 对 ¥7.2 万，管线反而贵——固定成本还没摊开。</li>
     <li><strong>十三品：</strong>打平；之后每多一品，管线多赚 ¥5,450。</li>
     <li><strong>二十八品：</strong>现金 1.8 倍、工时 4.2 倍、每品边际 6.2 倍。</li>
     <li><strong>第二部典（如《维摩诘经》）：</strong>同一个架构，固定成本降到约 ¥2.5 万，边际只付校对。</li>
@@ -740,11 +740,11 @@
 
   /* ---------- chart 5: break-even ---------- */
   (function(){
-    var W=860,H=430,L=88,R=700,T=44,B=64, xMax=28, yMax=190000;
+    var W=860,H=430,L=88,R=700,T=44,B=64, xMax=28, yMax=200000;
     function X(n){ return L+(n/xMax)*(R-L); }
     function Y(v){ return H-B-(v/yMax)*(H-T-B); }
     var s="";
-    [0,50000,100000,150000,190000].forEach(function(v){
+    [0,50000,100000,150000,200000].forEach(function(v){
       s += line(L,Y(v),R,Y(v),C.line);
       s += t(L-12,Y(v)+4,(v/10000)+" 万",{a:"end",fs:11,f:C.muted});
     });
