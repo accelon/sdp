@@ -1,0 +1,30 @@
+# 建置產物與中間檔
+out/
+dist/
+
+# build/ 的腳本與母本要進版控；只忽略中間產物
+build/*.png
+build/*.jpg
+build/long-s.html
+build/cover-s.html
+build/_*
+
+# 大型成品／下載快取
+*.adb
+*.zip
+*.7z
+data/_zips/
+raw/_zips/
+data/external/
+raw/
+
+# 本機設定與暫存
+.local/
+*.log
+*.tmp
+.chrome-*/
+.edge-*/
+
+# Python
+__pycache__/
+*.pyc

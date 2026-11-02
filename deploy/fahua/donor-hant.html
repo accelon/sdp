@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238c3b2c'/%3E%3C/svg%3E">
+<title>一句經文，二十六家注｜法華合注 · 一封邀請</title>
+<meta name="description" content="法華合注護持版：一品備課從 60 小時降到 14 小時；二十八品 1,680 小時變 404 小時。七卷二十八品、三種漢譯、二十六家注疏。把苦功夫交給 AI，把學問留給老師。">
+<meta property="og:title" content="一句經文，二十六家注">
+<meta property="og:description" content="過去備一品要六十小時，現在十四小時。法華合注，七卷二十八品的教學層。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nissaya.cn/fahua/donor-hant.html">
+<meta property="og:image" content="https://nissaya.cn/fahua/cover-hant.jpg">
+<style>
+  :root{
+    --paper:#f6f1e7; --card:#fffdf8; --ink:#1b1814; --soft:#3a332a; --muted:#6d6357;
+    --line:#ddd0bc; --accent:#8c3b2c; --teal:#2f5d62;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--paper);-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","Source Han Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 64px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0 0}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--accent);font-weight:800}
+  .home{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+  header.hero{padding:26px 0 30px;border-bottom:3px solid var(--ink)}
+  h1{font-size:clamp(44px,9vw,72px);line-height:1.12;font-weight:900;letter-spacing:.01em;margin:10px 0 0}
+  .lead{font-size:clamp(22px,4vw,30px);line-height:1.7;font-weight:700;margin-top:16px}
+  .lead b{color:var(--accent)}
+  .note{font-size:16px;line-height:1.75;color:var(--soft);margin-top:10px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+  .stat{background:var(--card);border:1px solid var(--line);padding:14px 14px 12px}
+  .stat b{display:block;font-size:clamp(26px,5vw,38px);line-height:1.1;color:var(--accent)}
+  .stat span{display:block;font-size:13px;line-height:1.55;color:var(--soft);margin-top:5px}
+
+  section{margin-top:52px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:16px}
+  .sec-no{font-size:12px;font-weight:900;color:var(--accent);letter-spacing:.12em}
+  h2{font-size:clamp(25px,5vw,36px);line-height:1.25;font-weight:900}
+  .sec-lead{font-size:clamp(18px,3.2vw,22px);line-height:1.65;font-weight:700;margin-bottom:16px}
+  p{font-size:16px;line-height:1.8;color:var(--soft);margin-bottom:12px}
+
+  .bar-row{display:grid;grid-template-columns:66px 1fr 44px;gap:9px;align-items:center;margin-bottom:8px}
+  .bar-label{font-size:13px;font-weight:800;text-align:right}
+  .bar-track{height:20px;background:#e7dcc8}
+  .bar-fill{height:100%;background:var(--accent)}
+  .bar-val{font-size:13px;font-weight:900;color:var(--accent);text-align:right}
+
+  .quote{margin-top:20px;padding:6px 0 6px 16px;border-left:4px solid var(--accent);font-size:clamp(17px,3vw,21px);line-height:1.7;font-weight:800}
+  .quote small{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-top:6px}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .step{background:var(--card);border:1px solid var(--line);padding:10px 10px 12px}
+  .step b{display:block;font-size:13px;color:var(--accent);margin-bottom:3px}
+  .step span{font-size:12.5px;line-height:1.55;color:var(--soft)}
+
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .num{background:var(--card);border:1px solid var(--line);padding:10px 12px}
+  .num b{display:block;font-size:clamp(20px,4vw,26px);line-height:1.1}
+  .num span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+
+  .cov{margin-top:12px}
+  .cov-row{display:grid;grid-template-columns:78px 1fr 42px;gap:8px;align-items:center;margin-bottom:6px}
+  .cov-name{font-size:12.5px;font-weight:800;text-align:right}
+  .cov-track{height:16px;background:#e7dcc8}
+  .cov-fill{height:100%;background:var(--teal)}
+  .cov-val{font-size:12px;font-weight:900;color:var(--teal);text-align:right}
+
+  .ba-row{display:grid;grid-template-columns:40px 1fr 44px;gap:7px;align-items:center;margin-bottom:8px}
+  .ba-label{font-size:13px;font-weight:900}
+  .ba-track{display:flex;height:30px}
+  .seg{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden}
+  .seg.mech{background:var(--accent)}
+  .seg.think{background:var(--teal)}
+  .ba-total{font-size:13px;font-weight:900;text-align:right}
+
+  .point{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .point:last-child{border-bottom:none}
+  .dot{flex:none;width:8px;height:8px;background:var(--accent);border-radius:50%;margin-top:9px}
+  .point b{display:block;font-size:16px;line-height:1.45}
+  .point span{font-size:14.5px;line-height:1.65;color:var(--muted)}
+
+  .bigline{font-size:clamp(22px,4.4vw,30px);line-height:1.45;font-weight:900;color:var(--accent);margin-top:20px}
+  .bigline small{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-top:6px;line-height:1.6}
+
+  .scale-row{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .scale-row:last-child{border-bottom:none}
+  .scale-k{font-size:13px;font-weight:900;color:var(--accent)}
+  .scale-v{font-size:14.5px;line-height:1.6;color:var(--soft)}
+  .scale-v b{color:var(--ink)}
+
+  .asks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+  .ask{background:var(--card);border:1px solid var(--line);padding:10px 12px}
+  .ask b{display:block;font-size:14px;color:var(--accent);margin-bottom:2px}
+  .ask span{font-size:13px;line-height:1.55;color:var(--soft)}
+
+  .cta{background:var(--ink);color:var(--paper);padding:24px 20px;margin-top:26px}
+  .cta .k{font-size:11px;letter-spacing:.2em;color:#d8b48a;font-weight:800}
+  .cta h3{font-size:clamp(24px,5vw,34px);line-height:1.4;font-weight:900;margin-top:8px}
+  .cta p{color:#e9dfcf;font-size:15px;line-height:1.7;margin-top:8px}
+  .cta p b{color:#fff}
+
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;font-size:14px;font-weight:800;margin-top:12px}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  details.preview{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}
+  details.preview summary{font-size:14px;font-weight:700;cursor:pointer;color:var(--accent)}
+  details.preview img{display:block;width:100%;height:auto;margin-top:10px;border:1px solid var(--line)}
+
+  footer{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;font-size:12.5px;line-height:1.7;color:var(--muted)}
+  footer b{color:var(--ink)}
+  .end{font-size:14px;font-weight:900;color:var(--accent);letter-spacing:.12em;margin-top:10px}
+
+  @media(max-width:700px){
+    .steps{grid-template-columns:1fr 1fr}
+    .nums{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr}
+    .asks{grid-template-columns:1fr}
+    .cov-row{grid-template-columns:72px 1fr 40px}
+  }
+  @media(max-width:430px){
+    .steps{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:56px 1fr 40px}
+  }
+</style>
+<link rel="alternate" hreflang="zh-Hans" href="https://shutonggui.cn/fahua/donor.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://nissaya.cn/fahua/donor-hant.html">
+<link rel="alternate" hreflang="x-default" href="https://shutonggui.cn/fahua/donor.html">
+<!--lang-switch-->
+<script>
+/* 主站 shutonggui.cn 缺省簡體、鏡像 nissaya.cn 缺省繁體；右下角按鈕可無損切換，選擇記在 cookie */
+(function () {
+  if (location.protocol === 'file:') return;
+  var host = location.hostname.replace(/^www\./, '');
+  var m = document.cookie.match(/(?:^|;\s*)fahua-lang=(zh-Hans|zh-Hant)/);
+  var want = m ? m[1] : (/(^|\.)nissaya\.cn$/.test(host) ? 'zh-Hant' : 'zh-Hans');
+  var path = location.pathname;
+  var isHant = /-hant\.html$/.test(path);
+  var other;
+  if (isHant) {
+    other = path.replace(/-hant\.html$/, '.html');
+  } else if (/\/$/.test(path)) {
+    other = path + 'index-hant.html';
+  } else if (/\/index\.html$/.test(path)) {
+    other = path.replace(/index\.html$/, 'index-hant.html');
+  } else {
+    other = path.replace(/\.html$/, '-hant.html');
+  }
+  if (want === 'zh-Hant' && !isHant) location.replace(other + location.search + location.hash);
+  else if (want === 'zh-Hans' && isHant) location.replace(other + location.search + location.hash);
+})();
+</script>
+<!--/lang-switch-->
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <span class="kicker">法華合注 · 一封邀請</span>
+    <a class="home" href="teacher-hant.html">法師版 →</a>
+  </div>
+
+  <header class="hero">
+    <h1>一句經文，<br>二十六家注。</h1>
+    <p class="lead">過去備一品，要 <b>六十小時</b>；<br>現在，<b>十四小時</b>。</p>
+    <p class="note">不是 AI 讀懂了佛經。是我們把「找、對、核、排」交給了管線。</p>
+    <div class="stats">
+      <div class="stat"><b>89%</b><span>《科註》的句子<br>可逐句錨定</span></div>
+      <div class="stat"><b>60h→14h</b><span>一品的備課<br>從一週半到兩天</span></div>
+      <div class="stat"><b>4.2×</b><span>二十八品的<br>工時比</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">01</span><h2>法華的難，不在找注，在對讀</h2></div>
+    <div class="sec-lead">備一品 60 小時，50 小時在搬書與對書。</div>
+    <div class="bar-row"><div class="bar-label">找注</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
+    <div class="bar-row"><div class="bar-label">對讀三譯</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-val">25%</div></div>
+    <div class="bar-row"><div class="bar-label">查梵漢</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
+    <div class="bar-row"><div class="bar-label">核引文</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
+    <div class="bar-row"><div class="bar-label">排版</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="bar-val">15%</div></div>
+    <div class="quote">做好了，讀者看不出來；<br>做不好，整堂課失焦。
+      <small>同一句經文，羅什、竺法護、闍那崛多三個譯本怎麼說；這一句在《文句》《玄贊》《義疏》裡落在哪裡；「阿耨多羅三藐三菩提」的梵語對應是哪一條。這些勞動不產生洞見，只消耗注意力。</small>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">02</span><h2>三層索引：句、品、詞</h2></div>
+    <div class="sec-lead">材料有三種形狀，就用三種索引。</div>
+    <div class="steps">
+      <div class="step"><b>1 取文本</b><span>CBETA 大正藏、卍續藏，保留頁碼與品次</span></div>
+      <div class="step"><b>2 切句</b><span>《妙法蓮華經》切成 2,848 句</span></div>
+      <div class="step"><b>3 對齊</b><span>句看夾註、品看二十六家、詞看辛嶋</span></div>
+      <div class="step"><b>4 呈現</b><span>點句看注、點品看眾說、點詞看梵漢</span></div>
+    </div>
+    <div class="nums">
+      <div class="num"><b>2,848</b><span>《妙法蓮華經》句數</span></div>
+      <div class="num"><b>28</b><span>品，天然的分節骨架</span></div>
+      <div class="num"><b>26</b><span>家注疏，547 萬字</span></div>
+    </div>
+    <div class="cov">
+      <div class="cov-row"><div class="cov-name">科註</div><div class="cov-track"><div class="cov-fill" style="width:89%"></div></div><div class="cov-val">89%</div></div>
+      <div class="cov-row"><div class="cov-name">會義</div><div class="cov-track"><div class="cov-fill" style="width:89%"></div></div><div class="cov-val">89%</div></div>
+      <div class="cov-row"><div class="cov-name">演義</div><div class="cov-track"><div class="cov-fill" style="width:84%"></div></div><div class="cov-val">84%</div></div>
+      <div class="cov-row"><div class="cov-name">義記</div><div class="cov-track"><div class="cov-fill" style="width:9%"></div></div><div class="cov-val">9%</div></div>
+      <div class="cov-row"><div class="cov-name">義疏</div><div class="cov-track"><div class="cov-fill" style="width:8.5%"></div></div><div class="cov-val">8.5%</div></div>
+      <div class="cov-row"><div class="cov-name">玄贊</div><div class="cov-track"><div class="cov-fill" style="width:5.3%"></div></div><div class="cov-val">5.3%</div></div>
+    </div>
+    <p style="margin-top:12px">夾註體（科註、會義、演義）把經文整句抄進註，逐句可用；隋唐逐句釋（義記、義疏、玄贊）引的是詞，走品與詞。二十六家幾乎每一部都 28/28 品有注。</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">03</span><h2>省下來的，是思考的時間</h2></div>
+    <div class="sec-lead">同一品課，60 小時變成 14 小時。</div>
+    <div class="ba-row"><div class="ba-label">現在</div><div class="ba-track"><div class="seg mech" style="flex:50">機械 50h</div><div class="seg think" style="flex:10">思考 10h</div></div><div class="ba-total">60h</div></div>
+    <div class="ba-row"><div class="ba-label">平臺</div><div class="ba-track"><div class="seg mech" style="flex:4">4h</div><div class="seg think" style="flex:10">思考 10h</div></div><div class="ba-total">14h</div></div>
+    <div class="nums">
+      <div class="num"><b>50h→4h</b><span>機械勞動</span></div>
+      <div class="num"><b>10h→10h</b><span>思考與設計</span></div>
+      <div class="num"><b>17%→71%</b><span>思考佔比</span></div>
+    </div>
+    <div class="quote">省下來的時間不會自動變成學問；<br>但它至少讓學問有時間發生。
+      <small>46 小時裡，思考沒有變少，反而更從容；其餘回到生活、別的課、或學生。</small>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">04</span><h2>這不是「用 AI 讀經」</h2></div>
+    <div class="sec-lead">AI 是利器，學問是主體。</div>
+    <div class="point"><div class="dot"></div><div><b>核心是文字對齊，不是生成</b><span>滾動雜湊＋單調鏈，可重現、可檢查、不會幻覺。</span></div></div>
+    <div class="point"><div class="dot"></div><div><b>生成式只做草稿</b><span>講義初稿、白話改寫，必須由老師審。</span></div></div>
+    <div class="point"><div class="dot"></div><div><b>梵漢對照不是譯經</b><span>辛嶋詞典給對應與用例，不給「這一句該怎麼譯」。</span></div></div>
+    <div class="point"><div class="dot"></div><div><b>判斷、取捨、連結，仍然是老師</b><span>二十六家注，課堂只講三家；選哪三家，是教學。</span></div></div>
+    <div class="bigline">機器負責「都在這裡」，<br>老師負責「為什麼是這一個」。
+      <small>這是基礎設施與教育的分工。</small>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">05</span><h2>規模，才讓這件事成立</h2></div>
+    <div class="sec-lead">單品，手工就好；<br>十三品以上，管線才划算。</div>
+    <div class="scale-row"><div class="scale-k">1 品</div><div class="scale-v">工時 60 對 14，<b>管線贏</b>；現金 6,500 對 8,110，管線反而貴——固定成本還沒攤開。</div></div>
+    <div class="scale-row"><div class="scale-k">13 品</div><div class="scale-v">打平；之後每多一品，管線多賺 <b>¥5,450</b>。</div></div>
+    <div class="scale-row"><div class="scale-k">28 品</div><div class="scale-v"><b>1,680h → 404h</b>；人工是管線的 4.2 倍。</div></div>
+    <div class="scale-row"><div class="scale-k">第二部典籍</div><div class="scale-v">同一個架構，固定成本降到<b>約三分之一</b>。</div></div>
+    <div class="bigline">做一條可以長到二十八品、<br>再長到第二部典籍的管線。
+      <small>不是做一個網站，是做一套可以反覆使用的基礎設施。</small>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">06</span><h2>我們在建什麼</h2></div>
+    <div class="sec-lead">法華合注，七卷二十八品。</div>
+    <p><b>28 品 × 26 家注 × 3 種漢譯 × 2 部梵漢詞典。</b><br>離線、手機、投影、頁碼回查、講義輸出；一品課，一個文件。</p>
+    <p><b>吸收法鼓山 SDP：</b>梵漢藏英對讀、九種梵本校訂、<br>品名差異、寫本對照。<br>不重做，先談合作，只做教學層——研究在法鼓山，教學在我們。</p>
+    <div class="quote" style="border-left-color:var(--teal)">下一站：維摩詰經 → 大般涅槃經 → 般若經。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">07</span><h2>邀請你，一起把這件事做成</h2></div>
+    <div class="sec-lead">AI 是這一代人的利器。我們想用它，把佛學研究做成一個<span style="color:var(--accent)">盛世</span>——不是更多的論文，是更好的課堂、更深的合注、更亮的燈。</div>
+    <div class="asks">
+      <div class="ask"><b>佛學院老師</b><span>試用一學期，給我們 20 個備課案例</span></div>
+      <div class="ask"><b>道場與課堂</b><span>把下一門法華課搬上來</span></div>
+      <div class="ask"><b>校勘 / 梵漢 / 編程</b><span>一起把 26 家補齊</span></div>
+      <div class="ask"><b>支持者</b><span>讓管線長到二十八品，再長到第二部典籍</span></div>
+    </div>
+    <div class="cta">
+      <div class="k">如果這件事值得</div>
+      <h3>把這張圖，轉給一位<br>佛學院老師。</h3>
+      <p>讓下一部合注，<b>不再花十年</b>。</p>
+      <a class="btn" href="fahua-long-hant.jpg" download>下載長圖</a>
+    </div>
+    <details class="preview">
+      <summary>長圖預覽（點擊展開，適合微信轉發）</summary>
+      <img src="fahua-long-hant.jpg" alt="法華合注邀請長圖：一句經文，二十六家注" loading="lazy">
+    </details>
+  </section>
+
+  <footer>
+    <b>法華合注</b> · 2026 · 七卷二十八品的教學層<br>
+    數據：CBETA 大正藏／卍續藏；梵漢詞典：辛嶋靜志（DILA 數位版，CC BY-SA 3.0）；法鼓山 SDP 為研究層參照。<br>
+    數字為模型估算，方法見 <a href="teacher-hant.html" style="border-bottom:1px solid var(--line)">《法華合注·教學評估》</a>。
+    <div class="end">AI 是利器，學問是主體。</div>
+  </footer>
+
+</div>
+<!--lang-toggle-->
+<a id="lang-toggle" href="#" hidden
+   style="position:fixed;right:14px;bottom:14px;z-index:60;background:var(--card,#fffdf8);color:var(--accent,#8c3b2c);border:1px solid var(--line,#ddd0bc);font:600 13px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;padding:9px 12px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.14)">简</a>
+<script>
+(function () {
+  var btn = document.getElementById('lang-toggle');
+  if (!btn) return;
+  var path = location.pathname;
+  var isHant = /-hant\.html$/.test(path);
+  var other, otherLang;
+  if (isHant) {
+    other = path.replace(/-hant\.html$/, '.html'); otherLang = 'zh-Hans';
+  } else if (/\/$/.test(path)) {
+    other = path + 'index-hant.html'; otherLang = 'zh-Hant';
+  } else if (/\/index\.html$/.test(path)) {
+    other = path.replace(/index\.html$/, 'index-hant.html'); otherLang = 'zh-Hant';
+  } else {
+    other = path.replace(/\.html$/, '-hant.html'); otherLang = 'zh-Hant';
+  }
+  btn.href = other + location.search + location.hash;
+  btn.textContent = otherLang === 'zh-Hant' ? '繁' : '简';
+  btn.title = otherLang === 'zh-Hant' ? '無損轉為繁體（僅字形，不改詞彙）' : '無損轉為簡體（僅字形，不改詞彙）';
+  btn.addEventListener('click', function () {
+    document.cookie = 'fahua-lang=' + otherLang + ';path=/;max-age=31536000;samesite=lax';
+  });
+  btn.hidden = false;
+})();
+</script>
+<!--/lang-toggle--></body>
+</html>

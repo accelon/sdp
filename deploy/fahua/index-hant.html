@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238c3b2c'/%3E%3C/svg%3E">
+<title>法華合注 · 教學評估與邀請</title>
+<meta name="description" content="法華合注：七卷二十八品、三種漢譯、二十六家注疏、辛嶋靜志的梵漢詞典。給佛學院法師的評估報告，給護持者的邀請。一句經文，二十六家注；把苦功夫交給 AI，把學問留給老師。">
+<meta property="og:title" content="法華合注 · 教學評估與邀請">
+<meta property="og:description" content="二十八品、二十六家注、三種漢譯。給法師的評估報告，給護持者的邀請。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nissaya.cn/fahua/index-hant.html">
+<meta property="og:image" content="https://nissaya.cn/fahua/cover-hant.jpg">
+<style>
+  :root{
+    --paper:#f6f1e7; --card:#fffdf8; --ink:#1b1814; --soft:#3a332a; --muted:#6d6357;
+    --line:#ddd0bc; --accent:#8c3b2c; --teal:#2f5d62;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--paper);-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","Songti SC",STSong,serif;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 60px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0 0}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--accent);font-weight:700}
+  .top a{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+  header{padding:34px 0 26px;border-bottom:3px solid var(--ink)}
+  h1{font-size:clamp(40px,8vw,64px);line-height:1.2;font-weight:700;letter-spacing:.06em}
+  .sub{font-size:clamp(17px,3.2vw,22px);line-height:1.7;color:var(--soft);margin-top:12px}
+  .intro{font-size:15.5px;line-height:1.85;color:var(--soft);margin-top:14px;max-width:62ch}
+  .stats{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:20px;font-size:13px;color:var(--muted)}
+  .stats b{color:var(--accent);font-size:17px;margin-right:4px}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+  .card{display:block;background:var(--card);border:1px solid var(--line);padding:22px 22px 20px;position:relative;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -22px rgba(70,50,20,.5)}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+  .card .no{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700}
+  .card h2{font-size:clamp(22px,4vw,28px);line-height:1.35;font-weight:700;margin-top:6px}
+  .card .tag{font-size:13px;color:var(--muted);margin-top:4px}
+  .card p{font-size:14.5px;line-height:1.8;color:var(--soft);margin-top:10px}
+  .card .go{display:inline-block;margin-top:14px;font-size:13px;color:var(--accent);border-bottom:1px solid rgba(140,59,44,.4)}
+
+  footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;font-size:12.5px;line-height:1.8;color:var(--muted)}
+  footer a{border-bottom:1px solid var(--line)}
+  .end{font-size:14px;color:var(--accent);font-weight:700;letter-spacing:.08em;margin-top:8px}
+
+  @media(max-width:660px){
+    .cards{grid-template-columns:1fr}
+  }
+</style>
+<link rel="alternate" hreflang="zh-Hans" href="https://shutonggui.cn/fahua/">
+<link rel="alternate" hreflang="zh-Hant" href="https://nissaya.cn/fahua/index-hant.html">
+<link rel="alternate" hreflang="x-default" href="https://shutonggui.cn/fahua/">
+<!--lang-switch-->
+<script>
+/* 主站 shutonggui.cn 缺省簡體、鏡像 nissaya.cn 缺省繁體；右下角按鈕可無損切換，選擇記在 cookie */
+(function () {
+  if (location.protocol === 'file:') return;
+  var host = location.hostname.replace(/^www\./, '');
+  var m = document.cookie.match(/(?:^|;\s*)fahua-lang=(zh-Hans|zh-Hant)/);
+  var want = m ? m[1] : (/(^|\.)nissaya\.cn$/.test(host) ? 'zh-Hant' : 'zh-Hans');
+  var path = location.pathname;
+  var isHant = /-hant\.html$/.test(path);
+  var other;
+  if (isHant) {
+    other = path.replace(/-hant\.html$/, '.html');
+  } else if (/\/$/.test(path)) {
+    other = path + 'index-hant.html';
+  } else if (/\/index\.html$/.test(path)) {
+    other = path.replace(/index\.html$/, 'index-hant.html');
+  } else {
+    other = path.replace(/\.html$/, '-hant.html');
+  }
+  if (want === 'zh-Hant' && !isHant) location.replace(other + location.search + location.hash);
+  else if (want === 'zh-Hans' && isHant) location.replace(other + location.search + location.hash);
+})();
+</script>
+<!--/lang-switch-->
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <span class="kicker">書同軌 · 法華合注</span>
+    <a href="teacher-hant.html">看法師版報告 →</a>
+  </div>
+
+  <header>
+    <h1>法華合注</h1>
+    <div class="sub">七卷二十八品，三種漢譯，二十六家注；<br>把苦功夫交給 AI，把學問留給老師。</div>
+    <p class="intro">同一個項目，兩種讀法。法師看的是方法、成本與邊界；護持者看的是為什麼要做、做成了什麼、還差什麼。兩份都來自同一組實測數據：《妙法蓮華經》2,848 句，二十六家注疏 547 萬字，整部對整部。</p>
+    <div class="stats">
+      <span><b>89%</b>《科註》可逐句錨定</span>
+      <span><b>60h→14h</b>一品的備課</span>
+      <span><b>26 家</b>注疏・547 萬字</span>
+    </div>
+  </header>
+
+  <main class="cards">
+    <a class="card" href="teacher-hant.html">
+      <div class="no">01 · 法師版</div>
+      <h2>把苦功夫交給 AI，<br>把學問留給老師</h2>
+      <div class="tag">教學評估報告 · 約 20 分鐘</div>
+      <p>二十八品怎麼分層、夾註與逐句釋的實測差距、與法鼓山 SDP 的分工，以及 AI 不能做的四件事。附五張圖與完整假設。</p>
+      <span class="go">讀報告 →</span>
+    </a>
+    <a class="card" href="donor-hant.html">
+      <div class="no">02 · 護持版</div>
+      <h2>一句經文，<br>二十六家注。</h2>
+      <div class="tag">一封邀請 · 約 5 分鐘</div>
+      <p>過去備一品要六十小時，現在十四小時。為什麼值得支持、錢會花在哪、下一步做什麼；附可轉發的長圖。</p>
+      <span class="go">看邀請 →</span>
+    </a>
+  </main>
+
+  <footer>
+    法華合注 · 2026。數據：CBETA 大正藏／卍續藏；梵漢詞典：辛嶋靜志（DILA 數位版，CC BY-SA 3.0）；法鼓山 SDP 為研究層參照。<br>
+    數字為模型估算，方法見法師版報告與 <a href="measure-hant.html">實測頁</a>。
+    <div class="end">AI 是利器，學問是主體。</div>
+  </footer>
+
+</div>
+<!--lang-toggle-->
+<a id="lang-toggle" href="#" hidden
+   style="position:fixed;right:14px;bottom:14px;z-index:60;background:var(--card,#fffdf8);color:var(--accent,#8c3b2c);border:1px solid var(--line,#ddd0bc);font:600 13px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;padding:9px 12px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.14)">简</a>
+<script>
+(function () {
+  var btn = document.getElementById('lang-toggle');
+  if (!btn) return;
+  var path = location.pathname;
+  var isHant = /-hant\.html$/.test(path);
+  var other, otherLang;
+  if (isHant) {
+    other = path.replace(/-hant\.html$/, '.html'); otherLang = 'zh-Hans';
+  } else if (/\/$/.test(path)) {
+    other = path + 'index-hant.html'; otherLang = 'zh-Hant';
+  } else if (/\/index\.html$/.test(path)) {
+    other = path.replace(/index\.html$/, 'index-hant.html'); otherLang = 'zh-Hant';
+  } else {
+    other = path.replace(/\.html$/, '-hant.html'); otherLang = 'zh-Hant';
+  }
+  btn.href = other + location.search + location.hash;
+  btn.textContent = otherLang === 'zh-Hant' ? '繁' : '简';
+  btn.title = otherLang === 'zh-Hant' ? '無損轉為繁體（僅字形，不改詞彙）' : '無損轉為簡體（僅字形，不改詞彙）';
+  btn.addEventListener('click', function () {
+    document.cookie = 'fahua-lang=' + otherLang + ';path=/;max-age=31536000;samesite=lax';
+  });
+  btn.hidden = false;
+})();
+</script>
+<!--/lang-toggle--></body>
+</html>
