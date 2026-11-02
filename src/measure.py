@@ -113,10 +113,12 @@ def plain(lines):
     """
     raw = ''.join(lines)
     heads = JUAN_RE.findall(raw) + PIN_RE.findall(raw)
+    # 「添品妙法蓮華經卷第一」也含「品」字，所以品要看「品第」；卷則是含「卷」
+    # 但不含「品第」的標題（有的本子作「卷一」、有的作「卷第一」）。
     meta = {
         'pages': len(PAGE_RE.findall(raw)),
-        'pins': [h for h in heads if '品' in h],
-        'juans': [h for h in heads if '卷' in h],
+        'pins': [h for h in heads if '品第' in h],
+        'juans': [h for h in heads if '卷' in h and '品第' not in h],
     }
     return TAG.sub('', raw), meta
 
