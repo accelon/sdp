@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>把苦功夫交给 AI，把学问留给老师｜法华经合注平台教学评估</title>
-<meta name="description" content="法华经合注平台：七卷二十八品、三种汉译、二十六家注疏、辛嶋静志的梵汉词典。给佛学院法师的教学评估：实测、成本、边界，以及与法鼓山 SDP 的分工。">
-<meta property="og:title" content="把苦功夫交给 AI，把学问留给老师｜法华经合注">
-<meta property="og:description" content="二十八品、二十六家注、三种汉译、两部梵汉词典。实测：夹注三家 84–89% 可逐句锚定；隋唐注疏要靠品与词。">
+<title>把苦功夫交給 AI，把學問留給老師｜法華經合注平台教學評估</title>
+<meta name="description" content="法華經合注平台：七卷二十八品、三種漢譯、二十六家注疏、辛嶋靜志的梵漢詞典。給佛學院法師的教學評估：實測、成本、邊界，以及與法鼓山 SDP 的分工。">
+<meta property="og:title" content="把苦功夫交給 AI，把學問留給老師｜法華經合注">
+<meta property="og:description" content="二十八品、二十六家注、三種漢譯、兩部梵漢詞典。實測：夾註三家 84–89% 可逐句錨定；隋唐注疏要靠品與詞。">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://shutonggui.cn/fahua/cover.jpg">
-<meta name="author" content="法华合注">
+<meta name="author" content="法華合注">
 <style>
   :root{
     --paper:#f6f1e7; --paper-2:#efe6d5; --ink:#1d1a16; --ink-2:#3a342d;
@@ -127,9 +127,16 @@
   footer li{margin-bottom:6px}
   .endmark{text-align:center;color:var(--accent);letter-spacing:.8em;margin:56px 0 0;font-size:13px}
 
+  /* ---------- top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:90;background:rgba(246,241,231,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb-inner{max-width:1020px;margin:0 auto;padding:0 52px;height:46px;display:flex;align-items:center;justify-content:space-between;font:600 13px/1.2 "Noto Sans TC","Source Han Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+  .tb-inner a{color:var(--muted);border:0;text-decoration:none}
+  #simToggle{color:var(--accent);border:1px solid rgba(140,59,44,.35);padding:3px 10px;border-radius:2px}
+
   @media screen and (max-width:780px){
     body{font-size:16px;line-height:1.9}
     .page{padding:0 22px 64px}
+    .tb-inner{padding:0 22px}
     .cover{padding-top:58px}
     .cover h1{font-size:34px}
     .cover .sub{font-size:17.5px}
@@ -143,7 +150,7 @@
     .pull{font-size:19px}
     figure > div{overflow-x:auto;-webkit-overflow-scrolling:touch}
     figure svg{min-width:640px}
-    figcaption::after{content:"　图表可左右滑动。";color:var(--accent)}
+    figcaption::after{content:"　圖表可左右滑動。";color:var(--accent)}
     table{font-size:13px}
     th,td{padding:8px 7px}
   }
@@ -167,427 +174,405 @@
     th,td{padding:8px 10px}
   }
 </style>
-<link rel="alternate" hreflang="zh-Hans" href="https://shutonggui.cn/fahua/teacher.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://nissaya.cn/fahua/teacher-hant.html">
-<link rel="alternate" hreflang="x-default" href="https://shutonggui.cn/fahua/teacher.html">
-<!--lang-switch-->
-<script>
-/* 主站 shutonggui.cn 缺省簡體、鏡像 nissaya.cn 缺省繁體；右下角按鈕可無損切換，選擇記在 cookie */
-(function () {
-  if (location.protocol === 'file:') return;
-  var host = location.hostname.replace(/^www\./, '');
-  var m = document.cookie.match(/(?:^|;\s*)fahua-lang=(zh-Hans|zh-Hant)/);
-  var want = m ? m[1] : (/(^|\.)nissaya\.cn$/.test(host) ? 'zh-Hant' : 'zh-Hans');
-  var path = location.pathname;
-  var isHant = /-hant\.html$/.test(path);
-  var other;
-  if (isHant) {
-    other = path.replace(/-hant\.html$/, '.html');
-  } else if (/\/$/.test(path)) {
-    other = path + 'index-hant.html';
-  } else if (/\/index\.html$/.test(path)) {
-    other = path.replace(/index\.html$/, 'index-hant.html');
-  } else {
-    other = path.replace(/\.html$/, '-hant.html');
-  }
-  if (want === 'zh-Hant' && !isHant) location.replace(other + location.search + location.hash);
-  else if (want === 'zh-Hans' && isHant) location.replace(other + location.search + location.hash);
-})();
-</script>
-<!--/lang-switch-->
 </head>
-<body>
+<body style="visibility:hidden">
+
+<div class="topbar"><div class="tb-inner">
+  <a href="index.html">← 法華合注</a>
+  <a href="#" id="simToggle" aria-label="切換繁體／簡體">简体</a>
+</div></div>
+
 <div class="page">
 
 <!-- ============ COVER ============ -->
 <header class="cover">
-  <div class="kicker">教学评估报告 · 2026</div>
-  <h1>把苦功夫交给 AI，<br><span class="thin">把学问留给</span>老师</h1>
-  <p class="sub">法华经合注平台对佛学教育与科普的意义、成本与边界</p>
-  <p class="abs">这份报告回答三个问题：讲《法华经》最耗时的是哪一段劳动？这些劳动能不能变成可重跑的管线？省下来的时间，能不能真的回到教学、思考与创意连结？我们以《妙法莲华经》七卷二十八品的实测为基础，并以法鼓山“法华经数位资料库”（SDP）与辛嶋静志的两部梵汉词典为参照，提出一个以“教学层”为定位的建置方案。</p>
+  <div class="kicker">教學評估報告 · 2026</div>
+  <h1>把苦功夫交給 AI，<br><span class="thin">把學問留給</span>老師</h1>
+  <p class="sub">法華經合注平台對佛學教育與科普的意義、成本與邊界</p>
+  <p class="abs">這份報告回答三個問題：講《法華經》最耗時的是哪一段勞動？這些勞動能不能變成可重跑的管線？省下來的時間，能不能真的回到教學、思考與創意連結？我們以《妙法蓮華經》七卷二十八品的實測為基礎，並以法鼓山「法華經數位資料庫」（SDP）與辛嶋靜志的兩部梵漢詞典為參照，提出一個以「教學層」為定位的建置方案。</p>
   <svg class="ruler" viewBox="0 0 640 22" aria-hidden="true" id="ruler"></svg>
   <div class="meta">
-    <span>对象：佛学院教师、教务主管、教学创新规划者</span>
+    <span>對象：佛學院教師、教務主管、教學創新規劃者</span>
     <span>版本 1.0</span>
     <span>2026-11-02</span>
-    <span>约 20 分钟阅读</span>
+    <span>約 20 分鐘閱讀</span>
   </div>
-  <div class="seal" aria-hidden="true">法华</div>
+  <div class="seal" aria-hidden="true">法華</div>
 </header>
 
 <!-- ============ TOC ============ -->
-<nav class="toc" aria-label="目录">
-  <a href="#s0"><span class="n">摘要</span>三个问题，三个答案</a>
-  <a href="#s1"><span class="n">一</span>苦功夫：五种不产生洞见的劳动</a>
-  <a href="#s2"><span class="n">二</span>管线：三译、二十六家、三层索引</a>
-  <a href="#s3"><span class="n">三</span>实测：为什么不能照搬唯识的模型</a>
-  <a href="#s4"><span class="n">四</span>省下多少：三个场景</a>
-  <a href="#s5"><span class="n">五</span>成本：二十八品才摊得开</a>
-  <a href="#s6"><span class="n">六</span>边界：AI 不能做什么</a>
-  <a href="#s7"><span class="n">七</span>与法鼓山 SDP 的关系：吸收，不重做</a>
-  <a href="#s8"><span class="n">八</span>六个教学与科普场景</a>
-  <a href="#s9"><span class="n">九</span>建议：三个月、四品试点</a>
+<nav class="toc" aria-label="目錄">
+  <a href="#s0"><span class="n">摘要</span>三個問題，三個答案</a>
+  <a href="#s1"><span class="n">一</span>苦功夫：五種不產生洞見的勞動</a>
+  <a href="#s2"><span class="n">二</span>管線：三譯、二十六家、三層索引</a>
+  <a href="#s3"><span class="n">三</span>實測：為什麼不能照搬唯識的模型</a>
+  <a href="#s4"><span class="n">四</span>省下多少：三個場景</a>
+  <a href="#s5"><span class="n">五</span>成本：二十八品才攤得開</a>
+  <a href="#s6"><span class="n">六</span>邊界：AI 不能做什麼</a>
+  <a href="#s7"><span class="n">七</span>與法鼓山 SDP 的關係：吸收，不重做</a>
+  <a href="#s8"><span class="n">八</span>六個教學與科普場景</a>
+  <a href="#s9"><span class="n">九</span>建議：三個月、四品試點</a>
 </nav>
 
 <!-- ============ SUMMARY ============ -->
 <section id="s0" style="border-top:0">
   <span class="sec-num">摘要</span>
-  <h2>三个问题，三个答案</h2>
+  <h2>三個問題，三個答案</h2>
 
-  <p class="lede">讲《法华经》，最耗时的不是理解，而是<strong>对读</strong>：同一句经文，罗什、竺法护、阇那崛多三个译本怎么说；这一句在《文句》《玄赞》《义疏》里落在哪里；“阿耨多罗三藐三菩提”的梵语原形与辛嶋词典的对应条目是哪一条。这些工作重要，但它们不产生洞见，只消耗注意力。</p>
+  <p class="lede">講《法華經》，最耗時的不是理解，而是<strong>對讀</strong>：同一句經文，羅什、竺法護、闍那崛多三個譯本怎麼說；這一句在《文句》《玄贊》《義疏》裡落在哪裡；「阿耨多羅三藐三菩提」的梵語原形與辛嶋詞典的對應條目是哪一條。這些工作重要，但它們不產生洞見，只消耗注意力。</p>
 
   <div class="stats">
-    <div class="stat"><div class="num">92<span class="u">%</span></div><div class="lab">一品备课的机械工时可省<br>50 小时 → 4 小时</div></div>
-    <div class="stat"><div class="num">4.2<span class="u">×</span></div><div class="lab">二十八品的总工时比<br>1,680 小时 → 404 小时</div></div>
-    <div class="stat"><div class="num">89<span class="u">%</span></div><div class="lab">《科注》的句子可逐句锚定<br>夹注体实测</div></div>
+    <div class="stat"><div class="num">92<span class="u">%</span></div><div class="lab">一品備課的機械工時可省<br>50 小時 → 4 小時</div></div>
+    <div class="stat"><div class="num">4.2<span class="u">×</span></div><div class="lab">二十八品的總工時比<br>1,680 小時 → 404 小時</div></div>
+    <div class="stat"><div class="num">89<span class="u">%</span></div><div class="lab">《科註》的句子可逐句錨定<br>夾註體實測</div></div>
   </div>
 
-  <p><strong>问题一：能省多少苦功夫？</strong>备一品（2 小时课）人工约 60 小时，平台约 14 小时；考据一颂、二十六家注，人工 12 小时，平台 2.6 小时；核五十条论文引文，25 小时降到 2.5 小时。省下的不是“读懂”的时间，是“找到、对上、核过”的时间。</p>
+  <p><strong>問題一：能省多少苦功夫？</strong>備一品（2 小時課）人工約 60 小時，平台約 14 小時；考據一頌、二十六家注，人工 12 小時，平台 2.6 小時；核五十條論文引文，25 小時降到 2.5 小時。省下的不是「讀懂」的時間，是「找到、對上、核過」的時間。</p>
 
-  <p><strong>问题二：锚定到底行不行？</strong>我们把二十六家注疏、五百四十七万字，整部对整部实测。答案分三层：<em>夹注体</em>（《科注》88.7%、《会义》88.5%、《演义》84.4%）可以逐句锚；<em>隋唐逐句释</em>（《文句》3.6%、《玄赞》5.3%、《义疏》8.5%）不行——它们引的是词，不是整句；但<em>品级</em>二十六家几乎都是 28/28。所以法华合注不能用唯识的单层句级模型，要用“句→品→词”三层索引。</p>
+  <p><strong>問題二：錨定到底行不行？</strong>我們把二十六家注疏、五百四十七萬字，整部對整部實測。答案分三層：<em>夾註體</em>（《科註》88.7%、《會義》88.5%、《演義》84.4%）可以逐句錨；<em>隋唐逐句釋</em>（《文句》3.6%、《玄贊》5.3%、《義疏》8.5%）不行——它們引的是詞，不是整句；但<em>品級</em>二十六家幾乎都是 28/28。所以法華合注不能用唯識的單層句級模型，要用「句→品→詞」三層索引。</p>
 
-  <p><strong>问题三：与法鼓山 SDP 的关系？</strong>SDP 已把三种汉译、三部天台注、九种梵本校订、藏译与英译放在同一个对读介面，并做到梵汉逐词，是研究层的典范。我们<strong>不重做</strong>：句级用三部夹注，品级用隋唐注疏，词级接辛嶋静志的两部词典（2,409＋3,356 条），SDP 用连结与合作。研究在法鼓山，教学在我们。</p>
+  <p><strong>問題三：與法鼓山 SDP 的關係？</strong>SDP 已把三種漢譯、三部天台注、九種梵本校訂、藏譯與英譯放在同一個對讀介面，並做到梵漢逐詞，是研究層的典範。我們<strong>不重做</strong>：句級用三部夾註，品級用隋唐注疏，詞級接辛嶋靜志的兩部詞典（2,409＋3,356 條），SDP 用連結與合作。研究在法鼓山，教學在我們。</p>
 
   <div class="callout">
-    <div class="h">本报告的主张</div>
-    <p>把“找、对、核、排”交给管线，让老师把注意力放回三件事——<strong>判断、取舍、连结</strong>。AI 不会让老师变得不重要；它会让老师的时间变得更像老师。</p>
+    <div class="h">本報告的主張</div>
+    <p>把「找、對、核、排」交給管線，讓老師把注意力放回三件事——<strong>判斷、取捨、連結</strong>。AI 不會讓老師變得不重要；它會讓老師的時間變得更像老師。</p>
   </div>
 </section>
 
 <!-- ============ 1 ============ -->
 <section id="s1">
-  <span class="sec-num">第一节</span>
-  <h2>苦功夫：五种不产生洞见的劳动</h2>
+  <span class="sec-num">第一節</span>
+  <h2>苦功夫：五種不產生洞見的勞動</h2>
 
-  <p>以〈方便品〉为例。这一品 4,941 字、228 句；而《法华文句》二十卷 20.6 万字、《法华玄赞》二十卷 27.5 万字、《法华义疏》十三卷 27.4 万字——三部加起来 75 万字，都在等这一句。<sup>1</sup> 老师要做的第一件事，不是读，而是找。</p>
+  <p>以〈方便品〉為例。這一品 4,941 字、228 句；而《法華文句》二十卷 20.6 萬字、《法華玄贊》二十卷 27.5 萬字、《法華義疏》十三卷 27.4 萬字——三部加起來 75 萬字，都在等這一句。<sup>1</sup> 老師要做的第一件事，不是讀，而是找。</p>
 
   <ol class="num">
-    <li><strong>找注（约 20%）。</strong>二十六家注疏分散在大正藏第九册与卍续藏第二十七至三十四册；〈方便品〉的注在哪一卷、哪一段，没有一个“按品索引”。所幸品界清楚，找注比唯识容易——难的是下一步。</li>
-    <li><strong>对读三译（约 25%）。</strong>罗什 72,550 字、竺法护 88,493 字、阇那崛多 73,616 字。什译与添品有 89% 的八言窗重合（添品是修订本），与护译只有 0.1%——这 0.1% 正是最需要逐句看的地方。</li>
-    <li><strong>查梵汉（约 20%）。</strong>辛嶋静志的《妙法莲华经词典》2,409 条、《正法华经词典》3,356 条，每条都把汉词、梵语平行语、竺法护对应、Kern-Nanjio 对应与大正藏页码放在一起；法鼓山已数位化。问题是：没有一个介面把它接在经文旁边。</li>
-    <li><strong>核引文（约 20%）。</strong>大正藏页码、品名差异（三译的品名与品数不同：28、27、27）、异体字、校勘记；引用时不能错一个字，也不能错一页。</li>
-    <li><strong>排版（约 15%）。</strong>讲义、投影、作业；三译并排、注疏对照，同一段文字要为三种载体各排一次。</li>
+    <li><strong>找注（約 20%）。</strong>二十六家注疏分散在大正藏第九冊與卍續藏第二十七至三十四冊；〈方便品〉的注在哪一卷、哪一段，沒有一個「按品索引」。所幸品界清楚，找注比唯識容易——難的是下一步。</li>
+    <li><strong>對讀三譯（約 25%）。</strong>羅什 72,550 字、竺法護 88,493 字、闍那崛多 73,616 字。什譯與添品有 89% 的八言窗重合（添品是修訂本），與護譯只有 0.1%——這 0.1% 正是最需要逐句看的地方。</li>
+    <li><strong>查梵漢（約 20%）。</strong>辛嶋靜志的《妙法蓮華經詞典》2,409 條、《正法華經詞典》3,356 條，每條都把漢詞、梵語平行語、竺法護對應、Kern-Nanjio 對應與大正藏頁碼放在一起；法鼓山已數位化。問題是：沒有一個介面把它接在經文旁邊。</li>
+    <li><strong>核引文（約 20%）。</strong>大正藏頁碼、品名差異（三譯的品名與品數不同：28、27、27）、異體字、校勘記；引用時不能錯一個字，也不能錯一頁。</li>
+    <li><strong>排版（約 15%）。</strong>講義、投影、作業；三譯並排、注疏對照，同一段文字要為三種載體各排一次。</li>
   </ol>
 
-  <p>这些工作的共同点是：<strong>做好了，读者看不出来；做不好，整堂课失焦。</strong>它们需要细心，但不需要洞见；它们消耗的是注意力，不是学养。</p>
+  <p>這些工作的共同點是：<strong>做好了，讀者看不出來；做不好，整堂課失焦。</strong>它們需要細心，但不需要洞見；它們消耗的是注意力，不是學養。</p>
 
   <figure>
     <div id="c1"></div>
-    <figcaption>图一：一品、二十六家注的备课工时分解。机械＝找注、对读、查词、核页码；综合＝阅读、判断、写作。数字为估算，模型见 §5 与附注。</figcaption>
+    <figcaption>圖一：一品、二十六家注的備課工時分解。機械＝找注、對讀、查詞、核頁碼；綜合＝閱讀、判斷、寫作。數字為估算，模型見 §5 與附註。</figcaption>
   </figure>
 
-  <blockquote class="pull">“对读”是法华教学里最不像学问的工作，却吃掉最多做学问的时间。</blockquote>
+  <blockquote class="pull">「對讀」是法華教學裡最不像學問的工作，卻吃掉最多做學問的時間。</blockquote>
 
-  <p>更麻烦的是，这些劳动<strong>无法累积</strong>。今天为〈方便品〉找好的注，下学期换〈譬喻品〉，又要重找一次；换一位老师，同样的工再做一遍。这不是个人的问题，是<strong>基础设施</strong>的问题。</p>
+  <p>更麻煩的是，這些勞動<strong>無法累積</strong>。今天為〈方便品〉找好的注，下學期換〈譬喻品〉，又要重找一次；換一位老師，同樣的工再做一遍。這不是個人的問題，是<strong>基礎設施</strong>的問題。</p>
 </section>
 
 <!-- ============ 2 ============ -->
 <section id="s2">
-  <span class="sec-num">第二节</span>
-  <h2>管线：三译、二十六家、三层索引</h2>
+  <span class="sec-num">第二節</span>
+  <h2>管線：三譯、二十六家、三層索引</h2>
 
-  <p class="lede">我们没有让 AI“读懂”佛经。我们做的是更笨、也更可靠的事：把已经数位化的文本，按句、按品、按词对齐。</p>
+  <p class="lede">我們沒有讓 AI「讀懂」佛經。我們做的是更笨、也更可靠的事：把已經數位化的文本，按句、按品、按詞對齊。</p>
 
-  <p>整条管线只有四步，每一步都可以检查、可以重跑（所谓管线，就是一组可以重跑的文字处理步骤）：</p>
+  <p>整條管線只有四步，每一步都可以檢查、可以重跑（所謂管線，就是一組可以重跑的文字處理步驟）：</p>
 
   <ol class="num">
-    <li><strong>取文本。</strong>CBETA 大正藏 T0262／T0263／T0264 与二十六家注疏，保留页码、卷次、品名；梵汉用公有领域与 CC 授权的资料。</li>
-    <li><strong>切句。</strong>以句读切分；《妙法莲华经》得 2,848 句，平均 25 字一句；再按二十八品分段。</li>
-    <li><strong>三层索引。</strong>句级：八言窗＋单调链，把夹注体（《科注》《会义》《演义》）挂到句子；品级：把二十六家挂到二十八品；词级：把辛嶋词典的 2,409 条挂到经文与三译。</li>
-    <li><strong>呈现。</strong>点句即见注、点品即见二十六家、点词即见梵汉；页码可回查、整站可离线成一个档案。</li>
+    <li><strong>取文本。</strong>CBETA 大正藏 T0262／T0263／T0264 與二十六家注疏，保留頁碼、卷次、品名；梵漢用公有領域與 CC 授權的資料。</li>
+    <li><strong>切句。</strong>以句讀切分；《妙法蓮華經》得 2,848 句，平均 25 字一句；再按二十八品分段。</li>
+    <li><strong>三層索引。</strong>句級：八言窗＋單調鏈，把夾註體（《科註》《會義》《演義》）掛到句子；品級：把二十六家掛到二十八品；詞級：把辛嶋詞典的 2,409 條掛到經文與三譯。</li>
+    <li><strong>呈現。</strong>點句即見注、點品即見二十六家、點詞即見梵漢；頁碼可回查、整站可離線成一個檔案。</li>
   </ol>
 
   <div class="callout">
-    <div class="h">这是 AI 吗？</div>
-    <p>严格说，核心<strong>不是生成式 AI</strong>，而是文字对齐的演算法：滚动杂凑、单调链、规则切句。它可重现、可检查、不会幻觉。生成式 AI 只在两个地方出场——讲义草稿与白话改写——而且必须由老师审。我们做的不是“AI 读经”，是“把已经数位化的文本对齐”。</p>
+    <div class="h">這是 AI 嗎？</div>
+    <p>嚴格說，核心<strong>不是生成式 AI</strong>，而是文字對齊的演算法：滾動雜湊、單調鏈、規則切句。它可重現、可檢查、不會幻覺。生成式 AI 只在兩個地方出場——講義草稿與白話改寫——而且必須由老師審。我們做的不是「AI 讀經」，是「把已經數位化的文本對齊」。</p>
   </div>
 
-  <p>锚定的品质，决定这个平台有没有用。我们把二十六家注疏整部对整部跑了一遍，结果出乎意料：</p>
+  <p>錨定的品質，決定這個平台有沒有用。我們把二十六家注疏整部對整部跑了一遍，結果出乎意料：</p>
 
   <figure>
     <div id="c2"></div>
-    <figcaption>图二：二十六家注疏对《妙法莲华经》2,848 句的锚定覆盖率。青色的三部夹注体（《科注》《会义》《演义》）84–89%；赭色的隋唐逐句释（《文句》《玄赞》《义疏》《义记》）2–9%；其余夹注与二层疏在中间。</figcaption>
+    <figcaption>圖二：二十六家注疏對《妙法蓮華經》2,848 句的錨定覆蓋率。青色的三部夾註體（《科註》《會義》《演義》）84–89%；赭色的隋唐逐句釋（《文句》《玄贊》《義疏》《義記》）2–9%；其餘夾註與二層疏在中間。</figcaption>
   </figure>
 
-  <p>这张图是整个评估的关键。它告诉我们三件事：</p>
+  <p>這張圖是整個評估的關鍵。它告訴我們三件事：</p>
 
   <ul class="plain">
-    <li><strong>夹注体可行。</strong>《科注》《会义》《演义》把经文整句抄进注里，89%、89%、84% 的句子都能自动锚定；课堂需要的逐句注，几乎每一句都在。</li>
-    <li><strong>逐句释体不行，但不是它的错。</strong>《文句》《玄赞》《义疏》引的是“如是我闻”这种短句，然后展开一大段释。硬套唯识的句级锚定，会把它们判成“几乎没有注”——这是方法错，不是注疏差。</li>
-    <li><strong>品级是通的。</strong>二十六家几乎每一部都 28/28 品有注。品是法华天然的骨架：二十八品、平均 2,578 字，正好一节课。</li>
+    <li><strong>夾註體可行。</strong>《科註》《會義》《演義》把經文整句抄進註裡，89%、89%、84% 的句子都能自動錨定；課堂需要的逐句注，幾乎每一句都在。</li>
+    <li><strong>逐句釋體不行，但不是它的錯。</strong>《文句》《玄贊》《義疏》引的是「如是我聞」這種短句，然後展開一大段釋。硬套唯識的句級錨定，會把它們判成「幾乎沒有注」——這是方法錯，不是注疏差。</li>
+    <li><strong>品級是通的。</strong>二十六家幾乎每一部都 28/28 品有注。品是法華天然的骨架：二十八品、平均 2,578 字，正好一節課。</li>
   </ul>
 
-  <p>所以模型要改：<strong>句级用夹注三家，品级用二十六家，词级用辛嶋词典</strong>。这不是折衷，是三种材料本来的形状。</p>
+  <p>所以模型要改：<strong>句級用夾註三家，品級用二十六家，詞級用辛嶋詞典</strong>。這不是折衷，是三種材料本來的形狀。</p>
 
   <figure>
     <div id="c3"></div>
-    <figcaption>图三：三个译本的八言窗重合率（以罗什为基准）。添品是什译的修订本（89%），护译是独立的译本系统（0.1%）；重合率低，正是对读的价值所在。</figcaption>
+    <figcaption>圖三：三個譯本的八言窗重合率（以羅什為基準）。添品是什譯的修訂本（89%），護譯是獨立的譯本系統（0.1%）；重合率低，正是對讀的價值所在。</figcaption>
   </figure>
 </section>
 
 <!-- ============ 3 ============ -->
 <section id="s3">
-  <span class="sec-num">第三节</span>
-  <h2>实测：为什么不能照搬唯识的模型</h2>
+  <span class="sec-num">第三節</span>
+  <h2>實測：為什麼不能照搬唯識的模型</h2>
 
-  <p class="lede">唯识合注的实测是“述记 92%、明清五家 98–99%”。同样的演算法搬到法华，只有三部夹注能到 84–89%；其余掉到个位数。这不是演算法退步，是文体不同。</p>
+  <p class="lede">唯識合注的實測是「述記 92%、明清五家 98–99%」。同樣的演算法搬到法華，只有三部夾註能到 84–89%；其餘掉到個位數。這不是演算法退步，是文體不同。</p>
 
   <div class="tw">
     <table>
-      <thead><tr><th>体裁</th><th>代表</th><th class="n">句级锚定</th><th class="n">品级</th><th>读法</th></tr></thead>
+      <thead><tr><th>體裁</th><th>代表</th><th class="n">句級錨定</th><th class="n">品級</th><th>讀法</th></tr></thead>
       <tbody>
-        <tr><td>夹注体</td><td>科注 88.7／会义 88.5／演义 84.4</td><td class="n hl">84–89%</td><td class="n">28/28</td><td>经文整句抄进注，逐句可用</td></tr>
-        <tr><td>明清其他夹注</td><td>授手 23.0／大成 19.2／指掌疏 14.3／通义 11.1</td><td class="n">11–23%</td><td class="n">28/28</td><td>节引较多，要人工补</td></tr>
-        <tr><td>隋唐逐句释</td><td>义记 9.1／义疏 8.5／玄赞 5.3／文句 3.6</td><td class="n">2–9%</td><td class="n">24–28/28</td><td>引词不引句，走品＋词</td></tr>
-        <tr><td>提要、二层疏</td><td>玄赞要集 12.6／论疏 4.2／文句记 1.9</td><td class="n">1–13%</td><td class="n">24–28/28</td><td>注的是疏，要另一层介面</td></tr>
+        <tr><td>夾註體</td><td>科註 88.7／會義 88.5／演義 84.4</td><td class="n hl">84–89%</td><td class="n">28/28</td><td>經文整句抄進註，逐句可用</td></tr>
+        <tr><td>明清其他夾註</td><td>授手 23.0／大成 19.2／指掌疏 14.3／通義 11.1</td><td class="n">11–23%</td><td class="n">28/28</td><td>節引較多，要人工補</td></tr>
+        <tr><td>隋唐逐句釋</td><td>義記 9.1／義疏 8.5／玄贊 5.3／文句 3.6</td><td class="n">2–9%</td><td class="n">24–28/28</td><td>引詞不引句，走品＋詞</td></tr>
+        <tr><td>提要、二層疏</td><td>玄贊要集 12.6／論疏 4.2／文句記 1.9</td><td class="n">1–13%</td><td class="n">24–28/28</td><td>註的是疏，要另一層介面</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>这个结果改变了整个设计。如果照搬唯识的单层句级模型，就会得到一个“只有三部注能用”的产品；但把材料按形状分层之后，二十六家全部进得来：</p>
+  <p>這個結果改變了整個設計。如果照搬唯識的單層句級模型，就會得到一個「只有三部注能用」的產品；但把材料按形狀分層之後，二十六家全部進得來：</p>
 
   <ul class="plain">
-    <li><strong>句：</strong>三部夹注，逐句对读；适合课堂投影与学生自学。</li>
-    <li><strong>品：</strong>二十六家，一品之内看众说；适合备课与论文。</li>
-    <li><strong>词：</strong>辛嶋 2,409＋3,356 条，梵汉对照；适合术语教学与跨语言研究。</li>
+    <li><strong>句：</strong>三部夾註，逐句對讀；適合課堂投影與學生自學。</li>
+    <li><strong>品：</strong>二十六家，一品之內看眾說；適合備課與論文。</li>
+    <li><strong>詞：</strong>辛嶋 2,409＋3,356 條，梵漢對照；適合術語教學與跨語言研究。</li>
   </ul>
 
   <div class="callout">
-    <div class="h">一个容易被忽略的数字</div>
-    <p>二十六家、二十八部、<strong>547 万字</strong>。一个人一天读一万字，要读一年半；而这只是《法华经》一家经的注疏。基础设施的意义，不是让人读得更快，是让人<strong>不必先读完才能开始</strong>。</p>
+    <div class="h">一個容易被忽略的數字</div>
+    <p>二十六家、二十八部、<strong>547 萬字</strong>。一個人一天讀一萬字，要讀一年半；而這只是《法華經》一家經的注疏。基礎設施的意義，不是讓人讀得更快，是讓人<strong>不必先讀完才能開始</strong>。</p>
   </div>
 </section>
 
 <!-- ============ 4 ============ -->
 <section id="s4">
-  <span class="sec-num">第四节</span>
-  <h2>省下多少：三个场景</h2>
+  <span class="sec-num">第四節</span>
+  <h2>省下多少：三個場景</h2>
 
-  <p>我们用三个最具体的场景来估：备一品、考据一颂、核一篇论文的引文。</p>
+  <p>我們用三個最具體的場景來估：備一品、考據一頌、核一篇論文的引文。</p>
 
   <div class="tw">
     <table>
-      <thead><tr><th>场景</th><th class="n">人工</th><th class="n">平台</th><th class="n">省下</th></tr></thead>
+      <thead><tr><th>場景</th><th class="n">人工</th><th class="n">平台</th><th class="n">省下</th></tr></thead>
       <tbody>
-        <tr><td>备一品（2 小时，〈方便品〉）</td><td class="n">60 h</td><td class="n">14 h</td><td class="n">77%</td></tr>
-        <tr><td>考据一颂 × 二十六家注</td><td class="n">12 h</td><td class="n">2.6 h</td><td class="n">78%</td></tr>
-        <tr><td>论文核引文 50 条</td><td class="n">25 h</td><td class="n">2.5 h</td><td class="n">90%</td></tr>
-        <tr class="total"><td>一学期 10 品</td><td class="n">600 h</td><td class="n">140 h</td><td class="n">77%</td></tr>
+        <tr><td>備一品（2 小時，〈方便品〉）</td><td class="n">60 h</td><td class="n">14 h</td><td class="n">77%</td></tr>
+        <tr><td>考據一頌 × 二十六家注</td><td class="n">12 h</td><td class="n">2.6 h</td><td class="n">78%</td></tr>
+        <tr><td>論文核引文 50 條</td><td class="n">25 h</td><td class="n">2.5 h</td><td class="n">90%</td></tr>
+        <tr class="total"><td>一學期 10 品</td><td class="n">600 h</td><td class="n">140 h</td><td class="n">77%</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>注意第一列：备课不只有机械劳动。但<strong>结构</strong>变了——</p>
+  <p>注意第一列：備課不只有機械勞動。但<strong>結構</strong>變了——</p>
 
   <figure>
     <div id="c4"></div>
-    <figcaption>图四：备一品的时间结构。总时数从 60 小时降到 14 小时；机械从 50 小时降到 4 小时，思考仍 10 小时。思考占比从 17% 升到 71%。</figcaption>
+    <figcaption>圖四：備一品的時間結構。總時數從 60 小時降到 14 小時；機械從 50 小時降到 4 小時，思考仍 10 小時。思考佔比從 17% 升到 71%。</figcaption>
   </figure>
 
-  <p>机械从 50 小时降到 4 小时；思考没有变少，反而更从容。总时数少了 46 小时，其中 40 小时回到生活、别的课、或学生。对老师来说，这不是“效率”问题，是<strong>能不能把课备深</strong>的问题。</p>
+  <p>機械從 50 小時降到 4 小時；思考沒有變少，反而更從容。總時數少了 46 小時，其中 40 小時回到生活、別的課、或學生。對老師來說，這不是「效率」問題，是<strong>能不能把課備深</strong>的問題。</p>
 
-  <p>第二列才是“苦功夫”的原形：一颂、二十六家注，人工 12 小时（一天半），平台 2.6 小时（半天）。省下的 9.4 小时，正好是可以用来做<strong>创意连结</strong>的时间：这一颂和〈如来寿量品〉的“久远实成”有什么关系？和《大般涅槃经》的佛性说可以怎么对读？和今天的什么问题可以接上？</p>
+  <p>第二列才是「苦功夫」的原形：一頌、二十六家注，人工 12 小時（一天半），平台 2.6 小時（半天）。省下的 9.4 小時，正好是可以用來做<strong>創意連結</strong>的時間：這一頌和〈如來壽量品〉的「久遠實成」有什麼關係？和《大般涅槃經》的佛性說可以怎麼對讀？和今天的什麼問題可以接上？</p>
 
-  <blockquote class="pull">省下来的时间不会自动变成学问；但它至少让学问有时间发生。</blockquote>
+  <blockquote class="pull">省下來的時間不會自動變成學問；但它至少讓學問有時間發生。</blockquote>
 </section>
 
 <!-- ============ 5 ============ -->
 <section id="s5">
-  <span class="sec-num">第五节</span>
-  <h2>成本：二十八品才摊得开</h2>
+  <span class="sec-num">第五節</span>
+  <h2>成本：二十八品才攤得開</h2>
 
-  <p>把同样的模型换算成钱。先说清楚假设，因为所有成本估算都怕假设不说。</p>
+  <p>把同樣的模型換算成錢。先說清楚假設，因為所有成本估算都怕假設不說。</p>
 
-  <p class="small">以下金额以人民币（元）计。</p>
+  <p class="small">以下金額以人民幣（元）計。</p>
 
   <div class="tw">
     <table>
-      <thead><tr><th>项目</th><th>假设</th></tr></thead>
+      <thead><tr><th>項目</th><th>假設</th></tr></thead>
       <tbody>
-        <tr><td>一品的规模</td><td>平均 2,578 字、约 102 句、26 家注（约 19.5 万字注文）</td></tr>
-        <tr><td>人工</td><td>助理 50 h（找注、对读、抄录）＋教师 10 h（选注、审核）＝60 h／品</td></tr>
-        <tr><td>管线</td><td>一次性 320 h（工程 260、设计 60）＋每品 3 h 教师校对</td></tr>
-        <tr><td>费率</td><td>助理 60、教师 350、工程 230、设计 180（¥／小时）</td></tr>
-        <tr><td>未计</td><td>场地、设备、资料库授权、长期维护</td></tr>
+        <tr><td>一品的規模</td><td>平均 2,578 字、約 102 句、26 家注（約 19.5 萬字注文）</td></tr>
+        <tr><td>人工</td><td>助理 50 h（找注、對讀、抄錄）＋教師 10 h（選注、審核）＝60 h／品</td></tr>
+        <tr><td>管線</td><td>一次性 320 h（工程 260、設計 60）＋每品 3 h 教師校對</td></tr>
+        <tr><td>費率</td><td>助理 60、教師 350、工程 230、設計 180（¥／小時）</td></tr>
+        <tr><td>未計</td><td>場地、設備、資料庫授權、長期維護</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="tw">
     <table>
-      <thead><tr><th></th><th class="n">人工（28 品）</th><th class="n">管线（28 品）</th><th class="n">倍数</th></tr></thead>
+      <thead><tr><th></th><th class="n">人工（28 品）</th><th class="n">管線（28 品）</th><th class="n">倍數</th></tr></thead>
       <tbody>
-        <tr><td>总工时</td><td class="n">1,680 h</td><td class="n">404 h</td><td class="n hl">4.2×</td></tr>
-        <tr><td>教师工时</td><td class="n">280 h</td><td class="n">84 h</td><td class="n">3.3×</td></tr>
-        <tr><td>现金</td><td class="n">¥18.2 万</td><td class="n">¥10.0 万</td><td class="n">1.8×</td></tr>
-        <tr class="total"><td>每品边际</td><td class="n">¥6,500</td><td class="n">¥1,050</td><td class="n">6.2×</td></tr>
+        <tr><td>總工時</td><td class="n">1,680 h</td><td class="n">404 h</td><td class="n hl">4.2×</td></tr>
+        <tr><td>教師工時</td><td class="n">280 h</td><td class="n">84 h</td><td class="n">3.3×</td></tr>
+        <tr><td>現金</td><td class="n">¥18.2 萬</td><td class="n">¥10.0 萬</td><td class="n">1.8×</td></tr>
+        <tr class="total"><td>每品邊際</td><td class="n">¥6,500</td><td class="n">¥1,050</td><td class="n">6.2×</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>但这张表会骗人，如果只看总数。真正的问题是：<strong>做几品才划算？</strong></p>
+  <p>但這張表會騙人，如果只看總數。真正的問題是：<strong>做幾品才划算？</strong></p>
 
   <figure>
     <div id="c5"></div>
-    <figcaption>图五：累计成本与品数。人工每品 ¥6,500；管线固定 ¥7.06 万、每品 ¥1,050。约 13 品打平；二十八品时，人工 ¥18.2 万、管线 ¥10.0 万。</figcaption>
+    <figcaption>圖五：累計成本與品數。人工每品 ¥6,500；管線固定 ¥7.06 萬、每品 ¥1,050。約 13 品打平；二十八品時，人工 ¥18.2 萬、管線 ¥10.0 萬。</figcaption>
   </figure>
 
   <ul class="plain">
-    <li><strong>一品：</strong>工时 60 对 14，管线赢；现金 ¥0.65 万 对 ¥7.2 万，管线反而贵——固定成本还没摊开。</li>
-    <li><strong>十三品：</strong>打平；之后每多一品，管线多赚 ¥5,450。</li>
-    <li><strong>二十八品：</strong>现金 1.8 倍、工时 4.2 倍、每品边际 6.2 倍。</li>
-    <li><strong>第二部典（如《维摩诘经》）：</strong>同一个架构，固定成本降到约 ¥2.5 万，边际只付校对。</li>
+    <li><strong>一品：</strong>工時 60 對 14，管線贏；現金 ¥0.65 萬 對 ¥7.2 萬，管線反而貴——固定成本還沒攤開。</li>
+    <li><strong>十三品：</strong>打平；之後每多一品，管線多賺 ¥5,450。</li>
+    <li><strong>二十八品：</strong>現金 1.8 倍、工時 4.2 倍、每品邊際 6.2 倍。</li>
+    <li><strong>第二部典（如《維摩詰經》）：</strong>同一個架構，固定成本降到約 ¥2.5 萬，邊際只付校對。</li>
   </ul>
 
-  <p>所以建议不是“做一个网站”，而是<strong>做一条可以长出二十八品、再长出第二部典的管线</strong>。单品或三品的专案，手工就好；十三品以上，管线才开始说服人。</p>
+  <p>所以建議不是「做一個網站」，而是<strong>做一條可以長出二十八品、再長出第二部典的管線</strong>。單品或三品的專案，手工就好；十三品以上，管線才開始說服人。</p>
 </section>
 
 <!-- ============ 6 ============ -->
 <section id="s6">
-  <span class="sec-num">第六节</span>
-  <h2>边界：AI 不能做什么</h2>
+  <span class="sec-num">第六節</span>
+  <h2>邊界：AI 不能做什麼</h2>
 
-  <p class="lede">把 AI 说得万能，是另一种不诚实。这个平台有四条清楚的边界。</p>
+  <p class="lede">把 AI 說得萬能，是另一種不誠實。這個平台有四條清楚的邊界。</p>
 
   <ol class="num">
-    <li><strong>锚定不是诠释。</strong>89% 是“有锚”，不是“锚对”。错的锚比没有锚更危险——所以试点时要每品抽 10 句人工核；每一条注都要能回查页码。这是防线，不是装饰。</li>
-    <li><strong>梵汉对照不是译经。</strong>辛嶋词典给的是对应与用例，不是“这一句该怎么译”。同一个梵语词在三译里可能有四种译法；选哪一种，是判断。</li>
-    <li><strong>判断不能外包。</strong>天台说“开权显实”、吉藏说“破三显一”、窥基说“一乘真实”——哪一个更适合这班学生？这是老师的判断，不是检索。</li>
-    <li><strong>取舍与连结不能外包。</strong>二十六家注，课堂只讲三家。选哪三家、先讲哪一家，是教学设计；把〈普门品〉接到观音信仰、接到今天的苦难，是创意，不是比对。</li>
+    <li><strong>錨定不是詮釋。</strong>89% 是「有錨」，不是「錨對」。錯的錨比沒有錨更危險——所以試點時要每品抽 10 句人工核；每一條注都要能回查頁碼。這是防線，不是裝飾。</li>
+    <li><strong>梵漢對照不是譯經。</strong>辛嶋詞典給的是對應與用例，不是「這一句該怎麼譯」。同一個梵語詞在三譯裡可能有四種譯法；選哪一種，是判斷。</li>
+    <li><strong>判斷不能外包。</strong>天台說「開權顯實」、吉藏說「破三顯一」、窺基說「一乘真實」——哪一個更適合這班學生？這是老師的判斷，不是檢索。</li>
+    <li><strong>取捨與連結不能外包。</strong>二十六家注，課堂只講三家。選哪三家、先講哪一家，是教學設計；把〈普門品〉接到觀音信仰、接到今天的苦難，是創意，不是比對。</li>
   </ol>
 
   <div class="callout">
-    <div class="h">还有一条</div>
-    <p>平台是<strong>索引与对照</strong>，不是读本的替代品。原典要读，注疏要读，读不懂的地方还是要坐下来想。平台只负责让你少翻十本书，不是让你不用翻书。</p>
+    <div class="h">還有一條</div>
+    <p>平台是<strong>索引與對照</strong>，不是讀本的替代品。原典要讀，注疏要讀，讀不懂的地方還是要坐下來想。平台只負責讓你少翻十本書，不是讓你不用翻書。</p>
   </div>
 </section>
 
 <!-- ============ 7 ============ -->
 <section id="s7">
-  <span class="sec-num">第七节</span>
-  <h2>与法鼓山 SDP 的关系：吸收，不重做</h2>
+  <span class="sec-num">第七節</span>
+  <h2>與法鼓山 SDP 的關係：吸收，不重做</h2>
 
-  <p class="lede">法鼓文理学院的<a href="https://sdp.dila.edu.tw/" target="_blank" rel="noopener">“法华经数位资料库”（SDP）</a>已经把三种汉译、三部天台注（《玄义》《文句》《释签》）、九种梵本校订、藏译与英译放在同一个对读介面，并做到梵汉逐词。这是研究层的典范。我们不重做，因为重做是浪费，也不尊重原团队的学术劳动。</p>
+  <p class="lede">法鼓文理學院的<a href="https://sdp.dila.edu.tw/" target="_blank" rel="noopener">「法華經數位資料庫」（SDP）</a>已經把三種漢譯、三部天台注（《玄義》《文句》《釋籤》）、九種梵本校訂、藏譯與英譯放在同一個對讀介面，並做到梵漢逐詞。這是研究層的典範。我們不重做，因為重做是浪費，也不尊重原團隊的學術勞動。</p>
 
   <div class="tw">
     <table>
-      <thead><tr><th></th><th>SDP（研究层）</th><th>本平台（教学层）</th></tr></thead>
+      <thead><tr><th></th><th>SDP（研究層）</th><th>本平台（教學層）</th></tr></thead>
       <tbody>
-        <tr><td>强项</td><td>梵汉藏英对读、九种梵本校订、品名差异、写本对照</td><td>点品看注、三译对读、页码回查、离线单档、手机／投影</td></tr>
-        <tr><td>注疏</td><td>3 家（天台三大部）</td><td>26 家（含吉藏、窥基、法云、明清）</td></tr>
-        <tr><td>梵汉</td><td>逐词对照（辛嶋等）</td><td>接辛嶋词典 5,765 条＋连结 SDP</td></tr>
-        <tr><td>场景</td><td>研究、查证</td><td>备课、上课、自学、科普</td></tr>
-        <tr><td>形态</td><td>伺服器、桌面</td><td>静态、可离线</td></tr>
-        <tr><td>关系</td><td>引用、连结、授权合作</td><td>不重做、先谈合作</td></tr>
+        <tr><td>強項</td><td>梵漢藏英對讀、九種梵本校訂、品名差異、寫本對照</td><td>點品看注、三譯對讀、頁碼回查、離線單檔、手機／投影</td></tr>
+        <tr><td>注疏</td><td>3 家（天台三大部）</td><td>26 家（含吉藏、窺基、法雲、明清）</td></tr>
+        <tr><td>梵漢</td><td>逐詞對照（辛嶋等）</td><td>接辛嶋詞典 5,765 條＋連結 SDP</td></tr>
+        <tr><td>場景</td><td>研究、查證</td><td>備課、上課、自學、科普</td></tr>
+        <tr><td>形態</td><td>伺服器、桌面</td><td>靜態、可離線</td></tr>
+        <tr><td>關係</td><td>引用、連結、授權合作</td><td>不重做、先談合作</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>辛嶋静志（Seishi Karashima）的两部词典是关键的中介。他把每一条难词的中文、梵语平行语、竺法护译对应、Kern-Nanjio 本对应与大正藏页码放在一起；法鼓山把《正法华经词典》（1998）与《妙法莲华经词典》（2001）数位化，以 CC BY-SA 3.0 释出，共 <strong>5,765 条、77,382 条引文</strong>。他也比对梵本写本，指出罗什译所据接近中亚系统，与尼泊尔系统有别；这正是三译对读不能只看汉字的原因。</p>
+  <p>辛嶋靜志（Seishi Karashima）的兩部詞典是關鍵的中介。他把每一條難詞的中文、梵語平行語、竺法護譯對應、Kern-Nanjio 本對應與大正藏頁碼放在一起；法鼓山把《正法華經詞典》（1998）與《妙法蓮華經詞典》（2001）數位化，以 CC BY-SA 3.0 釋出，共 <strong>5,765 條、77,382 條引文</strong>。他也比對梵本寫本，指出羅什譯所據接近中亞系統，與尼泊爾系統有別；這正是三譯對讀不能只看漢字的原因。</p>
 
   <ul class="plain">
-    <li><strong>不重做：</strong>梵本对读、写本比对、藏英译，直接连结 SDP。法鼓山做“深”，我们做“用”。</li>
-    <li><strong>可重用，但先合作：</strong>SDP 网站宣告 CC BY-SA 4.0；也就是说，它不只是可连结，而是可合法重用（姓名标示＋相同方式分享）。我们仍先谈合作、再谈接入：一来尊重原团队，二来对读的品质要靠他们的校订。v1 只做连结与词典，不整批复制 SDP 的对读。</li>
-    <li><strong>要合作：</strong>若取得授权，可以把 SDP 的梵汉逐词节点连到我们的句子，让“查”与“教”无缝接起来。</li>
+    <li><strong>不重做：</strong>梵本對讀、寫本比對、藏英譯，直接連結 SDP。法鼓山做「深」，我們做「用」。</li>
+    <li><strong>可重用，但先合作：</strong>SDP 網站宣告 CC BY-SA 4.0；也就是說，它不只是可連結，而是可合法重用（姓名標示＋相同方式分享）。我們仍先談合作、再談接入：一來尊重原團隊，二來對讀的品質要靠他們的校訂。v1 只做連結與詞典，不整批複製 SDP 的對讀。</li>
+    <li><strong>要合作：</strong>若取得授權，可以把 SDP 的梵漢逐詞節點連到我們的句子，讓「查」與「教」無縫接起來。</li>
   </ul>
 
-  <p>具体做法：讲到“方便品”的“十如是”时，平台在句子旁给一个“SDP 对读”的连结；学生要看梵本异文，点过去就是法鼓山的原页面。我们不复制，但也不让它缺席。</p>
+  <p>具體做法：講到「方便品」的「十如是」時，平台在句子旁給一個「SDP 對讀」的連結；學生要看梵本異文，點過去就是法鼓山的原頁面。我們不複製，但也不讓它缺席。</p>
 
-  <p>这样的分工，对两边都好：法鼓山不必为手机与课堂重做一套前端；老师不必在六个资料库之间切换。研究留在原来的地方，教学多一个入口。</p>
+  <p>這樣的分工，對兩邊都好：法鼓山不必為手機與課堂重做一套前端；老師不必在六個資料庫之間切換。研究留在原來的地方，教學多一個入口。</p>
 </section>
 
 <!-- ============ 8 ============ -->
 <section id="s8">
-  <span class="sec-num">第八节</span>
-  <h2>六个教学与科普场景</h2>
+  <span class="sec-num">第八節</span>
+  <h2>六個教學與科普場景</h2>
 
   <div class="cards">
     <div class="card">
-      <h3>1. 课前备课</h3>
-      <p>一品点开，二十六家注按年代排好；挑三家进讲义，十分钟。剩下的时间，用来想“这一品为什么难”。</p>
+      <h3>1. 課前備課</h3>
+      <p>一品點開，二十六家注按年代排好；挑三家進講義，十分鐘。剩下的時間，用來想「這一品為什麼難」。</p>
     </div>
     <div class="card">
-      <h3>2. 课堂投影</h3>
-      <p>教室电脑、平板、手机都能开；离线单档，不怕网路。点一句，夹注当场展开，学生看著同一页。</p>
+      <h3>2. 課堂投影</h3>
+      <p>教室電腦、平板、手機都能開；離線單檔，不怕網路。點一句，夾註當場展開，學生看著同一頁。</p>
     </div>
     <div class="card">
-      <h3>3. 三译对读</h3>
-      <p>同一品，罗什、竺法护、阇那崛多并排。〈普门品〉的偈颂、〈方便品〉的十如是，三个译本差在哪里，一眼看到。</p>
+      <h3>3. 三譯對讀</h3>
+      <p>同一品，羅什、竺法護、闍那崛多並排。〈普門品〉的偈頌、〈方便品〉的十如是，三個譯本差在哪裡，一眼看到。</p>
     </div>
     <div class="card">
-      <h3>4. 论文引用</h3>
-      <p>页码一键回查；注疏家年代自动排序；跨典连结（《法华》↔《大般涅槃》↔《维摩》），不必换平台。</p>
+      <h3>4. 論文引用</h3>
+      <p>頁碼一鍵回查；注疏家年代自動排序；跨典連結（《法華》↔《大般涅槃》↔《維摩》），不必換平台。</p>
     </div>
     <div class="card">
-      <h3>5. 梵汉术语</h3>
-      <p>“阿耨多罗三藐三菩提”的梵语、护译对应、Kern-Nanjio 对应与页码，一键展开；适合术语教学与译经研究。</p>
+      <h3>5. 梵漢術語</h3>
+      <p>「阿耨多羅三藐三菩提」的梵語、護譯對應、Kern-Nanjio 對應與頁碼，一鍵展開；適合術語教學與譯經研究。</p>
     </div>
     <div class="card">
-      <h3>6. 科普转写</h3>
-      <p>把一品的二十六家注，浓缩成八百字短文或三分钟脚本。材料平台给，判断老师给；写得好不好，仍然是老师的事。</p>
+      <h3>6. 科普轉寫</h3>
+      <p>把一品的二十六家注，濃縮成八百字短文或三分鐘腳本。材料平台給，判斷老師給；寫得好不好，仍然是老師的事。</p>
     </div>
   </div>
 
-  <p>这六个场景有一个共同的形状：<strong>平台负责“都在这里”，老师负责“为什么是这一个”。</strong>前者是基础设施，后者是教育。</p>
+  <p>這六個場景有一個共同的形狀：<strong>平台負責「都在這裡」，老師負責「為什麼是這一個」。</strong>前者是基礎設施，後者是教育。</p>
 </section>
 
 <!-- ============ 9 ============ -->
 <section id="s9">
-  <span class="sec-num">第九节</span>
-  <h2>建议：三个月、四品试点</h2>
+  <span class="sec-num">第九節</span>
+  <h2>建議：三個月、四品試點</h2>
 
-  <p>不要一次做二十八品。先做四品，找两位老师，跑三个月。试点的目的不是“证明平台好用”，是<strong>找出它什么时候不好用</strong>。</p>
+  <p>不要一次做二十八品。先做四品，找兩位老師，跑三個月。試點的目的不是「證明平台好用」，是<strong>找出它什麼時候不好用</strong>。</p>
 
   <div class="tw">
     <table>
-      <thead><tr><th>品</th><th class="n">字数</th><th>为什么先做</th></tr></thead>
+      <thead><tr><th>品</th><th class="n">字數</th><th>為什麼先做</th></tr></thead>
       <tbody>
-        <tr><td>〈方便品〉第二</td><td class="n">4,941</td><td>一乘、十如是、开权显实；天台、吉藏、窥基三家分歧最大</td></tr>
-        <tr><td>〈譬喻品〉第三</td><td class="n">6,593</td><td>火宅喻；教学最常用，注疏最密</td></tr>
-        <tr><td>〈安乐行品〉第十四</td><td class="n">3,225</td><td>修行方法；四安乐行，可直接对应生活</td></tr>
-        <tr><td>〈普门品〉第二十五</td><td class="n">2,062</td><td>观音信仰；民间最广，科普入口</td></tr>
+        <tr><td>〈方便品〉第二</td><td class="n">4,941</td><td>一乘、十如是、開權顯實；天台、吉藏、窺基三家分歧最大</td></tr>
+        <tr><td>〈譬喻品〉第三</td><td class="n">6,593</td><td>火宅喻；教學最常用，注疏最密</td></tr>
+        <tr><td>〈安樂行品〉第十四</td><td class="n">3,225</td><td>修行方法；四安樂行，可直接對應生活</td></tr>
+        <tr><td>〈普門品〉第二十五</td><td class="n">2,062</td><td>觀音信仰；民間最廣，科普入口</td></tr>
       </tbody>
     </table>
   </div>
 
   <ol class="num">
-    <li><strong>第 1 月：</strong>四品 × 三部夹注（句级）＋二十六家（品级）；两位老师；收集 20 个备课案例；每品抽 10 句做锚定校对。</li>
-    <li><strong>第 2 月：</strong>加“讲义模式”（勾选注疏 → 汇出）与“三译并排”；修介面；把老师的抱怨变成规格。</li>
-    <li><strong>第 3 月：</strong>一门课试教（《法华经》导读或〈普门品〉专题）；前后测；写一份“什么有效、什么没效”的报告。</li>
+    <li><strong>第 1 月：</strong>四品 × 三部夾註（句級）＋二十六家（品級）；兩位老師；收集 20 個備課案例；每品抽 10 句做錨定校對。</li>
+    <li><strong>第 2 月：</strong>加「講義模式」（勾選注疏 → 匯出）與「三譯並排」；修介面；把老師的抱怨變成規格。</li>
+    <li><strong>第 3 月：</strong>一門課試教（《法華經》導讀或〈普門品〉專題）；前後測；寫一份「什麼有效、什麼沒效」的報告。</li>
   </ol>
 
   <div class="tw">
     <table>
-      <thead><tr><th>指标</th><th class="n">目标</th><th>怎么量</th></tr></thead>
+      <thead><tr><th>指標</th><th class="n">目標</th><th>怎麼量</th></tr></thead>
       <tbody>
-        <tr><td>备课时数</td><td class="n">−40%</td><td>同一品，试点前后各记一次</td></tr>
-        <tr><td>学生课前预习率</td><td class="n">+20%</td><td>课前小测或点名</td></tr>
-        <tr><td>教师续用意愿</td><td class="n">≥ 80%</td><td>试点后访谈</td></tr>
-        <tr><td>锚定错误率</td><td class="n">&lt; 5%</td><td>每品抽 10 句，共 40 句人工核</td></tr>
+        <tr><td>備課時數</td><td class="n">−40%</td><td>同一品，試點前後各記一次</td></tr>
+        <tr><td>學生課前預習率</td><td class="n">+20%</td><td>課前小測或點名</td></tr>
+        <tr><td>教師續用意願</td><td class="n">≥ 80%</td><td>試點後訪談</td></tr>
+        <tr><td>錨定錯誤率</td><td class="n">&lt; 5%</td><td>每品抽 10 句，共 40 句人工核</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>试点成功，再谈二十八品与第二部典。试点失败，损失的是一个学期，不是一个计划。</p>
+  <p>試點成功，再談二十八品與第二部典。試點失敗，損失的是一個學期，不是一個計畫。</p>
 
-  <blockquote class="pull">先让一位老师觉得“这堂课备得比去年好”，再谈规模。</blockquote>
+  <blockquote class="pull">先讓一位老師覺得「這堂課備得比去年好」，再談規模。</blockquote>
 </section>
 
 <div class="endmark">◆ ◆ ◆</div>
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <h3>附注：数字、假设与限制</h3>
+  <h3>附註：數字、假設與限制</h3>
   <ol>
-    <li>《妙法莲华经》72,550 字、2,848 句、七卷二十八品；〈方便品〉4,941 字、228 句。《法华文句》20 卷 206,175 字、《法华玄赞》20 卷 274,657 字、《法华义疏》13 卷 273,827 字。字数为 CBETA 大正藏（2026.R2）去标签后的汉字数，方法见 <code>src/measure.py</code> 与 <code>docs/measure.md</code>。</li>
-    <li>锚定测试：8 字窗滚动杂凑，按品分段，取“比上一个锚点更后面”的第一个落点，允许断点；“有锚”指该句至少有一个 8 字窗在注疏中出现且位置单调，不是精确率。唯识合注以句首 8 字计，本报告两种都算（见 <code>docs/measure.md</code> §3）。</li>
-    <li>二十六家、二十八部、5,469,480 字：《法华经科注》分三册，故部数多于家数。出处为大正藏第九册与卍续藏第二十七至三十四册。</li>
-    <li>工时模型：一品 60 h＝找 12 h、对读 15 h、查词 12 h、核 8 h、排版 3 h、综合 10 h；平台＝机械 4 h、综合 10 h。一颂 12 h＝找 3、对 4、查 2、核 1、综合 2；平台 2.6 h。均为估算，实际依个人习惯与题目难度而异。</li>
-    <li>成本模型：助理 ¥60／h、教师 ¥350／h、工程 ¥230／h、设计 ¥180／h；管线固定 320 h、每品 3 h 校对。未计场地、设备、授权、维护。</li>
-    <li>辛嶋静志词典：KKJ 2,409 条／31,733 引文、KDR 3,356 条／45,649 引文，以 TEI 的 <code>&lt;entry&gt;</code>、<code>&lt;cit&gt;</code> 计；DILA 数位版为 CC BY-SA 3.0。SDP 网站宣告 CC BY-SA 4.0；在合作之前，本平台只做连结与引用，不整批复制其对读资料。</li>
-    <li>本报告未做大规模人工抽样；锚定错误率以待试点验证。所有“省下”的数字都是<strong>模型估计</strong>，不是实验结果。</li>
+    <li>《妙法蓮華經》72,550 字、2,848 句、七卷二十八品；〈方便品〉4,941 字、228 句。《法華文句》20 卷 206,175 字、《法華玄贊》20 卷 274,657 字、《法華義疏》13 卷 273,827 字。字數為 CBETA 大正藏（2026.R2）去標籤後的漢字數，方法見 <code>src/measure.py</code> 與 <code>docs/measure.md</code>。</li>
+    <li>錨定測試：8 字窗滾動雜湊，按品分段，取「比上一個錨點更後面」的第一個落點，允許斷點；「有錨」指該句至少有一個 8 字窗在注疏中出現且位置單調，不是精確率。唯識合注以句首 8 字計，本報告兩種都算（見 <code>docs/measure.md</code> §3）。</li>
+    <li>二十六家、二十八部、5,469,480 字：《法華經科註》分三冊，故部數多於家數。出處為大正藏第九冊與卍續藏第二十七至三十四冊。</li>
+    <li>工時模型：一品 60 h＝找 12 h、對讀 15 h、查詞 12 h、核 8 h、排版 3 h、綜合 10 h；平台＝機械 4 h、綜合 10 h。一頌 12 h＝找 3、對 4、查 2、核 1、綜合 2；平台 2.6 h。均為估算，實際依個人習慣與題目難度而異。</li>
+    <li>成本模型：助理 ¥60／h、教師 ¥350／h、工程 ¥230／h、設計 ¥180／h；管線固定 320 h、每品 3 h 校對。未計場地、設備、授權、維護。</li>
+    <li>辛嶋靜志詞典：KKJ 2,409 條／31,733 引文、KDR 3,356 條／45,649 引文，以 TEI 的 <code>&lt;entry&gt;</code>、<code>&lt;cit&gt;</code> 計；DILA 數位版為 CC BY-SA 3.0。SDP 網站宣告 CC BY-SA 4.0；在合作之前，本平台只做連結與引用，不整批複製其對讀資料。</li>
+    <li>本報告未做大規模人工抽樣；錨定錯誤率以待試點驗證。所有「省下」的數字都是<strong>模型估計</strong>，不是實驗結果。</li>
   </ol>
-  <p style="margin-top:14px">法华合注 · 教学评估 ｜ 2026-11-02 ｜ 本页可离线阅读、可直接列印为 A4。</p>
+  <p style="margin-top:14px">法華合注 · 教學評估 ｜ 2026-11-02 ｜ 本頁可離線閱讀、可直接列印為 A4。</p>
 </footer>
 
 </div>
@@ -629,8 +614,8 @@
   (function(){
     var W=860, H=262, L=96, R=700, T=54, rowH=78, max=60;
     var rows=[
-      {label:"人工", parts:[{v:50,c:C.accent,name:"机械"},{v:10,c:C.teal,name:"综合"}], total:"60 小时"},
-      {label:"平台", parts:[{v:4,c:C.accent,name:"机械"},{v:10,c:C.teal,name:"综合"}], total:"14 小时"}
+      {label:"人工", parts:[{v:50,c:C.accent,name:"機械"},{v:10,c:C.teal,name:"綜合"}], total:"60 小時"},
+      {label:"平台", parts:[{v:4,c:C.accent,name:"機械"},{v:10,c:C.teal,name:"綜合"}], total:"14 小時"}
     ];
     var s="";
     s += line(L,T+rows.length*rowH-14,R,T+rows.length*rowH-14,C.line);
@@ -651,24 +636,24 @@
       });
       s += t(R+14,cy+5,r.total,{fs:15,w:600});
     });
-    s += t(R,T-24,"机械 −92%",{a:"end",fs:13,f:C.accent,w:600});
+    s += t(R,T-24,"機械 −92%",{a:"end",fs:13,f:C.accent,w:600});
     s += '<rect x="'+L+'" y="'+(H-22)+'" width="11" height="11" fill="'+C.accent+'"/>';
-    s += t(L+17,H-12,"机械：找注・对读・查词・核页码",{fs:12,f:C.muted});
+    s += t(L+17,H-12,"機械：找注・對讀・查詞・核頁碼",{fs:12,f:C.muted});
     s += '<rect x="'+(L+300)+'" y="'+(H-22)+'" width="11" height="11" fill="'+C.teal+'"/>';
-    s += t(L+317,H-12,"综合：阅读・判断・写作",{fs:12,f:C.muted});
-    document.getElementById("c1").innerHTML = svg(W,H,s,"一品二十六家注的工时分解：人工 60 小时，平台 14 小时");
+    s += t(L+317,H-12,"綜合：閱讀・判斷・寫作",{fs:12,f:C.muted});
+    document.getElementById("c1").innerHTML = svg(W,H,s,"一品二十六家注的工時分解：人工 60 小時，平台 14 小時");
   })();
 
   /* ---------- chart 2: anchoring coverage (26 works) ---------- */
   (function(){
     var data=[
-      {label:"科注",v:88.7,g:"teal"},{label:"会义",v:88.5,g:"teal"},{label:"演义",v:84.4,g:"teal"},
+      {label:"科註",v:88.7,g:"teal"},{label:"會義",v:88.5,g:"teal"},{label:"演義",v:84.4,g:"teal"},
       {label:"授手",v:23.0,g:"warm"},{label:"大成",v:19.2,g:"warm"},{label:"指掌疏",v:14.3,g:"warm"},
-      {label:"通义",v:11.1,g:"warm"},{label:"知音",v:7.7,g:"warm"},{label:"合论",v:6.7,g:"warm"},
-      {label:"义记",v:9.1,g:"accent"},{label:"义疏",v:8.5,g:"accent"},{label:"玄赞",v:5.3,g:"accent"},
+      {label:"通義",v:11.1,g:"warm"},{label:"知音",v:7.7,g:"warm"},{label:"合論",v:6.7,g:"warm"},
+      {label:"義記",v:9.1,g:"accent"},{label:"義疏",v:8.5,g:"accent"},{label:"玄贊",v:5.3,g:"accent"},
       {label:"文句",v:3.6,g:"accent"},
-      {label:"玄赞要集",v:12.6,g:"muted"},{label:"论疏",v:4.2,g:"muted"},{label:"文句记",v:1.9,g:"muted"},
-      {label:"释签",v:1.5,g:"muted"}
+      {label:"玄贊要集",v:12.6,g:"muted"},{label:"論疏",v:4.2,g:"muted"},{label:"文句記",v:1.9,g:"muted"},
+      {label:"釋籤",v:1.5,g:"muted"}
     ];
     var col={teal:C.teal,warm:"#c07b5e",accent:C.accent,muted:"#9a8f80"};
     var W=860, H=660, L=110, R=780, T=30, rowH=33;
@@ -687,17 +672,17 @@
     });
     // legend
     var lx=L, ly=H-6;
-    [["teal","夹注体（可逐句）"],["warm","明清其他"],["accent","隋唐逐句释"],["muted","二层疏"]].forEach(function(p,i){
+    [["teal","夾註體（可逐句）"],["warm","明清其他"],["accent","隋唐逐句釋"],["muted","二層疏"]].forEach(function(p,i){
       var x=lx+i*185;
       s += '<rect x="'+x+'" y="'+(ly-11)+'" width="10" height="10" fill="'+col[p[0]]+'"/>';
       s += t(x+15,ly-2,p[1],{fs:11.5,f:C.muted});
     });
-    document.getElementById("c2").innerHTML = svg(W,H,s,"二十六家注疏对妙法莲华经的锚定覆盖率");
+    document.getElementById("c2").innerHTML = svg(W,H,s,"二十六家注疏對妙法蓮華經的錨定覆蓋率");
   })();
 
   /* ---------- chart 3: three translations overlap ---------- */
   (function(){
-    var data=[{label:"添品（隋）",v:89.3,c:C.teal},{label:"正法华（西晋）",v:0.1,c:C.accent}];
+    var data=[{label:"添品（隋）",v:89.3,c:C.teal},{label:"正法華（西晉）",v:0.1,c:C.accent}];
     var W=860, H=200, L=170, R=740, T=30, rowH=62, max=100;
     var s="";
     data.forEach(function(d,i){
@@ -707,10 +692,10 @@
       s += '<rect x="'+L+'" y="'+(cy-14)+'" width="'+Math.max(w,2)+'" height="28" fill="'+d.c+'"/>';
       s += t(L+w+8,cy+5,d.v+"%",{fs:13,w:600,f:d.c});
     });
-    s += t(L,T-8,"与罗什译的 8 字窗重合率",{fs:12,f:C.muted});
+    s += t(L,T-8,"與羅什譯的 8 字窗重合率",{fs:12,f:C.muted});
     s += line(L,T+data.length*rowH-6,R,T+data.length*rowH-6,C.line);
     s += t((L+R)/2,H-14,"0%　　　　25%　　　　50%　　　　75%　　　　100%",{a:"middle",fs:11,f:C.muted,ls:1});
-    document.getElementById("c3").innerHTML = svg(W,H,s,"三个译本的重合率：添品 89.3%，正法华 0.1%");
+    document.getElementById("c3").innerHTML = svg(W,H,s,"三個譯本的重合率：添品 89.3%，正法華 0.1%");
   })();
 
   /* ---------- chart 4: donuts ---------- */
@@ -729,13 +714,13 @@
       return s;
     }
     var s="";
-    s += donut(250,140,17,C.teal,"现在（人工）","总计 60 小时");
-    s += donut(610,140,71,C.teal,"使用平台","总计 14 小时");
+    s += donut(250,140,17,C.teal,"現在（人工）","總計 60 小時");
+    s += donut(610,140,71,C.teal,"使用平台","總計 14 小時");
     s += '<rect x="330" y="'+(H-20)+'" width="11" height="11" fill="'+C.teal+'"/>';
     s += t(347,H-10,"思考",{fs:12,f:C.muted});
     s += '<rect x="420" y="'+(H-20)+'" width="11" height="11" fill="#ded2bf"/>';
-    s += t(437,H-10,"机械",{fs:12,f:C.muted});
-    document.getElementById("c4").innerHTML = svg(W,H,s,"备课时间结构：思考占比从 17% 升到 71%");
+    s += t(437,H-10,"機械",{fs:12,f:C.muted});
+    document.getElementById("c4").innerHTML = svg(W,H,s,"備課時間結構：思考佔比從 17% 升到 71%");
   })();
 
   /* ---------- chart 5: break-even ---------- */
@@ -746,12 +731,12 @@
     var s="";
     [0,50000,100000,150000,200000].forEach(function(v){
       s += line(L,Y(v),R,Y(v),C.line);
-      s += t(L-12,Y(v)+4,(v/10000)+" 万",{a:"end",fs:11,f:C.muted});
+      s += t(L-12,Y(v)+4,(v/10000)+" 萬",{a:"end",fs:11,f:C.muted});
     });
     [0,7,14,21,28].forEach(function(n){
       s += t(X(n),H-B+24,n,{a:"middle",fs:11,f:C.muted});
     });
-    s += t((L+R)/2,H-16,"品数",{a:"middle",fs:12,f:C.muted});
+    s += t((L+R)/2,H-16,"品數",{a:"middle",fs:12,f:C.muted});
 
     var m="";
     for(var n=0;n<=28;n++){ m += (n?"L":"M")+X(n)+" "+Y(6500*n)+" "; }
@@ -764,42 +749,79 @@
     s += line(bx,T-6,bx,H-B,C.muted,"4 4");
     s += t(bx-10,by-22,"打平 ≈ 13 品",{a:"end",fs:12,f:C.muted,w:600});
 
-    s += t(X(28)+12,Y(182000)+4,"人工 18.2 万",{fs:13,w:600,f:C.accent});
-    s += t(X(28)+12,Y(100000)+4,"管线 10.0 万",{fs:13,w:600,f:C.teal});
+    s += t(X(28)+12,Y(182000)+4,"人工 18.2 萬",{fs:13,w:600,f:C.accent});
+    s += t(X(28)+12,Y(100000)+4,"管線 10.0 萬",{fs:13,w:600,f:C.teal});
 
     s += line(L+4,T-26,L+28,T-26,C.accent); s += t(L+36,T-22,"人工",{fs:12,f:C.muted});
-    s += line(L+90,T-26,L+114,T-26,C.teal); s += t(L+122,T-22,"管线",{fs:12,f:C.muted});
-    document.getElementById("c5").innerHTML = svg(W,H,s,"累计成本与品数：约 13 品打平，二十八品时人工 18.2 万、管线 10.0 万");
+    s += line(L+90,T-26,L+114,T-26,C.teal); s += t(L+122,T-22,"管線",{fs:12,f:C.muted});
+    document.getElementById("c5").innerHTML = svg(W,H,s,"累計成本與品數：約 13 品打平，二十八品時人工 18.2 萬、管線 10.0 萬");
   })();
 })();
 </script>
-<!--lang-toggle-->
-<a id="lang-toggle" href="#" hidden
-   style="position:fixed;right:14px;bottom:14px;z-index:60;background:var(--card,#fffdf8);color:var(--accent,#8c3b2c);border:1px solid var(--line,#ddd0bc);font:600 13px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;padding:9px 12px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.14)">简</a>
+
+<noscript><style>body{visibility:visible!important}</style></noscript>
 <script>
+/* 無損簡體：詞表內嵌，不連外；主站缺省簡體、鏡像缺省繁體，切換記在 localStorage */
 (function () {
-  var btn = document.getElementById('lang-toggle');
-  if (!btn) return;
-  var path = location.pathname;
-  var isHant = /-hant\.html$/.test(path);
-  var other, otherLang;
-  if (isHant) {
-    other = path.replace(/-hant\.html$/, '.html'); otherLang = 'zh-Hans';
-  } else if (/\/$/.test(path)) {
-    other = path + 'index-hant.html'; otherLang = 'zh-Hant';
-  } else if (/\/index\.html$/.test(path)) {
-    other = path.replace(/index\.html$/, 'index-hant.html'); otherLang = 'zh-Hant';
-  } else {
-    other = path.replace(/\.html$/, '-hant.html'); otherLang = 'zh-Hant';
+  var P = "傌㐷㑶㐹偑㐽㑳㑇倲㑈㑯㑔儸㑩儁俊劏㓥㓨刾劚㔉噚㖊喎㖞㘚㘎㜄㚯媰㛀㜏㛣孋㛤寯㝦㠏㟆嵾㟥幓㡎懧㤖㥮㤘懤㤽慺㥪掆㧏㩳㧐撝㧑擥㧛擓㧟擽㧰㩜㨫㩵擜棡㭎椲㭏樢㭤樫㭴殰㱩殨㱮瀇㲿濧㳔澾㳠濄㳡潚㴋鸂㶉燶㶶煱㶽獱㺍璯㻅㻽㻪䁻䀥瞜䁖碽䂵磾䃅䃮鿎稏䅉穇䅟筴䇲籔䉤䊷䌶䋙䌺䋚䌻䋹䌿䋻䌾紬䌷縳䌸絅䌹綐䌼綵彩繿䍀繸䍁䎱䎬膞䏝臇䐪膋䒿薵䓓薳䓕藭䓖罃䓨螮䗖䙡䙌䙰褵譼䛓䜀䜧訢䜣鿁䜤讌䜩貙䝙䝼䞍賰䞐躎䟢䥇䦂䥑鿏䥱䥾釾䥺鏺䥽鐯䦃鐥䦅钁镢䦛䦶䦟䦷靦腼䯀䯅騧䯄䰾鲃䱷䲣䱽䲝䲁鳚䲘鳤鮣䲟鰆䲠鰌䲡鰧䲢鿐䲤䴉鹮鳾䴓鵁䴔鴷䴕鶄䴖鶪䴗鸊䴙龑䶮萬万與与醜丑專专業业叢丛東东絲丝丟丢兩两嚴严喪丧個个豐丰臨临為为爲为麗丽舉举義义烏乌樂乐喬乔習习鄉乡書书亂乱爭争虧亏亞亚畝亩親亲褻亵嚲亸億亿僅仅從从侖仑倉仓儀仪們们價价眾众衆众優优夥伙會会傴伛傘伞偉伟傳传俥伡俔伣傷伤倀伥倫伦傖伧佇伫體体傭佣僉佥來来俠侠侶侣僥侥偵侦側侧僑侨儈侩儕侪儂侬俁俣儔俦儼俨倆俩儷俪倈俫儉俭債债傾倾傯偬僂偻僨偾償偿傑杰備备傢家儻傥儐傧儲储儺傩兒儿剋克兌兑兗兖黨党內内關关興兴茲兹養养獸兽囅冁岡冈冊册寫写軍军農农冪幂鼕冬馮冯決决況况凍冻凈净涼凉減减湊凑凜凛鳳凤憑凭凱凯擊击鑿凿芻刍劉刘則则剛刚創创刪删剗刬剄刭颳刮剎刹劊刽劌刿剴剀劑剂剮剐劍剑剝剥劇剧勸劝辦办務务勱劢動动勵励勁劲勞劳勢势勛勋勩勚勝胜勻匀匭匦匱匮區区醫医華华協协單单賣卖盧卢衛卫卻却廠厂廳厅曆历歷历厲厉壓压厭厌厙厍龎厐厠厕廁厕廂厢厴厣廈厦廚厨廄厩廝厮縣县叄叁參参靉叆靆叇雙双變变敘叙疊叠葉叶號号嘆叹嘰叽籲吁衕同吒咤嚇吓呂吕嗎吗唚吣噸吨聽听啓启啟启吳吴吶呐嘸呒囈呓嘔呕嚦呖唄呗員员咼呙嗆呛嗚呜詠咏嚨咙嚀咛噝咝響响啞哑噠哒嘵哓嗶哔噦哕嘩哗噲哙嚌哜噥哝喲哟嘜唛嗊唝嘮唠啢唡嗩唢喚唤問问嘖啧嗇啬囀啭嚙啮嘓啯囉啰嘽啴嘯啸噴喷嘍喽嚳喾囁嗫噯嗳嘗尝噓嘘嚶嘤囑嘱嚕噜囂嚣迴回囪囱園园圍围圇囵國国圖图圓圆聖圣壙圹場场壞坏塊块堅坚壢坜垻坝壩坝塢坞墳坟墜坠壟垄壠垅壚垆壘垒墾垦堊垩墊垫埡垭墶垯壋垱塏垲堖垴塒埘塤埙堝埚執执塹堑墮堕堯尧報报壪塆塋茔塵尘墻墙牆墙壯壮聲声殻壳殼壳壺壶壼壸壽寿處处夠够夢梦頭头夾夹奪夺奩奁奐奂奮奋獎奖奧奥姦奸奼姹妝妆婦妇媽妈嫵妩嫗妪媯妫嬀妫姍姗婁娄婭娅嬈娆嬌娇孌娈娛娱媧娲嫻娴嫿婳嬰婴嬋婵嬸婶媼媪嬃媭嬡嫒嬪嫔嬙嫱嬤嬷孫孙學学孿孪寧宁寶宝實实寵宠審审憲宪宮宫寬宽賓宾寢寝對对尋寻導导將将爾尔尷尴屍尸層层屓屃屆届屜屉屬属屢屡屨屦嶼屿歲岁豈岂嶇岖崗岗峴岘嶴岙嵐岚島岛嶺岭崬岽巋岿嶨峃嶧峄峽峡嶢峣嶠峤崢峥巒峦嶗崂崍崃嶮崄嶄崭嶸嵘嶔嵚嶁嵝巔巅鞏巩巰巯幣币帥帅師师幃帏帳帐簾帘幟帜帶带幀帧幫帮幬帱幘帻幗帼廣广莊庄慶庆廬庐廡庑庫库應应廟庙龐庞廢废廎庼廩廪異异棄弃弒弑張张弳弪彎弯強强彈弹歸归録录彞彝彠彟彥彦彲彨徹彻徑径徠徕憶忆懺忏憂忧愾忾懷怀態态慫怂憮怃慪怄悵怅愴怆憐怜總总懟怼懌怿恆恒戀恋恥耻懇恳慟恸懨恹愷恺惻恻惱恼惲恽悅悦悞悮懸悬慳悭憫悯悶闷驚惊懼惧慘惨懲惩憊惫愜惬慚惭憚惮慣惯愛爱慍愠憤愤憒愦慄栗懾慑憖慭慮虑懍懔懣懑懶懒戇戆戔戋戲戏戧戗戩戬戱戯戶户纔才撲扑擴扩捫扪掃扫揚扬擾扰撫抚拋抛摶抟摳抠掄抡搶抢護护擔担擬拟攏拢揀拣擁拥攔拦擰拧撥拨擇择掛挂摯挚攣挛掗挜撾挝撻挞挾挟撓挠擋挡撟挢掙挣擠挤揮挥撏挦挩捝撈捞損损撿捡換换搗捣據据擄掳摑掴擲掷撣掸摻掺摜掼攬揽搵揾撳揿攙搀擱搁摟搂攪搅搖摇攜携攝摄攄摅擯摈攤摊攖撄撐撑攆撵擷撷擼撸攛撺擻擞攢攒敵敌敗败斂敛斆敩數数斃毙齋斋斕斓鬥斗斬斩斷断無无舊旧時时曠旷暘旸曇昙晝昼曨昽顯显晉晋曬晒曉晓曄晔暈晕暉晖暫暂暢畅曖暧朧胧樸朴機机殺杀雜杂權权桿杆條条楊杨榪杩極极構构樅枞樞枢棗枣櫪枥梘枧棖枨槍枪楓枫梟枭櫃柜檸柠柵栅檉柽梔栀標标棧栈櫛栉櫳栊棟栋櫨栌櫟栎欄栏樹树棲栖樣样欒栾椏桠橈桡楨桢檔档榿桤橋桥樺桦檜桧槳桨樁桩樳桪梲棁檮梼棶梾槤梿檢检欞棂槨椁槼椝櫝椟槧椠槶椢欏椤樿椫橢椭槮椮樓楼欖榄榲榅櫬榇櫚榈櫸榉榮荣檟槚檻槛檳槟櫧槠橫横檣樯櫻樱櫫橥櫥橱櫓橹櫞橼檁檩櫱蘖歡欢歟欤歐欧欽钦殲歼歿殁殤殇殘残殞殒殮殓殫殚殯殡毆殴毀毁轂毂畢毕毿毵氂牦氌氇氣气氫氢氬氩氳氲漢汉湯汤洶汹澐沄沒没溝沟灃沣漚沤瀝沥淪沦滄沧渢沨溈沩潙沩滬沪濘泞淚泪澩泶瀧泷瀘泸濼泺瀉泻潑泼澤泽涇泾潔洁灑洒窪洼浹浃淺浅漿浆澆浇湞浈溮浉濁浊測测澮浍濟济瀏浏滻浐渾浑滸浒濃浓潯浔濜浕濤涛澇涝淶涞漣涟潿涠渦涡溳涢渙涣滌涤潤润澗涧漲涨澀涩澱淀淥渌淵渊漬渍瀆渎漸渐澠渑漁渔滲渗溫温灣湾濕湿濚溁潰溃濺溅漵溆漊溇滅灭滎荥潷滗滾滚滯滞灧滟灄滠滿满瀅滢濾滤濫滥灤滦濱滨灘滩澦滪灕漓潁颍瀠潆瀟潇瀲潋濰潍潛潜瀦潴瀂澛瀾澜瀨濑瀕濒灝灏燈灯靈灵竈灶災灾燦灿煬炀爐炉煒炜熗炝點点煉炼熾炽爍烁爛烂烴烃燭烛煙烟煩烦燒烧燁烨燴烩燙烫燼烬熱热煥焕燜焖燾焘煢茕熅煴熒荧熲颎營营爺爷牘牍牽牵犧牺犢犊犖荦狀状獷犷獁犸猶犹狽狈獮狝獰狞獨独狹狭獅狮獪狯猙狰獄狱猻狲獫猃獵猎獼猕玀猡豬猪貓猫蝟猬獻献獺獭璣玑璵玙瑒玚瑪玛瑋玮環环現现瑲玱璽玺琺珐瓏珑璫珰琿珲璡琎璉琏瑣琐瓊琼瑤瑶瑩莹璦瑷璸瑸瓔璎瓚瓒甌瓯電电畫画疇畴癤疖療疗瘧疟癘疠瘍疡癧疬瘲疭瘡疮瘋疯皰疱痾疴癥症癰痈痙痉癢痒瘂痖癆痨瘓痪癇痫癉瘅瘮瘆瘞瘗瘺瘘瘻瘘癟瘪癱瘫癮瘾癭瘿癩癞癬癣癲癫皚皑皺皱皸皲盞盏鹽盐監监蓋盖盜盗盤盘盪荡瞘眍眥眦矓眬睜睁睞睐瞼睑瞶瞆瞞瞒矚瞩矯矫磯矶礬矾礦矿碭砀碼码磚砖硨砗硯砚碸砜礪砺礱砻礫砾礎础硜硁碩硕硤硖磽硗磑硙礄硚確确磠硵礙碍磧碛磣碜禮礼禡祃禕祎禰祢禎祯禱祷禍祸祿禄稟禀禪禅離离禿秃稈秆秈籼種种積积稱称穢秽穠秾稅税穭稆穌稣穩稳穎颖穡穑窮穷竊窃竅窍窵窎窯窑竄窜窩窝窺窥竇窦窶窭竪竖豎竖競竞篤笃筍笋筆笔筧笕箋笺籠笼籩笾篳筚篩筛簹筜箏筝籌筹篔筼簡简籙箓簀箦篋箧籜箨籮箩簞箪簫箫節节範范簣篑簍篓籃篮籛篯籬篱籪簖籟籁糴籴類类糶粜糲粝粵粤糞粪糧粮糝糁糹纟糾纠紀纪紂纣約约紅红紆纡紇纥紈纨紉纫紋纹納纳紐纽紓纾純纯紕纰紖纼紗纱紘纮紙纸級级紛纷紜纭紝纴紡纺緊紧細细紱绂紲绁紳绅紵纻紹绍紺绀紼绋紿绐絀绌終终組组絆绊絎绗結结絕绝絝绔絞绞絡络絢绚給给絨绒絰绖統统絳绛絶绝縶絷絹绢綁绑綃绡綆绠綈绨綉绣綌绤綏绥經经綜综綞缍綢绸綣绻綫线綬绶維维綯绹綰绾綱纲網网綳绷綴缀綸纶綹绺綺绮綻绽綽绰綾绫綿绵緄绲緇缁緋绯緒绪緓绬緗缃緘缄緙缂線线緝缉緞缎締缔緡缗緣缘緦缌編编緩缓緬缅緯纬緱缑緲缈練练緶缏緹缇緻致縈萦縉缙縊缢縋缒縐绉縑缣縗缞縛缚縝缜縞缟縟缛縧绦縫缝縭缡縮缩縱纵縲缧縵缦縷缕縹缥績绩繃绷繅缫繆缪繒缯織织繕缮繚缭繞绕繡绣繢缋繩绳繪绘繭茧繮缰繯缳繰缲繳缴繹绎繼继繽缤繾缱纇颣纈缬纊纩續续纏缠纓缨纘缵纜缆韁缰缽钵罌罂羅罗罰罚罷罢羆罴羈羁羋芈羥羟翹翘翽翙翬翚耮耢耬耧聳耸聶聂聾聋職职聹聍聯联聞闻聵聩聰聪肅肃腸肠膚肤骯肮腎肾腫肿脹胀脅胁膽胆腖胨臚胪脛胫膠胶脈脉膾脍臍脐腦脑膿脓臠脔腳脚脫脱腡脶臉脸臘腊膕腘齶腭膩腻膃腽騰腾臏膑臢臜輿舆艤舣艦舰艙舱艫舻艱艰艷艳藝艺薌芗蕪芜蘆芦蓯苁葦苇藶苈莧苋萇苌蒼苍薴苧莖茎蘢茏蔦茑荊荆薦荐薘荙莢荚蕘荛蓽荜萴荝蕎荞薈荟薺荠蕩荡葷荤蕁荨藎荩蓀荪蔭荫蕒荬葒荭葤荮葯药藥药蒞莅萊莱蓮莲蒔莳萵莴薟莶蕕莸鶯莺蒓莼蓴莼蘀萚蘿萝螢萤蕭萧薩萨蔥葱蕆蒇蕢蒉蔣蒋蔞蒌醟蒏藍蓝薊蓟蘺蓠蕷蓣鎣蓥驀蓦虆蔂衊蔑薔蔷蘞蔹藺蔺藹蔼薀蕰蘄蕲藪薮蘚藓虜虏虛虚蟲虫虯虬蟣虮雖虽蝦虾蠆虿蝕蚀蟻蚁螞蚂蠁蚃蠶蚕蜆蚬蠱蛊蠣蛎蟶蛏蠻蛮蟄蛰蛺蛱蟯蛲螄蛳蠐蛴蛻蜕蝸蜗蠟蜡蠅蝇蟈蝈蟬蝉螻蝼蠑蝾螿螀蟎螨蠨蟏釁衅銜衔補补襯衬袞衮襖袄裊袅褘袆襪袜襲袭襏袯裝装襠裆褌裈褳裢襝裣褲裤襇裥褸褛襌褝襤褴襴襕見见覎觃規规覓觅視视覘觇覡觋覥觍覦觎覬觊覯觏覲觐覷觑覺觉覽览覿觌觀观觴觞觸触觶觯訁讠訂订訃讣計计訊讯訌讧討讨訐讦訒讱訓训訕讪訖讫託托記记誾訚訛讹訝讶訟讼訣诀訥讷訩讻訪访設设許许訴诉訶诃診诊詁诂詆诋詎讵詐诈詒诒詔诏評评詖诐詗诇詘诎詛诅詞词讋詟詡诩詢询詣诣試试詩诗詫诧詬诟詭诡詮诠詰诘話话該该詳详詵诜詼诙詿诖誄诔誅诛誆诓譽誉謄誊認认誑诳誒诶誕诞誘诱誚诮語语誠诚誡诫誣诬誤误誥诰誦诵誨诲說说説说誰谁課课誶谇誹诽誼谊調调諂谄諄谆談谈諉诿請请諍诤諏诹諑诼諒谅論论諗谂諛谀諜谍諝谞諞谝諢诨諤谔諦谛諧谐諫谏諭谕諮咨諱讳諳谙諶谌諷讽諸诸諺谚諼谖諾诺謀谋謁谒謂谓謅诌謊谎謎谜謐谧謔谑謖谡謗谤謙谦謚谥講讲謝谢謠谣謡谣謨谟謫谪謬谬謳讴謹谨謾谩證证譎谲譏讥譖谮識识譙谯譚谭譜谱譫谵譯译議议譴谴讀读讅谉讎雠讒谗讓让讕谰讖谶讜谠讞谳豶豮貝贝貞贞貟贠負负財财貢贡貧贫貨货販贩貪贪貫贯責责貯贮貰贳貲赀貳贰貴贵貶贬貸贷貺贶費费貼贴貽贻貿贸賀贺賁贲賂赂賃赁賄贿賅赅資资賈贾賊贼賑赈賒赊賕赇賙赒賚赉賜赐賞赏賠赔賡赓賢贤賤贱賦赋賧赕質质賫赍賭赌賴赖賵赗賺赚賻赙購购賽赛賾赜贄贽贅赘贇赟贈赠贊赞贋赝贍赡贏赢贐赆贓赃贔赑贖赎贗赝贛赣贜赃赬赪趙赵趕赶趨趋趲趱躉趸躍跃蹌跄躒跞跡迹踐践躂跶蹺跷蹕跸躚跹躋跻踴踊躊踌躓踬躑踯躡蹑蹣蹒躕蹰躥蹿躪躏躦躜軀躯車车軋轧軌轨軑轪軒轩軔轫軛轭軟软軤轷軫轸軲轱軸轴軹轵軺轺軻轲軼轶軾轼較较輅辂輇辁輈辀載载輊轾輒辄輔辅輕轻輛辆輜辎輝辉輞辋輟辍輥辊輦辇輩辈輪轮輬辌輯辑輳辏輸输輻辐輾辗轄辖轅辕轆辘轉转轍辙轎轿轔辚轟轰轡辔轢轹轤轳辭辞闢辟辯辩辮辫邊边遼辽達达遷迁過过邁迈運运還还這这進进遠远違违連连遲迟邇迩逕迳適适選选遜逊遞递邐逦邏逻遺遗遙遥鄧邓鄺邝鄔邬郵邮鄒邹鄴邺鄰邻郟郏鄶郐鄭郑鄆郓酈郦鄖郧鄲郸酇酂醱酦醬酱釅酽釃酾釀酿釋释釒钅釓钆釔钇釕钌釗钊釘钉釙钋針针釣钓釤钐釧钏釩钒釵钗釷钍釹钕釺钎鈀钯鈁钫鈃钘鈄钭鈈钚鈉钠鈍钝鈎钩鈐钤鈑钣鈒钑鈔钞鈕钮鈞钧鈣钙鈥钬鈦钛鈧钪鈮铌鈰铈鈳钶鈴铃鈷钴鈸钹鈹铍鈺钰鈽钸鈾铀鈿钿鉀钾鉅巨鉈铊鉉铉鉋铇鉍铋鉑铂鉕钷鉗钳鉚铆鉛铅鉞钺鉢钵鉤钩鉦钲鉬钼鉭钽鑒鉴鉶铏鉸铰鉺铒鉻铬鉿铪銀银銃铳銅铜銍铚銑铣銓铨銖铢銘铭銚铫銛铦銠铑銣铷銥铱銦铟銨铵銩铥銪铕銫铯銬铐鑾銮銱铞銳锐銷销銹锈銻锑銼锉鋁铝鋃锒鋅锌鋇钡鋌铤鋏铗鋒锋鋙铻鋝锊鋟锓鋣铘鋤锄鋥锃鋦锔鋨锇鋩铓鋪铺鋭锐鋮铖鋯锆鋰锂鋱铽鋶锍鋸锯鋼钢錁锞錆锖錇锫錈锩錏铔錐锥錒锕錕锟錘锤錙锱錚铮錛锛錟锬錠锭錡锜錢钱錦锦錨锚錩锠錫锡錮锢錯错錳锰錸铼鏨錾鍀锝鍁锨鍃锪鍆钔鍇锴鍈锳鍋锅鍍镀鍔锷鍘铡鍚钖鍛锻鍠锽鍤锸鍥锲鍩锘鍬锹鍰锾鍵键鍶锶鍺锗鎂镁鎄锿鎇镅鎊镑鎔镕鎖锁鎘镉鎛镈鎡镃鎢钨鎦镏鎧铠鎩铩鎪锼鎬镐鎮镇鎰镒鎳镍鎵镓鎶鿔鎿镎鏃镞鏈链鏌镆鏍镙鏐镠鏑镝鏗铿鏘锵鏜镗鏝镘鏞镛鏟铲鏡镜鏢镖鏤镂鏰镚鏵铧鏷镤鏹镪鏽锈鐃铙鐋铴鐐镣鐒铹鐓镦鐔镡鐙镫鐝镢鐠镨鐦锎鐧锏鐨镄鐮镰鐲镯鐳镭鐵铁鐶镮鐸铎鐺铛鐿镱鑄铸鑊镬鑌镔鑔镲鑕锧鑞镴鑠铄鑣镳鑥镥鑭镧鑰钥鑱镵鑲镶鑷镊鑹镩鑼锣鑽钻長长門门閂闩閃闪閆闫閈闬閉闭閌闶閎闳閏闰閑闲間间閔闵閘闸閡阂閣阁閥阀閨闺閩闽閫阃閬阆閭闾閶阊閹阉閻阎閼阏閽阍閾阈閿阌闃阒闈闱闊阔闋阕闌阑闍阇闐阗闒阘闓闿闔阖闕阙闖闯闞阚闠阓闡阐闤阛闥闼鬧闹鬮阄鬩阋隊队陽阳陰阴陣阵階阶際际陸陆隴陇陳陈陘陉陝陕隯陦隉陧隕陨險险隨随隱隐隸隶雋隽難难雛雏雞鸡靂雳霧雾霽霁霢霡靄霭靚靓靜静靨靥韃鞑鞽鞒韉鞯韋韦韌韧韍韨韓韩韙韪韜韬韞韫韻韵頁页頂顶頃顷項项順顺頇顸頊顼頌颂頎颀頏颃預预頑顽頒颁頓顿頗颇領领頜颌頡颉頤颐頦颏頮颒頰颊頲颋頴颕頷颔頸颈頻频顆颗題题額额顎颚顒颙顓颛顙颡顛颠顢颟顥颢顧顾顫颤顬颥顰颦顱颅顳颞顴颧風风颭飐颮飑颯飒颶飓颸飔颺飏颻飖颼飕飀飗飄飘飆飙飈飚飛飞飠饣飢饥飣饤飥饦饗飨飩饨飪饪飫饫飭饬飯饭飲饮飴饴飼饲飽饱飾饰飿饳餃饺餄饸餅饼餉饷餌饵饜餍餎饹餏饻餑饽餒馁餓饿餕馂餖饾餛馄餜馃餞饯餡馅館馆餳饧餶馉餷馇餺馎餼饩餾馏餿馊饁馌饃馍饅馒饈馐饉馑饊馓饋馈饌馔饑饥饒饶饞馋饢馕馬马馭驭馱驮馳驰馴驯馹驲駁驳駐驻駑驽駒驹駔驵駕驾駘骀駙驸駛驶駝驼駟驷駢骈駭骇駰骃駱骆駸骎駿骏騁骋騂骍騅骓騌骔騍骒騎骑騏骐騖骛騙骗騤骙騫骞騭骘騮骝騶驺騷骚騸骟騾骡驁骜驂骖驃骠驄骢驅驱驊骅驌骕驍骁驏骣驕骄驗验驛驿驟骤驢驴驤骧驥骥驦骦驪骊驫骉髏髅髖髋髕髌鬢鬓鬹鬶魘魇魎魉魚鱼魛鱽魢鱾魨鲀魯鲁魴鲂魷鱿魺鲄鮁鲅鮃鲆鮊鲌鮋鲉鮍鲏鮎鲇鮐鲐鮑鲍鮒鲋鮓鲊鮗鿴鮚鲒鮜鲘鮝鲞鮞鲕鮦鲖鮪鲔鮫鲛鮭鲑鮮鲜鮳鲓鮶鲪鮺鲝鯀鲧鯁鲠鯇鲩鯉鲤鯊鲨鯒鲬鯔鲻鯕鲯鯖鲭鯗鲞鯛鲷鯝鲴鯡鲱鯢鲵鯤鲲鯧鲳鯨鲸鯪鲮鯫鲰鯰鲶鯴鲺鯷鳀鯽鲫鯿鳊鰁鳈鰂鲗鰃鳂鰈鲽鰉鳇鰍鳅鰏鲾鰐鳄鰒鳆鰓鳃鰜鳒鰟鳑鰠鳋鰣鲥鰥鳏鰨鳎鰩鳐鰭鳍鰱鲢鰲鳌鰳鳓鰵鳘鰷鲦鰹鲣鰺鲹鰻鳗鰼鳛鰾鳔鱂鳉鱅鳙鱈鳕鱉鳖鱒鳟鱔鳝鱖鳜鱗鳞鱘鲟鱝鲼鱟鲎鱠鲙鱣鳣鱤鳡鱧鳢鱨鲿鱭鲚鱯鳠鱷鳄鱸鲈鱺鲡鳥鸟鳩鸠鳲鸤鳴鸣鳶鸢鴆鸩鴇鸨鴉鸦鴒鸰鴕鸵鴛鸳鴝鸲鴞鸮鴟鸱鴣鸪鴦鸯鴨鸭鴯鸸鴰鸹鴴鸻鴻鸿鴿鸽鵂鸺鵃鸼鵐鹀鵑鹃鵒鹆鵓鹁鵜鹈鵝鹅鵠鹄鵡鹉鵪鹌鵬鹏鵮鹐鵯鹎鵲鹊鵷鹓鵾鹍鶇鸫鶉鹑鶊鹒鶓鹋鶖鹙鶘鹕鶚鹗鶡鹖鶥鹛鶩鹜鶬鸧鶲鹟鶴鹤鶹鹠鶺鹡鶻鹘鶼鹣鷀鹚鷁鹢鷂鹞鷄鸡鷊鹝鷓鹧鷖鹥鷗鸥鷙鸷鷚鹨鷥鸶鷦鹪鷫鹔鷯鹩鷲鹫鷳鹇鷸鹬鷹鹰鷺鹭鷽鸴鸇鹯鸌鹱鸏鹲鸕鸬鸘鹴鸚鹦鸛鹳鸝鹂鸞鸾鹺鹾麥麦麩麸麴曲黃黄黌黉黶黡黷黩黲黪黽黾黿鼋鼂鼌鼉鼍鼴鼹齊齐齏齑齒齿齔龀齕龁齗龂齙龅齜龇齟龃齠龆齡龄齦龈齪龊齬龉齲龋齷龌龍龙龔龚龕龛龜龟鿓鿒鿠鿟鿳鿸週周並并劃划麼么臺台於于佔占", M = {};
+  for (var i = 0; i < P.length; i += 2) M[P.charAt(i)] = P.charAt(i + 1);
+  var SKIP_TAG = /^(SCRIPT|STYLE|CODE|PRE|TEXTAREA)$/;
+  var SKIP_CLASS = /(^|\s)(mono|ex-code|urlbox|no-sim)(\s|$)/;
+  var nodes = [], orig = [];
+  try {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n;
+    while ((n = w.nextNode())) {
+      var p = n.parentNode; if (!p) continue;
+      if (SKIP_TAG.test(p.nodeName)) continue;
+      var cn = p.className;
+      if (typeof cn === "string" && SKIP_CLASS.test(cn)) continue;
+      var v = n.nodeValue;
+      if (!v || !v.replace(/\s/g, "")) continue;
+      nodes.push(n); orig.push(v);
+    }
+  } catch (e) { /* 沒有 TreeWalker 就原樣顯示 */ }
+
+  var titleOrig = document.title;
+  function conv(s) {
+    var o = "", i;
+    for (i = 0; i < s.length; i++) { var c = s.charAt(i); o += M[c] || c; }
+    return o;
   }
-  btn.href = other + location.search + location.hash;
-  btn.textContent = otherLang === 'zh-Hant' ? '繁' : '简';
-  btn.title = otherLang === 'zh-Hant' ? '無損轉為繁體（僅字形，不改詞彙）' : '無損轉為簡體（僅字形，不改詞彙）';
-  btn.addEventListener('click', function () {
-    document.cookie = 'fahua-lang=' + otherLang + ';path=/;max-age=31536000;samesite=lax';
+  function apply(sim) {
+    var i;
+    for (i = 0; i < nodes.length; i++) nodes[i].nodeValue = sim ? conv(orig[i]) : orig[i];
+    document.title = sim ? conv(titleOrig) : titleOrig;
+    document.documentElement.lang = sim ? "zh-Hans" : "zh-Hant";
+    var b = document.getElementById("simToggle");
+    if (b) b.textContent = sim ? "繁體" : "简体";
+    var els = document.querySelectorAll("[data-sim]");
+    for (i = 0; i < els.length; i++) {
+      var el = els[i], a = el.getAttribute(sim ? "data-sim" : "data-trad");
+      if (a) { if (el.tagName === "IMG") el.src = a; else el.href = a; }
+    }
+  }
+
+  var host = location.hostname.toLowerCase();
+  var q = new URLSearchParams(location.search);
+  var saved = null;
+  try { saved = localStorage.getItem("rut.sim"); } catch (e) {}
+  var sim = saved
+    ? saved === "s"
+    : (q.get("sim") === "1" ? true
+      : q.get("sim") === "0" ? false
+      : (host === "shutonggui.cn" || host === "www.shutonggui.cn"));
+
+  try { apply(sim); } catch (e) {}
+  document.body.style.visibility = "visible";
+
+  var btn = document.getElementById("simToggle");
+  if (btn) btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    sim = !sim;
+    apply(sim);
+    try { localStorage.setItem("rut.sim", sim ? "s" : "t"); } catch (e2) {}
   });
-  btn.hidden = false;
-})();
+}());
 </script>
-<!--/lang-toggle--></body>
+</body>
 </html>

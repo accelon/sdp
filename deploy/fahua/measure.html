@@ -1,15 +1,20 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>法华合注 · 语料实测</title>
+<title>法華合注 · 語料實測</title>
+<meta name="description" content="法華合注的語料實測：字數、句數、二十六家注疏的錨定覆蓋率、方法與限制。">
 <style>
   :root{--paper:#f6f1e7;--card:#fffdf8;--ink:#1d1a16;--soft:#3a342d;--muted:#6d6357;--line:#ddd0bc;--accent:#8c3b2c;}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",STSong,"SimSun",serif;font-size:16px;line-height:1.9}
-  .wrap{max-width:900px;margin:0 auto;padding:34px 22px 70px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","Songti SC",STSong,serif;font-size:16px;line-height:1.9}
+  .topbar{position:sticky;top:0;z-index:80;background:rgba(246,241,231,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+  .tb-inner{max-width:900px;margin:0 auto;padding:0 22px;height:46px;display:flex;align-items:center;justify-content:space-between;font-size:13px}
+  .tb-inner a{color:var(--muted);text-decoration:none}
+  #simToggle{color:var(--accent);font-weight:600;border:1px solid rgba(140,59,44,.35);padding:2px 10px;border-radius:2px}
+  .wrap{max-width:900px;margin:0 auto;padding:26px 22px 70px}
   a{color:var(--accent)}
   h1{font-size:30px;line-height:1.35;margin:0 0 8px}
   h2{font-size:23px;margin:38px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
@@ -22,133 +27,147 @@
   td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
   td:first-child{white-space:nowrap}
   blockquote{margin:18px 0;padding:6px 0 6px 16px;border-left:3px solid var(--accent);color:var(--soft)}
-  .back{font-size:13px;margin-bottom:18px;display:inline-block}
+  @media(max-width:520px){ td:first-child{white-space:normal} }
 </style>
-<link rel="alternate" hreflang="zh-Hans" href="https://shutonggui.cn/fahua/measure.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://nissaya.cn/fahua/measure-hant.html">
-<link rel="alternate" hreflang="x-default" href="https://shutonggui.cn/fahua/measure.html">
-<!--lang-switch-->
-<script>
-/* 主站 shutonggui.cn 缺省簡體、鏡像 nissaya.cn 缺省繁體；右下角按鈕可無損切換，選擇記在 cookie */
-(function () {
-  if (location.protocol === 'file:') return;
-  var host = location.hostname.replace(/^www\./, '');
-  var m = document.cookie.match(/(?:^|;\s*)fahua-lang=(zh-Hans|zh-Hant)/);
-  var want = m ? m[1] : (/(^|\.)nissaya\.cn$/.test(host) ? 'zh-Hant' : 'zh-Hans');
-  var path = location.pathname;
-  var isHant = /-hant\.html$/.test(path);
-  var other;
-  if (isHant) {
-    other = path.replace(/-hant\.html$/, '.html');
-  } else if (/\/$/.test(path)) {
-    other = path + 'index-hant.html';
-  } else if (/\/index\.html$/.test(path)) {
-    other = path.replace(/index\.html$/, 'index-hant.html');
-  } else {
-    other = path.replace(/\.html$/, '-hant.html');
-  }
-  if (want === 'zh-Hant' && !isHant) location.replace(other + location.search + location.hash);
-  else if (want === 'zh-Hans' && isHant) location.replace(other + location.search + location.hash);
-})();
-</script>
-<!--/lang-switch-->
 </head>
-<body>
+<body style="visibility:hidden">
+
+<div class="topbar"><div class="tb-inner">
+  <a href="index.html">← 法華合注</a>
+  <a href="#" id="simToggle" aria-label="切換繁體／簡體">简体</a>
+</div></div>
+
 <div class="wrap">
-<a class="back" href="index.html">← 法华合注</a>
-<h1>法华合注 · 语料实测（2026-11-02）</h1>
-<blockquote><p>这一页是“法师版”与“护持版”所有数字的来源。重跑方法、口径与限制都写在这里， 报告里出现的每一个百分点都可以回到这里核对。 产生器：<code>src/measure.py</code>（输出 <code>out/measure.json</code>、<code>out/measure.txt</code>）。 语料：<code>D:\2026\adb-converter\build\tei-all-2026R2.txt</code>（大正藏）、 <code>wxzj-tei-2026R2.txt</code>（卍续藏），CBETA 2026.R2。</p></blockquote>
+<h1>法華合注 · 語料實測（2026-11-02）</h1>
+<blockquote><p>這一頁是「法師版」與「護持版」所有數字的來源。重跑方法、口徑與限制都寫在這裡， 報告裡出現的每一個百分點都可以回到這裡核對。 產生器：<code>src/measure.py</code>（輸出 <code>out/measure.json</code>、<code>out/measure.txt</code>）。 語料：<code>D:\2026\adb-converter\build\tei-all-2026R2.txt</code>（大正藏）、 <code>wxzj-tei-2026R2.txt</code>（卍續藏），CBETA 2026.R2。</p></blockquote>
 <h2>1. 主文</h2>
-<div class="tw"><table><thead><tr><th>文本</th><th>字数</th><th>句数</th><th>卷</th><th>品</th><th>面</th></tr></thead><tbody>
-<tr><td>T0262 妙法莲华经（罗什）</td><td>72,550</td><td>2,848</td><td>7</td><td>28</td><td>186</td></tr>
-<tr><td>T0263 正法华经（竺法护）</td><td>88,493</td><td>3,108</td><td>10</td><td>27</td><td>215</td></tr>
-<tr><td>T0264 添品妙法莲华经（阇那崛多、笈多）</td><td>73,616</td><td>2,222</td><td>7</td><td>27</td><td>185</td></tr>
+<div class="tw"><table><thead><tr><th>文本</th><th>字數</th><th>句數</th><th>卷</th><th>品</th><th>面</th></tr></thead><tbody>
+<tr><td>T0262 妙法蓮華經（羅什）</td><td>72,550</td><td>2,848</td><td>7</td><td>28</td><td>186</td></tr>
+<tr><td>T0263 正法華經（竺法護）</td><td>88,493</td><td>3,108</td><td>10</td><td>27</td><td>215</td></tr>
+<tr><td>T0264 添品妙法蓮華經（闍那崛多、笈多）</td><td>73,616</td><td>2,222</td><td>7</td><td>27</td><td>185</td></tr>
 </tbody></table></div>
-<ul><li>字数＝去标签后的汉字，不含标点（<code>ts/tools/han.py</code> 的 <code>HAN</code>，与阅读器同一个范围）。</li><li>句＝以 <code>。！？</code> 切、汉字 ≥ 4；T0262 平均 25 字一句。</li><li>品字数：迹门十四品 42,910 字（59%）、本门十四品 29,297 字（41%）； 平均 2,578 字，最大〈譬喻品〉6,593 字，最小〈嘱累品〉463 字。</li><li>三译合计 234,659 字。</li></ul>
-<h3>三译的 8 字窗重叠（T0262 为基准）</h3>
-<div class="tw"><table><thead><tr><th>对照</th><th>重叠</th><th>读法</th></tr></thead><tbody>
-<tr><td>T0264 添品 vs T0262 什译</td><td>89.3%</td><td>添品是什译的修订本（隋 601），异文集中在补译与改字</td></tr>
-<tr><td>T0263 正法华 vs T0262 什译</td><td>0.1%</td><td>两个独立的译本系统，逐句对读才有意义</td></tr>
+<ul><li>字數＝去標籤後的漢字，不含標點（<code>ts/tools/han.py</code> 的 <code>HAN</code>，與閱讀器同一個範圍）。</li><li>句＝以 <code>。！？</code> 切、漢字 ≥ 4；T0262 平均 25 字一句。</li><li>品字數：迹門十四品 42,910 字（59%）、本門十四品 29,297 字（41%）； 平均 2,578 字，最大〈譬喻品〉6,593 字，最小〈囑累品〉463 字。</li><li>三譯合計 234,659 字。</li></ul>
+<h3>三譯的 8 字窗重疊（T0262 為基準）</h3>
+<div class="tw"><table><thead><tr><th>對照</th><th>重疊</th><th>讀法</th></tr></thead><tbody>
+<tr><td>T0264 添品 vs T0262 什譯</td><td>89.3%</td><td>添品是什譯的修訂本（隋 601），異文集中在補譯與改字</td></tr>
+<tr><td>T0263 正法華 vs T0262 什譯</td><td>0.1%</td><td>兩個獨立的譯本系統，逐句對讀才有意義</td></tr>
 </tbody></table></div>
-<p>（抽样 5,000 个 8 字窗，见 <code>measure.py</code> 的实作说明。）</p>
+<p>（抽樣 5,000 個 8 字窗，見 <code>measure.py</code> 的實作說明。）</p>
 <h2>2. 注疏</h2>
-<p>CBETA 大正藏 T09 法华部与卍续藏法华部，取 26 家、28 部、5,469,480 字 （《法华经科注》分三册，故部数多于家数）：</p>
-<div class="tw"><table><thead><tr><th>注疏</th><th>作者</th><th>年代</th><th>层</th><th>字数</th><th>卷</th><th>句级锚定</th><th>有注品</th></tr></thead><tbody>
-<tr><td>法华经科注</td><td>一如</td><td>元</td><td>1</td><td>269,130</td><td>10</td><td>88.7%</td><td>28/28</td></tr>
-<tr><td>法华经会义</td><td>智旭</td><td>明</td><td>1</td><td>267,187</td><td>18</td><td>88.5%</td><td>28/28</td></tr>
-<tr><td>法华经科注（续）</td><td>一如</td><td>元</td><td>1</td><td>191,045</td><td>8</td><td>87.7%</td><td>28/28</td></tr>
-<tr><td>法华经演义</td><td>通理</td><td>清</td><td>1</td><td>318,815</td><td>20</td><td>84.4%</td><td>28/28</td></tr>
-<tr><td>法华经科注（续）</td><td>一如</td><td>元</td><td>1</td><td>195,530</td><td>7</td><td>23.1%</td><td>28/28</td></tr>
-<tr><td>法华经授手</td><td>智祥</td><td>清</td><td>1</td><td>274,660</td><td>10</td><td>23.0%</td><td>28/28</td></tr>
-<tr><td>法华经大成</td><td>净升</td><td>清</td><td>1</td><td>256,030</td><td>9</td><td>19.2%</td><td>28/28</td></tr>
-<tr><td>法华经指掌疏</td><td>通理</td><td>清</td><td>1</td><td>261,045</td><td>9</td><td>14.3%</td><td>28/28</td></tr>
-<tr><td>法华经通义</td><td>德清</td><td>明</td><td>1</td><td>102,193</td><td>7</td><td>11.1%</td><td>28/28</td></tr>
-<tr><td>法华经义记</td><td>法云</td><td>梁</td><td>1</td><td>156,964</td><td>8</td><td>9.1%</td><td>27/28</td></tr>
-<tr><td>法华义疏</td><td>吉藏</td><td>隋</td><td>1</td><td>273,827</td><td>13</td><td>8.5%</td><td>27/28</td></tr>
-<tr><td>法华经知音</td><td>如愚</td><td>明</td><td>1</td><td>171,525</td><td>7</td><td>7.7%</td><td>28/28</td></tr>
-<tr><td>法华经合论</td><td>戒环</td><td>宋</td><td>1</td><td>86,527</td><td>7</td><td>6.7%</td><td>28/28</td></tr>
-<tr><td>法华玄赞</td><td>窥基</td><td>唐</td><td>1</td><td>274,657</td><td>20</td><td>5.3%</td><td>28/28</td></tr>
-<tr><td>法华论（优波提舍）</td><td>世亲造·勒那摩提等译</td><td>6C</td><td>1</td><td>12,381</td><td>0</td><td>4.1%</td><td>25/28</td></tr>
-<tr><td>法华论</td><td>世亲造·菩提流支等译</td><td>6C</td><td>1</td><td>12,859</td><td>2</td><td>3.9%</td><td>26/28</td></tr>
-<tr><td>法华文句</td><td>智𫖮</td><td>隋</td><td>1</td><td>206,175</td><td>20</td><td>3.6%</td><td>26/28</td></tr>
-<tr><td>法华玄义</td><td>智𫖮</td><td>隋</td><td>1</td><td>184,111</td><td>20</td><td>2.5%</td><td>24/28</td></tr>
-<tr><td>法华玄论</td><td>吉藏</td><td>隋</td><td>1</td><td>129,144</td><td>10</td><td>2.1%</td><td>21/28</td></tr>
-<tr><td>法华游意</td><td>吉藏</td><td>隋</td><td>1</td><td>24,999</td><td>0</td><td>1.4%</td><td>19/28</td></tr>
-<tr><td>法华宗要</td><td>元晓</td><td>新罗</td><td>1</td><td>7,467</td><td>0</td><td>0.9%</td><td>8/28</td></tr>
-<tr><td>法华经安乐行义</td><td>慧思</td><td>陈</td><td>1</td><td>7,039</td><td>0</td><td>0.3%</td><td>5/28</td></tr>
-<tr><td>法华经玄赞要集</td><td>栖复</td><td>唐</td><td>2</td><td>995,290</td><td>31</td><td>12.6%</td><td>28/28</td></tr>
-<tr><td>法华论疏</td><td>吉藏</td><td>隋</td><td>2</td><td>56,589</td><td>3</td><td>4.2%</td><td>25/28</td></tr>
-<tr><td>法华经文句辅正记</td><td>守一</td><td>宋</td><td>2</td><td>211,702</td><td>10</td><td>3.3%</td><td>27/28</td></tr>
-<tr><td>法华文句记</td><td>湛然</td><td>唐</td><td>2</td><td>290,255</td><td>31</td><td>1.9%</td><td>24/28</td></tr>
-<tr><td>法华玄义释签</td><td>湛然</td><td>唐</td><td>2</td><td>208,857</td><td>20</td><td>1.5%</td><td>24/28</td></tr>
-<tr><td>法华玄赞义决</td><td>慧沼</td><td>唐</td><td>2</td><td>23,477</td><td>0</td><td>1.0%</td><td>14/28</td></tr>
+<p>CBETA 大正藏 T09 法華部與卍續藏法華部，取 26 家、28 部、5,469,480 字 （《法華經科註》分三冊，故部數多於家數）：</p>
+<div class="tw"><table><thead><tr><th>注疏</th><th>作者</th><th>年代</th><th>層</th><th>字數</th><th>卷</th><th>句級錨定</th><th>有注品</th></tr></thead><tbody>
+<tr><td>法華經科註</td><td>一如</td><td>元</td><td>1</td><td>269,130</td><td>10</td><td>88.7%</td><td>28/28</td></tr>
+<tr><td>法華經會義</td><td>智旭</td><td>明</td><td>1</td><td>267,187</td><td>18</td><td>88.5%</td><td>28/28</td></tr>
+<tr><td>法華經科註（續）</td><td>一如</td><td>元</td><td>1</td><td>191,045</td><td>8</td><td>87.7%</td><td>28/28</td></tr>
+<tr><td>法華經演義</td><td>通理</td><td>清</td><td>1</td><td>318,815</td><td>20</td><td>84.4%</td><td>28/28</td></tr>
+<tr><td>法華經科註（續）</td><td>一如</td><td>元</td><td>1</td><td>195,530</td><td>7</td><td>23.1%</td><td>28/28</td></tr>
+<tr><td>法華經授手</td><td>智祥</td><td>清</td><td>1</td><td>274,660</td><td>10</td><td>23.0%</td><td>28/28</td></tr>
+<tr><td>法華經大成</td><td>淨昇</td><td>清</td><td>1</td><td>256,030</td><td>9</td><td>19.2%</td><td>28/28</td></tr>
+<tr><td>法華經指掌疏</td><td>通理</td><td>清</td><td>1</td><td>261,045</td><td>9</td><td>14.3%</td><td>28/28</td></tr>
+<tr><td>法華經通義</td><td>德清</td><td>明</td><td>1</td><td>102,193</td><td>7</td><td>11.1%</td><td>28/28</td></tr>
+<tr><td>法華經義記</td><td>法雲</td><td>梁</td><td>1</td><td>156,964</td><td>8</td><td>9.1%</td><td>27/28</td></tr>
+<tr><td>法華義疏</td><td>吉藏</td><td>隋</td><td>1</td><td>273,827</td><td>13</td><td>8.5%</td><td>27/28</td></tr>
+<tr><td>法華經知音</td><td>如愚</td><td>明</td><td>1</td><td>171,525</td><td>7</td><td>7.7%</td><td>28/28</td></tr>
+<tr><td>法華經合論</td><td>戒環</td><td>宋</td><td>1</td><td>86,527</td><td>7</td><td>6.7%</td><td>28/28</td></tr>
+<tr><td>法華玄贊</td><td>窺基</td><td>唐</td><td>1</td><td>274,657</td><td>20</td><td>5.3%</td><td>28/28</td></tr>
+<tr><td>法華論（優波提舍）</td><td>世親造·勒那摩提等譯</td><td>6C</td><td>1</td><td>12,381</td><td>0</td><td>4.1%</td><td>25/28</td></tr>
+<tr><td>法華論</td><td>世親造·菩提流支等譯</td><td>6C</td><td>1</td><td>12,859</td><td>2</td><td>3.9%</td><td>26/28</td></tr>
+<tr><td>法華文句</td><td>智顗</td><td>隋</td><td>1</td><td>206,175</td><td>20</td><td>3.6%</td><td>26/28</td></tr>
+<tr><td>法華玄義</td><td>智顗</td><td>隋</td><td>1</td><td>184,111</td><td>20</td><td>2.5%</td><td>24/28</td></tr>
+<tr><td>法華玄論</td><td>吉藏</td><td>隋</td><td>1</td><td>129,144</td><td>10</td><td>2.1%</td><td>21/28</td></tr>
+<tr><td>法華遊意</td><td>吉藏</td><td>隋</td><td>1</td><td>24,999</td><td>0</td><td>1.4%</td><td>19/28</td></tr>
+<tr><td>法華宗要</td><td>元曉</td><td>新羅</td><td>1</td><td>7,467</td><td>0</td><td>0.9%</td><td>8/28</td></tr>
+<tr><td>法華經安樂行義</td><td>慧思</td><td>陳</td><td>1</td><td>7,039</td><td>0</td><td>0.3%</td><td>5/28</td></tr>
+<tr><td>法華經玄贊要集</td><td>栖復</td><td>唐</td><td>2</td><td>995,290</td><td>31</td><td>12.6%</td><td>28/28</td></tr>
+<tr><td>法華論疏</td><td>吉藏</td><td>隋</td><td>2</td><td>56,589</td><td>3</td><td>4.2%</td><td>25/28</td></tr>
+<tr><td>法華經文句輔正記</td><td>守一</td><td>宋</td><td>2</td><td>211,702</td><td>10</td><td>3.3%</td><td>27/28</td></tr>
+<tr><td>法華文句記</td><td>湛然</td><td>唐</td><td>2</td><td>290,255</td><td>31</td><td>1.9%</td><td>24/28</td></tr>
+<tr><td>法華玄義釋籤</td><td>湛然</td><td>唐</td><td>2</td><td>208,857</td><td>20</td><td>1.5%</td><td>24/28</td></tr>
+<tr><td>法華玄贊義決</td><td>慧沼</td><td>唐</td><td>2</td><td>23,477</td><td>0</td><td>1.0%</td><td>14/28</td></tr>
 </tbody></table></div>
-<p>层：1＝直接注经；2＝注“疏”（湛然注智𫖮、慧沼注窥基、守一注文句、栖复注玄赞）。</p>
-<h2>3. 锚定的口径与结果</h2>
+<p>層：1＝直接註經；2＝註「疏」（湛然註智顗、慧沼註窺基、守一註文句、栖復註玄贊）。</p>
+<h2>3. 錨定的口徑與結果</h2>
 <h3>3.1 做法</h3>
-<p>与金刚经／唯识合注同一套：8 字窗滚动杂凑，取“比上一个锚点更后面”的第一个落点， 一句最多一个锚；找不到就跳过这一句，但<strong>不重置</strong>上一个锚点（允许断点）。 锚定按品分段，跨品不共用链。</p>
-<p>与唯识不同的一点：唯识只比对<strong>句首 8 字</strong>；法华多数注疏是“逐句／逐词”体， 只引句子中的一小段（“如是我闻”→ 一大段释），句首常常不在引文里。所以这里 两种都算：</p>
-<ul><li><strong>锚（句内）</strong>：这一句里任何一个 8 字窗命中，就算候选。</li><li><strong>锚（句首）</strong>：只看句首 8 字（唯识的做法），当作对照。</li></ul>
-<h3>3.2 结果怎么读</h3>
-<ol><li><strong>夹注体可以逐句锚</strong>：《科注》88.7%、《会义》88.5%、《演义》84.4%。 这三部把经文整句抄进注里，八字窗一抓就中。</li><li><strong>隋唐“逐句释”体不行</strong>：《文句》3.6%、《玄赞》5.3%、《义疏》8.5%、 《义记》9.1%。不是因为它们注得少，而是因为它们<strong>引的是词与短句</strong>， 不是整句；硬套唯识的句级锚定，会把它们判成“几乎没有注”。</li><li><strong>但品级是 100%</strong>：26 家几乎每一部都 28/28 品有注（少数 27/28、24/28）。 品是法华天然的骨架：28 品、平均 2,578 字，正好一节课。</li><li><strong>二层疏</strong>：《文句记》《释签》《玄赞义决》注的是疏不是经，句级 1–2%、 品级 24/28，与唯识的“注中有注”是同一个问题，要另一层介面。</li></ol>
-<p>结论：法华合注不能用唯识的单层句级模型，要用<strong>三层索引</strong>—— 句（三部夹注）→ 品（隋唐注疏）→ 词（辛嶋词典）。</p>
-<h2>4. 梵汉与词典（外部资料，不在本 script 内计算）</h2>
-<div class="tw"><table><thead><tr><th>资料</th><th>规模</th><th>授权／出处</th></tr></thead><tbody>
-<tr><td>辛嶋静志《妙法莲华经词典》KKJ（2001）</td><td>2,409 条、31,733 条引文</td><td>CC BY-SA 3.0，DILA 数位化</td></tr>
-<tr><td>辛嶋静志《正法华经词典》KDR（1998）</td><td>3,356 条、45,649 条引文</td><td>CC BY-SA 3.0，DILA 数位化</td></tr>
-<tr><td>DILA SDP 法华经数位资料库</td><td>3 汉译、3 家天台注、9 种梵本校订、1 藏译、1 英译</td><td>CC BY-SA 4.0</td></tr>
+<p>與金剛經／唯識合注同一套：8 字窗滾動雜湊，取「比上一個錨點更後面」的第一個落點， 一句最多一個錨；找不到就跳過這一句，但<strong>不重置</strong>上一個錨點（允許斷點）。 錨定按品分段，跨品不共用鏈。</p>
+<p>與唯識不同的一點：唯識只比對<strong>句首 8 字</strong>；法華多數注疏是「逐句／逐詞」體， 只引句子中的一小段（「如是我聞」→ 一大段釋），句首常常不在引文裡。所以這裡 兩種都算：</p>
+<ul><li><strong>錨（句內）</strong>：這一句裡任何一個 8 字窗命中，就算候選。</li><li><strong>錨（句首）</strong>：只看句首 8 字（唯識的做法），當作對照。</li></ul>
+<h3>3.2 結果怎麼讀</h3>
+<ol><li><strong>夾註體可以逐句錨</strong>：《科註》88.7%、《會義》88.5%、《演義》84.4%。 這三部把經文整句抄進註裡，八字窗一抓就中。</li><li><strong>隋唐「逐句釋」體不行</strong>：《文句》3.6%、《玄贊》5.3%、《義疏》8.5%、 《義記》9.1%。不是因為它們注得少，而是因為它們<strong>引的是詞與短句</strong>， 不是整句；硬套唯識的句級錨定，會把它們判成「幾乎沒有注」。</li><li><strong>但品級是 100%</strong>：26 家幾乎每一部都 28/28 品有注（少數 27/28、24/28）。 品是法華天然的骨架：28 品、平均 2,578 字，正好一節課。</li><li><strong>二層疏</strong>：《文句記》《釋籤》《玄贊義決》註的是疏不是經，句級 1–2%、 品級 24/28，與唯識的「注中有注」是同一個問題，要另一層介面。</li></ol>
+<p>結論：法華合注不能用唯識的單層句級模型，要用<strong>三層索引</strong>—— 句（三部夾註）→ 品（隋唐注疏）→ 詞（辛嶋詞典）。</p>
+<h2>4. 梵漢與詞典（外部資料，不在本 script 內計算）</h2>
+<div class="tw"><table><thead><tr><th>資料</th><th>規模</th><th>授權／出處</th></tr></thead><tbody>
+<tr><td>辛嶋靜志《妙法蓮華經詞典》KKJ（2001）</td><td>2,409 條、31,733 條引文</td><td>CC BY-SA 3.0，DILA 數位化</td></tr>
+<tr><td>辛嶋靜志《正法華經詞典》KDR（1998）</td><td>3,356 條、45,649 條引文</td><td>CC BY-SA 3.0，DILA 數位化</td></tr>
+<tr><td>DILA SDP 法華經數位資料庫</td><td>3 漢譯、3 家天台注、9 種梵本校訂、1 藏譯、1 英譯</td><td>CC BY-SA 4.0</td></tr>
 </tbody></table></div>
-<ul><li>词典档案：<code>data/external/kkj/</code>、<code>data/external/kdr/</code>（TEI P5，原始 zip 亦保留）。</li><li>统计方式：<code>&lt;entry&gt;</code> 与 <code>&lt;cit&gt;</code> 的出现次数（<code>grep -c</code> 等价）。</li><li>授权：使用时须姓名标示、以相同方式分享；网站页脚与关于页要写明。</li></ul>
+<ul><li>詞典檔案：<code>data/external/kkj/</code>、<code>data/external/kdr/</code>（TEI P5，原始 zip 亦保留）。</li><li>統計方式：<code>&lt;entry&gt;</code> 與 <code>&lt;cit&gt;</code> 的出現次數（<code>grep -c</code> 等價）。</li><li>授權：使用時須姓名標示、以相同方式分享；網站頁腳與關於頁要寫明。</li></ul>
 <h2>5. 限制</h2>
-<ul><li>“有锚”不等于“锚对”。8 字窗在 547 万字里碰撞机率不低；正式上线前要抽样 人工核（建议每品抽 10 句，共 280 句）。</li><li>品级 28/28 只表示该品有对应注文，不表示位置精确到句。</li><li>字数是汉字数，不含标点与校勘；不同 CBETA 版本可能差几十字。</li><li>三译重叠率是 8 字窗抽样，不是逐句比对；〈普门品〉等有异文的品会拉低整体。</li><li>词典条目数以 TEI 的 <code>&lt;entry&gt;</code> 计；同一词的异体可能分成多条。</li></ul>
+<ul><li>「有錨」不等於「錨對」。8 字窗在 547 萬字裡碰撞機率不低；正式上線前要抽樣 人工核（建議每品抽 10 句，共 280 句）。</li><li>品級 28/28 只表示該品有對應注文，不表示位置精確到句。</li><li>字數是漢字數，不含標點與校勘；不同 CBETA 版本可能差幾十字。</li><li>三譯重疊率是 8 字窗抽樣，不是逐句比對；〈普門品〉等有異文的品會拉低整體。</li><li>詞典條目數以 TEI 的 <code>&lt;entry&gt;</code> 計；同一詞的異體可能分成多條。</li></ul>
 </div>
-<!--lang-toggle-->
-<a id="lang-toggle" href="#" hidden
-   style="position:fixed;right:14px;bottom:14px;z-index:60;background:var(--card,#fffdf8);color:var(--accent,#8c3b2c);border:1px solid var(--line,#ddd0bc);font:600 13px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;padding:9px 12px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.14)">简</a>
+
+<noscript><style>body{visibility:visible!important}</style></noscript>
 <script>
+/* 無損簡體：詞表內嵌，不連外；主站缺省簡體、鏡像缺省繁體，切換記在 localStorage */
 (function () {
-  var btn = document.getElementById('lang-toggle');
-  if (!btn) return;
-  var path = location.pathname;
-  var isHant = /-hant\.html$/.test(path);
-  var other, otherLang;
-  if (isHant) {
-    other = path.replace(/-hant\.html$/, '.html'); otherLang = 'zh-Hans';
-  } else if (/\/$/.test(path)) {
-    other = path + 'index-hant.html'; otherLang = 'zh-Hant';
-  } else if (/\/index\.html$/.test(path)) {
-    other = path.replace(/index\.html$/, 'index-hant.html'); otherLang = 'zh-Hant';
-  } else {
-    other = path.replace(/\.html$/, '-hant.html'); otherLang = 'zh-Hant';
+  var P = "傌㐷㑶㐹偑㐽㑳㑇倲㑈㑯㑔儸㑩儁俊劏㓥㓨刾劚㔉噚㖊喎㖞㘚㘎㜄㚯媰㛀㜏㛣孋㛤寯㝦㠏㟆嵾㟥幓㡎懧㤖㥮㤘懤㤽慺㥪掆㧏㩳㧐撝㧑擥㧛擓㧟擽㧰㩜㨫㩵擜棡㭎椲㭏樢㭤樫㭴殰㱩殨㱮瀇㲿濧㳔澾㳠濄㳡潚㴋鸂㶉燶㶶煱㶽獱㺍璯㻅㻽㻪䁻䀥瞜䁖碽䂵磾䃅䃮鿎稏䅉穇䅟筴䇲籔䉤䊷䌶䋙䌺䋚䌻䋹䌿䋻䌾紬䌷縳䌸絅䌹綐䌼綵彩繿䍀繸䍁䎱䎬膞䏝臇䐪膋䒿薵䓓薳䓕藭䓖罃䓨螮䗖䙡䙌䙰褵譼䛓䜀䜧訢䜣鿁䜤讌䜩貙䝙䝼䞍賰䞐躎䟢䥇䦂䥑鿏䥱䥾釾䥺鏺䥽鐯䦃鐥䦅钁镢䦛䦶䦟䦷靦腼䯀䯅騧䯄䰾鲃䱷䲣䱽䲝䲁鳚䲘鳤鮣䲟鰆䲠鰌䲡鰧䲢鿐䲤䴉鹮鳾䴓鵁䴔鴷䴕鶄䴖鶪䴗鸊䴙龑䶮萬万與与醜丑專专業业叢丛東东絲丝丟丢兩两嚴严喪丧個个豐丰臨临為为爲为麗丽舉举義义烏乌樂乐喬乔習习鄉乡書书亂乱爭争虧亏亞亚畝亩親亲褻亵嚲亸億亿僅仅從从侖仑倉仓儀仪們们價价眾众衆众優优夥伙會会傴伛傘伞偉伟傳传俥伡俔伣傷伤倀伥倫伦傖伧佇伫體体傭佣僉佥來来俠侠侶侣僥侥偵侦側侧僑侨儈侩儕侪儂侬俁俣儔俦儼俨倆俩儷俪倈俫儉俭債债傾倾傯偬僂偻僨偾償偿傑杰備备傢家儻傥儐傧儲储儺傩兒儿剋克兌兑兗兖黨党內内關关興兴茲兹養养獸兽囅冁岡冈冊册寫写軍军農农冪幂鼕冬馮冯決决況况凍冻凈净涼凉減减湊凑凜凛鳳凤憑凭凱凯擊击鑿凿芻刍劉刘則则剛刚創创刪删剗刬剄刭颳刮剎刹劊刽劌刿剴剀劑剂剮剐劍剑剝剥劇剧勸劝辦办務务勱劢動动勵励勁劲勞劳勢势勛勋勩勚勝胜勻匀匭匦匱匮區区醫医華华協协單单賣卖盧卢衛卫卻却廠厂廳厅曆历歷历厲厉壓压厭厌厙厍龎厐厠厕廁厕廂厢厴厣廈厦廚厨廄厩廝厮縣县叄叁參参靉叆靆叇雙双變变敘叙疊叠葉叶號号嘆叹嘰叽籲吁衕同吒咤嚇吓呂吕嗎吗唚吣噸吨聽听啓启啟启吳吴吶呐嘸呒囈呓嘔呕嚦呖唄呗員员咼呙嗆呛嗚呜詠咏嚨咙嚀咛噝咝響响啞哑噠哒嘵哓嗶哔噦哕嘩哗噲哙嚌哜噥哝喲哟嘜唛嗊唝嘮唠啢唡嗩唢喚唤問问嘖啧嗇啬囀啭嚙啮嘓啯囉啰嘽啴嘯啸噴喷嘍喽嚳喾囁嗫噯嗳嘗尝噓嘘嚶嘤囑嘱嚕噜囂嚣迴回囪囱園园圍围圇囵國国圖图圓圆聖圣壙圹場场壞坏塊块堅坚壢坜垻坝壩坝塢坞墳坟墜坠壟垄壠垅壚垆壘垒墾垦堊垩墊垫埡垭墶垯壋垱塏垲堖垴塒埘塤埙堝埚執执塹堑墮堕堯尧報报壪塆塋茔塵尘墻墙牆墙壯壮聲声殻壳殼壳壺壶壼壸壽寿處处夠够夢梦頭头夾夹奪夺奩奁奐奂奮奋獎奖奧奥姦奸奼姹妝妆婦妇媽妈嫵妩嫗妪媯妫嬀妫姍姗婁娄婭娅嬈娆嬌娇孌娈娛娱媧娲嫻娴嫿婳嬰婴嬋婵嬸婶媼媪嬃媭嬡嫒嬪嫔嬙嫱嬤嬷孫孙學学孿孪寧宁寶宝實实寵宠審审憲宪宮宫寬宽賓宾寢寝對对尋寻導导將将爾尔尷尴屍尸層层屓屃屆届屜屉屬属屢屡屨屦嶼屿歲岁豈岂嶇岖崗岗峴岘嶴岙嵐岚島岛嶺岭崬岽巋岿嶨峃嶧峄峽峡嶢峣嶠峤崢峥巒峦嶗崂崍崃嶮崄嶄崭嶸嵘嶔嵚嶁嵝巔巅鞏巩巰巯幣币帥帅師师幃帏帳帐簾帘幟帜帶带幀帧幫帮幬帱幘帻幗帼廣广莊庄慶庆廬庐廡庑庫库應应廟庙龐庞廢废廎庼廩廪異异棄弃弒弑張张弳弪彎弯強强彈弹歸归録录彞彝彠彟彥彦彲彨徹彻徑径徠徕憶忆懺忏憂忧愾忾懷怀態态慫怂憮怃慪怄悵怅愴怆憐怜總总懟怼懌怿恆恒戀恋恥耻懇恳慟恸懨恹愷恺惻恻惱恼惲恽悅悦悞悮懸悬慳悭憫悯悶闷驚惊懼惧慘惨懲惩憊惫愜惬慚惭憚惮慣惯愛爱慍愠憤愤憒愦慄栗懾慑憖慭慮虑懍懔懣懑懶懒戇戆戔戋戲戏戧戗戩戬戱戯戶户纔才撲扑擴扩捫扪掃扫揚扬擾扰撫抚拋抛摶抟摳抠掄抡搶抢護护擔担擬拟攏拢揀拣擁拥攔拦擰拧撥拨擇择掛挂摯挚攣挛掗挜撾挝撻挞挾挟撓挠擋挡撟挢掙挣擠挤揮挥撏挦挩捝撈捞損损撿捡換换搗捣據据擄掳摑掴擲掷撣掸摻掺摜掼攬揽搵揾撳揿攙搀擱搁摟搂攪搅搖摇攜携攝摄攄摅擯摈攤摊攖撄撐撑攆撵擷撷擼撸攛撺擻擞攢攒敵敌敗败斂敛斆敩數数斃毙齋斋斕斓鬥斗斬斩斷断無无舊旧時时曠旷暘旸曇昙晝昼曨昽顯显晉晋曬晒曉晓曄晔暈晕暉晖暫暂暢畅曖暧朧胧樸朴機机殺杀雜杂權权桿杆條条楊杨榪杩極极構构樅枞樞枢棗枣櫪枥梘枧棖枨槍枪楓枫梟枭櫃柜檸柠柵栅檉柽梔栀標标棧栈櫛栉櫳栊棟栋櫨栌櫟栎欄栏樹树棲栖樣样欒栾椏桠橈桡楨桢檔档榿桤橋桥樺桦檜桧槳桨樁桩樳桪梲棁檮梼棶梾槤梿檢检欞棂槨椁槼椝櫝椟槧椠槶椢欏椤樿椫橢椭槮椮樓楼欖榄榲榅櫬榇櫚榈櫸榉榮荣檟槚檻槛檳槟櫧槠橫横檣樯櫻樱櫫橥櫥橱櫓橹櫞橼檁檩櫱蘖歡欢歟欤歐欧欽钦殲歼歿殁殤殇殘残殞殒殮殓殫殚殯殡毆殴毀毁轂毂畢毕毿毵氂牦氌氇氣气氫氢氬氩氳氲漢汉湯汤洶汹澐沄沒没溝沟灃沣漚沤瀝沥淪沦滄沧渢沨溈沩潙沩滬沪濘泞淚泪澩泶瀧泷瀘泸濼泺瀉泻潑泼澤泽涇泾潔洁灑洒窪洼浹浃淺浅漿浆澆浇湞浈溮浉濁浊測测澮浍濟济瀏浏滻浐渾浑滸浒濃浓潯浔濜浕濤涛澇涝淶涞漣涟潿涠渦涡溳涢渙涣滌涤潤润澗涧漲涨澀涩澱淀淥渌淵渊漬渍瀆渎漸渐澠渑漁渔滲渗溫温灣湾濕湿濚溁潰溃濺溅漵溆漊溇滅灭滎荥潷滗滾滚滯滞灧滟灄滠滿满瀅滢濾滤濫滥灤滦濱滨灘滩澦滪灕漓潁颍瀠潆瀟潇瀲潋濰潍潛潜瀦潴瀂澛瀾澜瀨濑瀕濒灝灏燈灯靈灵竈灶災灾燦灿煬炀爐炉煒炜熗炝點点煉炼熾炽爍烁爛烂烴烃燭烛煙烟煩烦燒烧燁烨燴烩燙烫燼烬熱热煥焕燜焖燾焘煢茕熅煴熒荧熲颎營营爺爷牘牍牽牵犧牺犢犊犖荦狀状獷犷獁犸猶犹狽狈獮狝獰狞獨独狹狭獅狮獪狯猙狰獄狱猻狲獫猃獵猎獼猕玀猡豬猪貓猫蝟猬獻献獺獭璣玑璵玙瑒玚瑪玛瑋玮環环現现瑲玱璽玺琺珐瓏珑璫珰琿珲璡琎璉琏瑣琐瓊琼瑤瑶瑩莹璦瑷璸瑸瓔璎瓚瓒甌瓯電电畫画疇畴癤疖療疗瘧疟癘疠瘍疡癧疬瘲疭瘡疮瘋疯皰疱痾疴癥症癰痈痙痉癢痒瘂痖癆痨瘓痪癇痫癉瘅瘮瘆瘞瘗瘺瘘瘻瘘癟瘪癱瘫癮瘾癭瘿癩癞癬癣癲癫皚皑皺皱皸皲盞盏鹽盐監监蓋盖盜盗盤盘盪荡瞘眍眥眦矓眬睜睁睞睐瞼睑瞶瞆瞞瞒矚瞩矯矫磯矶礬矾礦矿碭砀碼码磚砖硨砗硯砚碸砜礪砺礱砻礫砾礎础硜硁碩硕硤硖磽硗磑硙礄硚確确磠硵礙碍磧碛磣碜禮礼禡祃禕祎禰祢禎祯禱祷禍祸祿禄稟禀禪禅離离禿秃稈秆秈籼種种積积稱称穢秽穠秾稅税穭稆穌稣穩稳穎颖穡穑窮穷竊窃竅窍窵窎窯窑竄窜窩窝窺窥竇窦窶窭竪竖豎竖競竞篤笃筍笋筆笔筧笕箋笺籠笼籩笾篳筚篩筛簹筜箏筝籌筹篔筼簡简籙箓簀箦篋箧籜箨籮箩簞箪簫箫節节範范簣篑簍篓籃篮籛篯籬篱籪簖籟籁糴籴類类糶粜糲粝粵粤糞粪糧粮糝糁糹纟糾纠紀纪紂纣約约紅红紆纡紇纥紈纨紉纫紋纹納纳紐纽紓纾純纯紕纰紖纼紗纱紘纮紙纸級级紛纷紜纭紝纴紡纺緊紧細细紱绂紲绁紳绅紵纻紹绍紺绀紼绋紿绐絀绌終终組组絆绊絎绗結结絕绝絝绔絞绞絡络絢绚給给絨绒絰绖統统絳绛絶绝縶絷絹绢綁绑綃绡綆绠綈绨綉绣綌绤綏绥經经綜综綞缍綢绸綣绻綫线綬绶維维綯绹綰绾綱纲網网綳绷綴缀綸纶綹绺綺绮綻绽綽绰綾绫綿绵緄绲緇缁緋绯緒绪緓绬緗缃緘缄緙缂線线緝缉緞缎締缔緡缗緣缘緦缌編编緩缓緬缅緯纬緱缑緲缈練练緶缏緹缇緻致縈萦縉缙縊缢縋缒縐绉縑缣縗缞縛缚縝缜縞缟縟缛縧绦縫缝縭缡縮缩縱纵縲缧縵缦縷缕縹缥績绩繃绷繅缫繆缪繒缯織织繕缮繚缭繞绕繡绣繢缋繩绳繪绘繭茧繮缰繯缳繰缲繳缴繹绎繼继繽缤繾缱纇颣纈缬纊纩續续纏缠纓缨纘缵纜缆韁缰缽钵罌罂羅罗罰罚罷罢羆罴羈羁羋芈羥羟翹翘翽翙翬翚耮耢耬耧聳耸聶聂聾聋職职聹聍聯联聞闻聵聩聰聪肅肃腸肠膚肤骯肮腎肾腫肿脹胀脅胁膽胆腖胨臚胪脛胫膠胶脈脉膾脍臍脐腦脑膿脓臠脔腳脚脫脱腡脶臉脸臘腊膕腘齶腭膩腻膃腽騰腾臏膑臢臜輿舆艤舣艦舰艙舱艫舻艱艰艷艳藝艺薌芗蕪芜蘆芦蓯苁葦苇藶苈莧苋萇苌蒼苍薴苧莖茎蘢茏蔦茑荊荆薦荐薘荙莢荚蕘荛蓽荜萴荝蕎荞薈荟薺荠蕩荡葷荤蕁荨藎荩蓀荪蔭荫蕒荬葒荭葤荮葯药藥药蒞莅萊莱蓮莲蒔莳萵莴薟莶蕕莸鶯莺蒓莼蓴莼蘀萚蘿萝螢萤蕭萧薩萨蔥葱蕆蒇蕢蒉蔣蒋蔞蒌醟蒏藍蓝薊蓟蘺蓠蕷蓣鎣蓥驀蓦虆蔂衊蔑薔蔷蘞蔹藺蔺藹蔼薀蕰蘄蕲藪薮蘚藓虜虏虛虚蟲虫虯虬蟣虮雖虽蝦虾蠆虿蝕蚀蟻蚁螞蚂蠁蚃蠶蚕蜆蚬蠱蛊蠣蛎蟶蛏蠻蛮蟄蛰蛺蛱蟯蛲螄蛳蠐蛴蛻蜕蝸蜗蠟蜡蠅蝇蟈蝈蟬蝉螻蝼蠑蝾螿螀蟎螨蠨蟏釁衅銜衔補补襯衬袞衮襖袄裊袅褘袆襪袜襲袭襏袯裝装襠裆褌裈褳裢襝裣褲裤襇裥褸褛襌褝襤褴襴襕見见覎觃規规覓觅視视覘觇覡觋覥觍覦觎覬觊覯觏覲觐覷觑覺觉覽览覿觌觀观觴觞觸触觶觯訁讠訂订訃讣計计訊讯訌讧討讨訐讦訒讱訓训訕讪訖讫託托記记誾訚訛讹訝讶訟讼訣诀訥讷訩讻訪访設设許许訴诉訶诃診诊詁诂詆诋詎讵詐诈詒诒詔诏評评詖诐詗诇詘诎詛诅詞词讋詟詡诩詢询詣诣試试詩诗詫诧詬诟詭诡詮诠詰诘話话該该詳详詵诜詼诙詿诖誄诔誅诛誆诓譽誉謄誊認认誑诳誒诶誕诞誘诱誚诮語语誠诚誡诫誣诬誤误誥诰誦诵誨诲說说説说誰谁課课誶谇誹诽誼谊調调諂谄諄谆談谈諉诿請请諍诤諏诹諑诼諒谅論论諗谂諛谀諜谍諝谞諞谝諢诨諤谔諦谛諧谐諫谏諭谕諮咨諱讳諳谙諶谌諷讽諸诸諺谚諼谖諾诺謀谋謁谒謂谓謅诌謊谎謎谜謐谧謔谑謖谡謗谤謙谦謚谥講讲謝谢謠谣謡谣謨谟謫谪謬谬謳讴謹谨謾谩證证譎谲譏讥譖谮識识譙谯譚谭譜谱譫谵譯译議议譴谴讀读讅谉讎雠讒谗讓让讕谰讖谶讜谠讞谳豶豮貝贝貞贞貟贠負负財财貢贡貧贫貨货販贩貪贪貫贯責责貯贮貰贳貲赀貳贰貴贵貶贬貸贷貺贶費费貼贴貽贻貿贸賀贺賁贲賂赂賃赁賄贿賅赅資资賈贾賊贼賑赈賒赊賕赇賙赒賚赉賜赐賞赏賠赔賡赓賢贤賤贱賦赋賧赕質质賫赍賭赌賴赖賵赗賺赚賻赙購购賽赛賾赜贄贽贅赘贇赟贈赠贊赞贋赝贍赡贏赢贐赆贓赃贔赑贖赎贗赝贛赣贜赃赬赪趙赵趕赶趨趋趲趱躉趸躍跃蹌跄躒跞跡迹踐践躂跶蹺跷蹕跸躚跹躋跻踴踊躊踌躓踬躑踯躡蹑蹣蹒躕蹰躥蹿躪躏躦躜軀躯車车軋轧軌轨軑轪軒轩軔轫軛轭軟软軤轷軫轸軲轱軸轴軹轵軺轺軻轲軼轶軾轼較较輅辂輇辁輈辀載载輊轾輒辄輔辅輕轻輛辆輜辎輝辉輞辋輟辍輥辊輦辇輩辈輪轮輬辌輯辑輳辏輸输輻辐輾辗轄辖轅辕轆辘轉转轍辙轎轿轔辚轟轰轡辔轢轹轤轳辭辞闢辟辯辩辮辫邊边遼辽達达遷迁過过邁迈運运還还這这進进遠远違违連连遲迟邇迩逕迳適适選选遜逊遞递邐逦邏逻遺遗遙遥鄧邓鄺邝鄔邬郵邮鄒邹鄴邺鄰邻郟郏鄶郐鄭郑鄆郓酈郦鄖郧鄲郸酇酂醱酦醬酱釅酽釃酾釀酿釋释釒钅釓钆釔钇釕钌釗钊釘钉釙钋針针釣钓釤钐釧钏釩钒釵钗釷钍釹钕釺钎鈀钯鈁钫鈃钘鈄钭鈈钚鈉钠鈍钝鈎钩鈐钤鈑钣鈒钑鈔钞鈕钮鈞钧鈣钙鈥钬鈦钛鈧钪鈮铌鈰铈鈳钶鈴铃鈷钴鈸钹鈹铍鈺钰鈽钸鈾铀鈿钿鉀钾鉅巨鉈铊鉉铉鉋铇鉍铋鉑铂鉕钷鉗钳鉚铆鉛铅鉞钺鉢钵鉤钩鉦钲鉬钼鉭钽鑒鉴鉶铏鉸铰鉺铒鉻铬鉿铪銀银銃铳銅铜銍铚銑铣銓铨銖铢銘铭銚铫銛铦銠铑銣铷銥铱銦铟銨铵銩铥銪铕銫铯銬铐鑾銮銱铞銳锐銷销銹锈銻锑銼锉鋁铝鋃锒鋅锌鋇钡鋌铤鋏铗鋒锋鋙铻鋝锊鋟锓鋣铘鋤锄鋥锃鋦锔鋨锇鋩铓鋪铺鋭锐鋮铖鋯锆鋰锂鋱铽鋶锍鋸锯鋼钢錁锞錆锖錇锫錈锩錏铔錐锥錒锕錕锟錘锤錙锱錚铮錛锛錟锬錠锭錡锜錢钱錦锦錨锚錩锠錫锡錮锢錯错錳锰錸铼鏨錾鍀锝鍁锨鍃锪鍆钔鍇锴鍈锳鍋锅鍍镀鍔锷鍘铡鍚钖鍛锻鍠锽鍤锸鍥锲鍩锘鍬锹鍰锾鍵键鍶锶鍺锗鎂镁鎄锿鎇镅鎊镑鎔镕鎖锁鎘镉鎛镈鎡镃鎢钨鎦镏鎧铠鎩铩鎪锼鎬镐鎮镇鎰镒鎳镍鎵镓鎶鿔鎿镎鏃镞鏈链鏌镆鏍镙鏐镠鏑镝鏗铿鏘锵鏜镗鏝镘鏞镛鏟铲鏡镜鏢镖鏤镂鏰镚鏵铧鏷镤鏹镪鏽锈鐃铙鐋铴鐐镣鐒铹鐓镦鐔镡鐙镫鐝镢鐠镨鐦锎鐧锏鐨镄鐮镰鐲镯鐳镭鐵铁鐶镮鐸铎鐺铛鐿镱鑄铸鑊镬鑌镔鑔镲鑕锧鑞镴鑠铄鑣镳鑥镥鑭镧鑰钥鑱镵鑲镶鑷镊鑹镩鑼锣鑽钻長长門门閂闩閃闪閆闫閈闬閉闭閌闶閎闳閏闰閑闲間间閔闵閘闸閡阂閣阁閥阀閨闺閩闽閫阃閬阆閭闾閶阊閹阉閻阎閼阏閽阍閾阈閿阌闃阒闈闱闊阔闋阕闌阑闍阇闐阗闒阘闓闿闔阖闕阙闖闯闞阚闠阓闡阐闤阛闥闼鬧闹鬮阄鬩阋隊队陽阳陰阴陣阵階阶際际陸陆隴陇陳陈陘陉陝陕隯陦隉陧隕陨險险隨随隱隐隸隶雋隽難难雛雏雞鸡靂雳霧雾霽霁霢霡靄霭靚靓靜静靨靥韃鞑鞽鞒韉鞯韋韦韌韧韍韨韓韩韙韪韜韬韞韫韻韵頁页頂顶頃顷項项順顺頇顸頊顼頌颂頎颀頏颃預预頑顽頒颁頓顿頗颇領领頜颌頡颉頤颐頦颏頮颒頰颊頲颋頴颕頷颔頸颈頻频顆颗題题額额顎颚顒颙顓颛顙颡顛颠顢颟顥颢顧顾顫颤顬颥顰颦顱颅顳颞顴颧風风颭飐颮飑颯飒颶飓颸飔颺飏颻飖颼飕飀飗飄飘飆飙飈飚飛飞飠饣飢饥飣饤飥饦饗飨飩饨飪饪飫饫飭饬飯饭飲饮飴饴飼饲飽饱飾饰飿饳餃饺餄饸餅饼餉饷餌饵饜餍餎饹餏饻餑饽餒馁餓饿餕馂餖饾餛馄餜馃餞饯餡馅館馆餳饧餶馉餷馇餺馎餼饩餾馏餿馊饁馌饃馍饅馒饈馐饉馑饊馓饋馈饌馔饑饥饒饶饞馋饢馕馬马馭驭馱驮馳驰馴驯馹驲駁驳駐驻駑驽駒驹駔驵駕驾駘骀駙驸駛驶駝驼駟驷駢骈駭骇駰骃駱骆駸骎駿骏騁骋騂骍騅骓騌骔騍骒騎骑騏骐騖骛騙骗騤骙騫骞騭骘騮骝騶驺騷骚騸骟騾骡驁骜驂骖驃骠驄骢驅驱驊骅驌骕驍骁驏骣驕骄驗验驛驿驟骤驢驴驤骧驥骥驦骦驪骊驫骉髏髅髖髋髕髌鬢鬓鬹鬶魘魇魎魉魚鱼魛鱽魢鱾魨鲀魯鲁魴鲂魷鱿魺鲄鮁鲅鮃鲆鮊鲌鮋鲉鮍鲏鮎鲇鮐鲐鮑鲍鮒鲋鮓鲊鮗鿴鮚鲒鮜鲘鮝鲞鮞鲕鮦鲖鮪鲔鮫鲛鮭鲑鮮鲜鮳鲓鮶鲪鮺鲝鯀鲧鯁鲠鯇鲩鯉鲤鯊鲨鯒鲬鯔鲻鯕鲯鯖鲭鯗鲞鯛鲷鯝鲴鯡鲱鯢鲵鯤鲲鯧鲳鯨鲸鯪鲮鯫鲰鯰鲶鯴鲺鯷鳀鯽鲫鯿鳊鰁鳈鰂鲗鰃鳂鰈鲽鰉鳇鰍鳅鰏鲾鰐鳄鰒鳆鰓鳃鰜鳒鰟鳑鰠鳋鰣鲥鰥鳏鰨鳎鰩鳐鰭鳍鰱鲢鰲鳌鰳鳓鰵鳘鰷鲦鰹鲣鰺鲹鰻鳗鰼鳛鰾鳔鱂鳉鱅鳙鱈鳕鱉鳖鱒鳟鱔鳝鱖鳜鱗鳞鱘鲟鱝鲼鱟鲎鱠鲙鱣鳣鱤鳡鱧鳢鱨鲿鱭鲚鱯鳠鱷鳄鱸鲈鱺鲡鳥鸟鳩鸠鳲鸤鳴鸣鳶鸢鴆鸩鴇鸨鴉鸦鴒鸰鴕鸵鴛鸳鴝鸲鴞鸮鴟鸱鴣鸪鴦鸯鴨鸭鴯鸸鴰鸹鴴鸻鴻鸿鴿鸽鵂鸺鵃鸼鵐鹀鵑鹃鵒鹆鵓鹁鵜鹈鵝鹅鵠鹄鵡鹉鵪鹌鵬鹏鵮鹐鵯鹎鵲鹊鵷鹓鵾鹍鶇鸫鶉鹑鶊鹒鶓鹋鶖鹙鶘鹕鶚鹗鶡鹖鶥鹛鶩鹜鶬鸧鶲鹟鶴鹤鶹鹠鶺鹡鶻鹘鶼鹣鷀鹚鷁鹢鷂鹞鷄鸡鷊鹝鷓鹧鷖鹥鷗鸥鷙鸷鷚鹨鷥鸶鷦鹪鷫鹔鷯鹩鷲鹫鷳鹇鷸鹬鷹鹰鷺鹭鷽鸴鸇鹯鸌鹱鸏鹲鸕鸬鸘鹴鸚鹦鸛鹳鸝鹂鸞鸾鹺鹾麥麦麩麸麴曲黃黄黌黉黶黡黷黩黲黪黽黾黿鼋鼂鼌鼉鼍鼴鼹齊齐齏齑齒齿齔龀齕龁齗龂齙龅齜龇齟龃齠龆齡龄齦龈齪龊齬龉齲龋齷龌龍龙龔龚龕龛龜龟鿓鿒鿠鿟鿳鿸週周並并劃划麼么臺台於于佔占", M = {};
+  for (var i = 0; i < P.length; i += 2) M[P.charAt(i)] = P.charAt(i + 1);
+  var SKIP_TAG = /^(SCRIPT|STYLE|CODE|PRE|TEXTAREA)$/;
+  var SKIP_CLASS = /(^|\s)(mono|ex-code|urlbox|no-sim)(\s|$)/;
+  var nodes = [], orig = [];
+  try {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n;
+    while ((n = w.nextNode())) {
+      var p = n.parentNode; if (!p) continue;
+      if (SKIP_TAG.test(p.nodeName)) continue;
+      var cn = p.className;
+      if (typeof cn === "string" && SKIP_CLASS.test(cn)) continue;
+      var v = n.nodeValue;
+      if (!v || !v.replace(/\s/g, "")) continue;
+      nodes.push(n); orig.push(v);
+    }
+  } catch (e) { /* 沒有 TreeWalker 就原樣顯示 */ }
+
+  var titleOrig = document.title;
+  function conv(s) {
+    var o = "", i;
+    for (i = 0; i < s.length; i++) { var c = s.charAt(i); o += M[c] || c; }
+    return o;
   }
-  btn.href = other + location.search + location.hash;
-  btn.textContent = otherLang === 'zh-Hant' ? '繁' : '简';
-  btn.title = otherLang === 'zh-Hant' ? '無損轉為繁體（僅字形，不改詞彙）' : '無損轉為簡體（僅字形，不改詞彙）';
-  btn.addEventListener('click', function () {
-    document.cookie = 'fahua-lang=' + otherLang + ';path=/;max-age=31536000;samesite=lax';
+  function apply(sim) {
+    var i;
+    for (i = 0; i < nodes.length; i++) nodes[i].nodeValue = sim ? conv(orig[i]) : orig[i];
+    document.title = sim ? conv(titleOrig) : titleOrig;
+    document.documentElement.lang = sim ? "zh-Hans" : "zh-Hant";
+    var b = document.getElementById("simToggle");
+    if (b) b.textContent = sim ? "繁體" : "简体";
+    var els = document.querySelectorAll("[data-sim]");
+    for (i = 0; i < els.length; i++) {
+      var el = els[i], a = el.getAttribute(sim ? "data-sim" : "data-trad");
+      if (a) { if (el.tagName === "IMG") el.src = a; else el.href = a; }
+    }
+  }
+
+  var host = location.hostname.toLowerCase();
+  var q = new URLSearchParams(location.search);
+  var saved = null;
+  try { saved = localStorage.getItem("rut.sim"); } catch (e) {}
+  var sim = saved
+    ? saved === "s"
+    : (q.get("sim") === "1" ? true
+      : q.get("sim") === "0" ? false
+      : (host === "shutonggui.cn" || host === "www.shutonggui.cn"));
+
+  try { apply(sim); } catch (e) {}
+  document.body.style.visibility = "visible";
+
+  var btn = document.getElementById("simToggle");
+  if (btn) btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    sim = !sim;
+    apply(sim);
+    try { localStorage.setItem("rut.sim", sim ? "s" : "t"); } catch (e2) {}
   });
-  btn.hidden = false;
-})();
+}());
 </script>
-<!--/lang-toggle--></body>
+</body>
 </html>

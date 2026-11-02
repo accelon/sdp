@@ -18,25 +18,29 @@
 ## 1. 這個工作區做什麼
 
 - 產出：
-  - 教學文件包：`deploy/fahua/`（法師版、護持版、落地頁 × 繁簡、長圖、封面）
+  - 教學文件包：`deploy/fahua/`（法師版、護持版、落地頁、實測頁；頁內嵌繁簡詞表）
   - `sdp.adb`（`dbname=sdp`、`dbcname=法華合注`；下一輪）
 - 來源：**CBETA 2026.R2**（大正藏 T0262／T0263／T0264；注疏 26 家）＋
   辛嶋靜志詞典 KKJ／KDR（DILA 數位版，CC BY-SA 3.0）；
   研究層參照 DILA SDP（CC BY-SA 4.0，只連結、不複製）
-- 成品位置：網頁在 `deploy/fahua/`（尚未部署）；adb 為 `D:\accelon3\sdp.adb`
+- 成品位置：網頁已上線 `/fahua/`（主站＋鏡像）；adb 為 `D:\accelon3\sdp.adb`
 - 文件：本區 `README.md`、`docs/measure.md`（數字來源）、`docs/sources.md`（授權）、
-  `docs/steps.md`（重跑步驟）
+  `docs/zh-convert.md`（繁簡機制）、`docs/steps.md`（重跑步驟）
 - 版控：<https://github.com/accelon/sdp>
 
 ### 1.1 現況（2026-11-02）
 
 - 已完成：語料實測（`src/measure.py`）、法師版（`法華-教學評估.html`）、
-  護持版、落地頁、六頁繁簡、長圖與封面、`measure` 公開頁。
+  護持版、落地頁、實測頁、長圖與封面；**已部署兩站 `/fahua/`**，
+  孵化區清單排在「唯識合注」之下。
+- 繁簡：繁體母本、頁內嵌詞表（`build/zh_convert.py`）；主站缺省簡體、鏡像缺省繁體，
+  頂欄切換記在 `localStorage`。改文章不必重建詞表（見 `docs/zh-convert.md`）。
 - 核心結論：**法華不能照搬唯識的單層句級錨定**。夾註三家（科註 88.7／會義 88.5／
   演義 84.4）可逐句錨；隋唐逐句釋（義記／義疏／玄贊／文句）只有 2–9%，因為它們引詞
   不引句；但品級幾乎 28/28。所以資料模型是「句→品→詞」三層。
-- 未做：官網部署、孵化區清單（作者指示「先不放孵化區」）、`sdp.adb`。
-- 下一個動作：依 `docs/steps.md` §1 可從零重跑；要動 adb 先讀 §2、§3。
+- 未做：`sdp.adb`（作者指示不必做）。
+- 下一個動作：依 `docs/steps.md` 可從零重跑；要改文章先改繁中母本，再 `mk_site.py`＋
+  `deploy_fahua.mjs`。
 
 ## 2. 共用程式（不要重寫一份）
 
@@ -79,14 +83,18 @@ from han import HAN, han_chars, han_count
 ```text
 ① 量測（src/measure.py → out/measure.json）
 ② 繁體母本（法華-教學評估.html、deploy/fahua/src/{index,donor}.html）
-③ 繁簡與注入（build/mk_site.py → deploy/fahua/*.html）
+③ 產頁＋嵌詞表（build/mk_site.py → build/zh_convert.py → deploy/fahua/*.html）
 ④ 圖（build/mk_images.py → build/long*.html、cover*.html → Edge CDP → JPG）
-⑤ 檢查（390／900／1200 截圖、console 0 error、無橫向溢出）
+⑤ 檢查（390／1200 截圖、console 0 error、無橫向溢出）
+⑥ 上架（build/deploy_fahua.mjs → 兩站 /fahua/ ＋孵化區 projects.json）
 ```
 
-- 繁體是母本，簡體由 OpenCC t2s 無損轉出；**不要手改簡體頁**。
-- 改了文字要重跑 `build/mk_site.py`，否則線上與母本不一致。
+- 繁體是母本，**不再產簡體檔**：每頁內嵌繁簡詞表，執行時無損轉換；詳見 `docs/zh-convert.md`。
+- 詞表是常數（`agent-norms` 的 `SAFE_PAIRS`）；**改文章不必重建詞表**，重跑 `mk_site.py` 即可。
+- 主站缺省簡體、鏡像缺省繁體；頂欄要有 `<a id="simToggle">`，否則 `mk_site.py` 會丟錯。
+- 改了文字要重跑 `mk_site.py` 再 `deploy_fahua.mjs`，否則線上與母本不一致。
 - `measure.html` 由 `docs/measure.md` 轉出；改數字先改量測與 `measure.md`。
+- 孵化區清單條目在 `deploy/incubator.json`；部署時併進兩站 `projects.json`（排在 weishi 之後）。
 
 ## 4. 版本、發布、記帳
 
@@ -100,7 +108,8 @@ from han import HAN, han_chars, han_count
 > 工作區日後可能停用；沒有版本紀錄，後人只能猜。**這一列不是可選項。**
 
 - 本輪只有網頁、還沒有 `sdp.adb`：**不記 adb 帳**；等 adb 建好再補。
-- 網頁部署要作者明確說「發布／上線」才做；孵化區清單已指示「先不放」。
+- `/fahua/` 已於 2026-11-02 依作者指示上線兩站，並列入孵化區（weishi 之後）；
+  往後改版仍要作者說「發布／上線」才動兩站。
 
 ## 5. 文件
 

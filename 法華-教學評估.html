@@ -127,9 +127,16 @@
   footer li{margin-bottom:6px}
   .endmark{text-align:center;color:var(--accent);letter-spacing:.8em;margin:56px 0 0;font-size:13px}
 
+  /* ---------- top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:90;background:rgba(246,241,231,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .tb-inner{max-width:1020px;margin:0 auto;padding:0 52px;height:46px;display:flex;align-items:center;justify-content:space-between;font:600 13px/1.2 "Noto Sans TC","Source Han Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+  .tb-inner a{color:var(--muted);border:0;text-decoration:none}
+  #simToggle{color:var(--accent);border:1px solid rgba(140,59,44,.35);padding:3px 10px;border-radius:2px}
+
   @media screen and (max-width:780px){
     body{font-size:16px;line-height:1.9}
     .page{padding:0 22px 64px}
+    .tb-inner{padding:0 22px}
     .cover{padding-top:58px}
     .cover h1{font-size:34px}
     .cover .sub{font-size:17.5px}
@@ -169,6 +176,12 @@
 </style>
 </head>
 <body>
+
+<div class="topbar"><div class="tb-inner">
+  <a href="index.html">← 法華合注</a>
+  <a href="#" id="simToggle" aria-label="切換繁體／簡體">简体</a>
+</div></div>
+
 <div class="page">
 
 <!-- ============ COVER ============ -->

@@ -60,9 +60,8 @@ foreach ($line in $entries) {
   Write-Output ("blob {0} {1}" -f $path, $blob.sha.Substring(0, 8))
 }
 
-# 2) tree（以現有 commit 的 tree 為基底）
-$baseTree = (Invoke-RestMethod -Uri "$api/git/commits/$baseCommit" -Headers $headers -TimeoutSec 60).tree.sha
-$newTree = PostJson "$api/git/trees" @{ base_tree = $baseTree; tree = $tree }
+# 2) tree（完整樹：刪掉的檔案不會留在遠端）
+$newTree = PostJson "$api/git/trees" @{ tree = $tree }
 Write-Output "tree $($newTree.sha)"
 
 # 3) commit

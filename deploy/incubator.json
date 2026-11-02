@@ -1,0 +1,18 @@
+{
+  "id": "fahua",
+  "title": "法華合注",
+  "subtitle": "二十八品 · 二十六家注 · 三種漢譯 · 梵漢詞典",
+  "status": "incubating",
+  "owner": "sdp",
+  "since": "2026-11",
+  "url": "/fahua/",
+  "desc": "《妙法蓮華經》2,848 句、二十六家注疏 547 萬字：夾註三家 84–89% 可逐句錨定，隋唐注疏走品與詞；接辛嶋靜志梵漢詞典 5,765 條。附法師版教學評估與護持版邀請。",
+  "why": "第一版只做教學層與實測，注疏與梵漢層還在長；先放評估與邀請，收集法師回饋。",
+  "meta": "純靜態 · 主站簡體／鏡像繁體",
+  "links": [
+    { "label": "法師版", "href": "/fahua/teacher.html" },
+    { "label": "護持版", "href": "/fahua/donor.html" },
+    { "label": "實測", "href": "/fahua/measure.html" }
+  ],
+  "path": "/var/www/html/fahua"
+}

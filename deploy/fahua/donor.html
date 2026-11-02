@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238c3b2c'/%3E%3C/svg%3E">
-<title>一句经文，二十六家注｜法华合注 · 一封邀请</title>
-<meta name="description" content="法华合注护持版：一品备课从 60 小时降到 14 小时；二十八品 1,680 小时变 404 小时。七卷二十八品、三种汉译、二十六家注疏。把苦功夫交给 AI，把学问留给老师。">
-<meta property="og:title" content="一句经文，二十六家注">
-<meta property="og:description" content="过去备一品要六十小时，现在十四小时。法华合注，七卷二十八品的教学层。">
+<title>一句經文，二十六家注｜法華合注 · 一封邀請</title>
+<meta name="description" content="法華合注護持版：一品備課從 60 小時降到 14 小時；二十八品 1,680 小時變 404 小時。七卷二十八品、三種漢譯、二十六家注疏。把苦功夫交給 AI，把學問留給老師。">
+<meta property="og:title" content="一句經文，二十六家注">
+<meta property="og:description" content="過去備一品要六十小時，現在十四小時。法華合注，七卷二十八品的教學層。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://shutonggui.cn/fahua/donor.html">
 <meta property="og:image" content="https://shutonggui.cn/fahua/cover.jpg">
@@ -19,12 +19,14 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{background:var(--paper);-webkit-text-size-adjust:100%}
-  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","Source Han Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:860px;margin:0 auto;padding:0 22px 64px}
-  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0 0}
+  .top{position:sticky;top:0;z-index:80;background:rgba(246,241,231,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(6px);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0}
   .kicker{font-size:12px;letter-spacing:.22em;color:var(--accent);font-weight:800}
   .home{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+  .tb-r{display:flex;align-items:center;gap:16px}
+  #simToggle{color:var(--accent)!important;border:1px solid rgba(140,59,44,.35)!important;padding:2px 10px;border-radius:2px;font-weight:700}
   header.hero{padding:26px 0 30px;border-bottom:3px solid var(--ink)}
   h1{font-size:clamp(44px,9vw,72px);line-height:1.12;font-weight:900;letter-spacing:.01em;margin:10px 0 0}
   .lead{font-size:clamp(22px,4vw,30px);line-height:1.7;font-weight:700;margin-top:16px}
@@ -124,195 +126,207 @@
     .bar-row{grid-template-columns:56px 1fr 40px}
   }
 </style>
-<link rel="alternate" hreflang="zh-Hans" href="https://shutonggui.cn/fahua/donor.html">
-<link rel="alternate" hreflang="zh-Hant" href="https://nissaya.cn/fahua/donor-hant.html">
-<link rel="alternate" hreflang="x-default" href="https://shutonggui.cn/fahua/donor.html">
-<!--lang-switch-->
-<script>
-/* 主站 shutonggui.cn 缺省簡體、鏡像 nissaya.cn 缺省繁體；右下角按鈕可無損切換，選擇記在 cookie */
-(function () {
-  if (location.protocol === 'file:') return;
-  var host = location.hostname.replace(/^www\./, '');
-  var m = document.cookie.match(/(?:^|;\s*)fahua-lang=(zh-Hans|zh-Hant)/);
-  var want = m ? m[1] : (/(^|\.)nissaya\.cn$/.test(host) ? 'zh-Hant' : 'zh-Hans');
-  var path = location.pathname;
-  var isHant = /-hant\.html$/.test(path);
-  var other;
-  if (isHant) {
-    other = path.replace(/-hant\.html$/, '.html');
-  } else if (/\/$/.test(path)) {
-    other = path + 'index-hant.html';
-  } else if (/\/index\.html$/.test(path)) {
-    other = path.replace(/index\.html$/, 'index-hant.html');
-  } else {
-    other = path.replace(/\.html$/, '-hant.html');
-  }
-  if (want === 'zh-Hant' && !isHant) location.replace(other + location.search + location.hash);
-  else if (want === 'zh-Hans' && isHant) location.replace(other + location.search + location.hash);
-})();
-</script>
-<!--/lang-switch-->
 </head>
-<body>
+<body style="visibility:hidden">
 <div class="wrap">
 
   <div class="top">
-    <span class="kicker">法华合注 · 一封邀请</span>
-    <a class="home" href="teacher.html">法师版 →</a>
+    <span class="kicker">法華合注 · 一封邀請</span>
+    <span class="tb-r">
+      <a class="home" href="teacher.html">法師版 →</a>
+      <a href="#" id="simToggle" aria-label="切換繁體／簡體">简体</a>
+    </span>
   </div>
 
   <header class="hero">
-    <h1>一句经文，<br>二十六家注。</h1>
-    <p class="lead">过去备一品，要 <b>六十小时</b>；<br>现在，<b>十四小时</b>。</p>
-    <p class="note">不是 AI 读懂了佛经。是我们把“找、对、核、排”交给了管线。</p>
+    <h1>一句經文，<br>二十六家注。</h1>
+    <p class="lead">過去備一品，要 <b>六十小時</b>；<br>現在，<b>十四小時</b>。</p>
+    <p class="note">不是 AI 讀懂了佛經。是我們把「找、對、核、排」交給了管線。</p>
     <div class="stats">
-      <div class="stat"><b>89%</b><span>《科注》的句子<br>可逐句锚定</span></div>
-      <div class="stat"><b>60h→14h</b><span>一品的备课<br>从一周半到两天</span></div>
-      <div class="stat"><b>4.2×</b><span>二十八品的<br>工时比</span></div>
+      <div class="stat"><b>89%</b><span>《科註》的句子<br>可逐句錨定</span></div>
+      <div class="stat"><b>60h→14h</b><span>一品的備課<br>從一週半到兩天</span></div>
+      <div class="stat"><b>4.2×</b><span>二十八品的<br>工時比</span></div>
     </div>
   </header>
 
   <section>
-    <div class="sec-head"><span class="sec-no">01</span><h2>法华的难，不在找注，在对读</h2></div>
-    <div class="sec-lead">备一品 60 小时，50 小时在搬书与对书。</div>
+    <div class="sec-head"><span class="sec-no">01</span><h2>法華的難，不在找注，在對讀</h2></div>
+    <div class="sec-lead">備一品 60 小時，50 小時在搬書與對書。</div>
     <div class="bar-row"><div class="bar-label">找注</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
-    <div class="bar-row"><div class="bar-label">对读三译</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-val">25%</div></div>
-    <div class="bar-row"><div class="bar-label">查梵汉</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
+    <div class="bar-row"><div class="bar-label">對讀三譯</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-val">25%</div></div>
+    <div class="bar-row"><div class="bar-label">查梵漢</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
     <div class="bar-row"><div class="bar-label">核引文</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">20%</div></div>
     <div class="bar-row"><div class="bar-label">排版</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="bar-val">15%</div></div>
-    <div class="quote">做好了，读者看不出来；<br>做不好，整堂课失焦。
-      <small>同一句经文，罗什、竺法护、阇那崛多三个译本怎么说；这一句在《文句》《玄赞》《义疏》里落在哪里；“阿耨多罗三藐三菩提”的梵语对应是哪一条。这些劳动不产生洞见，只消耗注意力。</small>
+    <div class="quote">做好了，讀者看不出來；<br>做不好，整堂課失焦。
+      <small>同一句經文，羅什、竺法護、闍那崛多三個譯本怎麼說；這一句在《文句》《玄贊》《義疏》裡落在哪裡；「阿耨多羅三藐三菩提」的梵語對應是哪一條。這些勞動不產生洞見，只消耗注意力。</small>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-no">02</span><h2>三层索引：句、品、词</h2></div>
-    <div class="sec-lead">材料有三种形状，就用三种索引。</div>
+    <div class="sec-head"><span class="sec-no">02</span><h2>三層索引：句、品、詞</h2></div>
+    <div class="sec-lead">材料有三種形狀，就用三種索引。</div>
     <div class="steps">
-      <div class="step"><b>1 取文本</b><span>CBETA 大正藏、卍续藏，保留页码与品次</span></div>
-      <div class="step"><b>2 切句</b><span>《妙法莲华经》切成 2,848 句</span></div>
-      <div class="step"><b>3 对齐</b><span>句看夹注、品看二十六家、词看辛嶋</span></div>
-      <div class="step"><b>4 呈现</b><span>点句看注、点品看众说、点词看梵汉</span></div>
+      <div class="step"><b>1 取文本</b><span>CBETA 大正藏、卍續藏，保留頁碼與品次</span></div>
+      <div class="step"><b>2 切句</b><span>《妙法蓮華經》切成 2,848 句</span></div>
+      <div class="step"><b>3 對齊</b><span>句看夾註、品看二十六家、詞看辛嶋</span></div>
+      <div class="step"><b>4 呈現</b><span>點句看注、點品看眾說、點詞看梵漢</span></div>
     </div>
     <div class="nums">
-      <div class="num"><b>2,848</b><span>《妙法莲华经》句数</span></div>
-      <div class="num"><b>28</b><span>品，天然的分节骨架</span></div>
-      <div class="num"><b>26</b><span>家注疏，547 万字</span></div>
+      <div class="num"><b>2,848</b><span>《妙法蓮華經》句數</span></div>
+      <div class="num"><b>28</b><span>品，天然的分節骨架</span></div>
+      <div class="num"><b>26</b><span>家注疏，547 萬字</span></div>
     </div>
     <div class="cov">
-      <div class="cov-row"><div class="cov-name">科注</div><div class="cov-track"><div class="cov-fill" style="width:89%"></div></div><div class="cov-val">89%</div></div>
-      <div class="cov-row"><div class="cov-name">会义</div><div class="cov-track"><div class="cov-fill" style="width:89%"></div></div><div class="cov-val">89%</div></div>
-      <div class="cov-row"><div class="cov-name">演义</div><div class="cov-track"><div class="cov-fill" style="width:84%"></div></div><div class="cov-val">84%</div></div>
-      <div class="cov-row"><div class="cov-name">义记</div><div class="cov-track"><div class="cov-fill" style="width:9%"></div></div><div class="cov-val">9%</div></div>
-      <div class="cov-row"><div class="cov-name">义疏</div><div class="cov-track"><div class="cov-fill" style="width:8.5%"></div></div><div class="cov-val">8.5%</div></div>
-      <div class="cov-row"><div class="cov-name">玄赞</div><div class="cov-track"><div class="cov-fill" style="width:5.3%"></div></div><div class="cov-val">5.3%</div></div>
+      <div class="cov-row"><div class="cov-name">科註</div><div class="cov-track"><div class="cov-fill" style="width:89%"></div></div><div class="cov-val">89%</div></div>
+      <div class="cov-row"><div class="cov-name">會義</div><div class="cov-track"><div class="cov-fill" style="width:89%"></div></div><div class="cov-val">89%</div></div>
+      <div class="cov-row"><div class="cov-name">演義</div><div class="cov-track"><div class="cov-fill" style="width:84%"></div></div><div class="cov-val">84%</div></div>
+      <div class="cov-row"><div class="cov-name">義記</div><div class="cov-track"><div class="cov-fill" style="width:9%"></div></div><div class="cov-val">9%</div></div>
+      <div class="cov-row"><div class="cov-name">義疏</div><div class="cov-track"><div class="cov-fill" style="width:8.5%"></div></div><div class="cov-val">8.5%</div></div>
+      <div class="cov-row"><div class="cov-name">玄贊</div><div class="cov-track"><div class="cov-fill" style="width:5.3%"></div></div><div class="cov-val">5.3%</div></div>
     </div>
-    <p style="margin-top:12px">夹注体（科注、会义、演义）把经文整句抄进注，逐句可用；隋唐逐句释（义记、义疏、玄赞）引的是词，走品与词。二十六家几乎每一部都 28/28 品有注。</p>
+    <p style="margin-top:12px">夾註體（科註、會義、演義）把經文整句抄進註，逐句可用；隋唐逐句釋（義記、義疏、玄贊）引的是詞，走品與詞。二十六家幾乎每一部都 28/28 品有注。</p>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-no">03</span><h2>省下来的，是思考的时间</h2></div>
-    <div class="sec-lead">同一品课，60 小时变成 14 小时。</div>
-    <div class="ba-row"><div class="ba-label">现在</div><div class="ba-track"><div class="seg mech" style="flex:50">机械 50h</div><div class="seg think" style="flex:10">思考 10h</div></div><div class="ba-total">60h</div></div>
-    <div class="ba-row"><div class="ba-label">平台</div><div class="ba-track"><div class="seg mech" style="flex:4">4h</div><div class="seg think" style="flex:10">思考 10h</div></div><div class="ba-total">14h</div></div>
+    <div class="sec-head"><span class="sec-no">03</span><h2>省下來的，是思考的時間</h2></div>
+    <div class="sec-lead">同一品課，60 小時變成 14 小時。</div>
+    <div class="ba-row"><div class="ba-label">現在</div><div class="ba-track"><div class="seg mech" style="flex:50">機械 50h</div><div class="seg think" style="flex:10">思考 10h</div></div><div class="ba-total">60h</div></div>
+    <div class="ba-row"><div class="ba-label">平臺</div><div class="ba-track"><div class="seg mech" style="flex:4">4h</div><div class="seg think" style="flex:10">思考 10h</div></div><div class="ba-total">14h</div></div>
     <div class="nums">
-      <div class="num"><b>50h→4h</b><span>机械劳动</span></div>
-      <div class="num"><b>10h→10h</b><span>思考与设计</span></div>
-      <div class="num"><b>17%→71%</b><span>思考占比</span></div>
+      <div class="num"><b>50h→4h</b><span>機械勞動</span></div>
+      <div class="num"><b>10h→10h</b><span>思考與設計</span></div>
+      <div class="num"><b>17%→71%</b><span>思考佔比</span></div>
     </div>
-    <div class="quote">省下来的时间不会自动变成学问；<br>但它至少让学问有时间发生。
-      <small>46 小时里，思考没有变少，反而更从容；其余回到生活、别的课、或学生。</small>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head"><span class="sec-no">04</span><h2>这不是“用 AI 读经”</h2></div>
-    <div class="sec-lead">AI 是利器，学问是主体。</div>
-    <div class="point"><div class="dot"></div><div><b>核心是文字对齐，不是生成</b><span>滚动杂凑＋单调链，可重现、可检查、不会幻觉。</span></div></div>
-    <div class="point"><div class="dot"></div><div><b>生成式只做草稿</b><span>讲义初稿、白话改写，必须由老师审。</span></div></div>
-    <div class="point"><div class="dot"></div><div><b>梵汉对照不是译经</b><span>辛嶋词典给对应与用例，不给“这一句该怎么译”。</span></div></div>
-    <div class="point"><div class="dot"></div><div><b>判断、取舍、连结，仍然是老师</b><span>二十六家注，课堂只讲三家；选哪三家，是教学。</span></div></div>
-    <div class="bigline">机器负责“都在这里”，<br>老师负责“为什么是这一个”。
-      <small>这是基础设施与教育的分工。</small>
+    <div class="quote">省下來的時間不會自動變成學問；<br>但它至少讓學問有時間發生。
+      <small>46 小時裡，思考沒有變少，反而更從容；其餘回到生活、別的課、或學生。</small>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-no">05</span><h2>规模，才让这件事成立</h2></div>
-    <div class="sec-lead">单品，手工就好；<br>十三品以上，管线才划算。</div>
-    <div class="scale-row"><div class="scale-k">1 品</div><div class="scale-v">工时 60 对 14，<b>管线赢</b>；现金 ¥0.65 万 对 ¥7.2 万，管线反而贵——固定成本还没摊开。</div></div>
-    <div class="scale-row"><div class="scale-k">13 品</div><div class="scale-v">打平；之后每多一品，管线多赚 <b>¥5,450</b>。</div></div>
-    <div class="scale-row"><div class="scale-k">28 品</div><div class="scale-v"><b>1,680h → 404h</b>；人工是管线的 4.2 倍。</div></div>
-    <div class="scale-row"><div class="scale-k">第二部典籍</div><div class="scale-v">同一个架构，固定成本降到<b>约三分之一</b>。</div></div>
-    <div class="bigline">做一条可以长到二十八品、<br>再长到第二部典籍的管线。
-      <small>不是做一个网站，是做一套可以反复使用的基础设施。</small>
+    <div class="sec-head"><span class="sec-no">04</span><h2>這不是「用 AI 讀經」</h2></div>
+    <div class="sec-lead">AI 是利器，學問是主體。</div>
+    <div class="point"><div class="dot"></div><div><b>核心是文字對齊，不是生成</b><span>滾動雜湊＋單調鏈，可重現、可檢查、不會幻覺。</span></div></div>
+    <div class="point"><div class="dot"></div><div><b>生成式只做草稿</b><span>講義初稿、白話改寫，必須由老師審。</span></div></div>
+    <div class="point"><div class="dot"></div><div><b>梵漢對照不是譯經</b><span>辛嶋詞典給對應與用例，不給「這一句該怎麼譯」。</span></div></div>
+    <div class="point"><div class="dot"></div><div><b>判斷、取捨、連結，仍然是老師</b><span>二十六家注，課堂只講三家；選哪三家，是教學。</span></div></div>
+    <div class="bigline">機器負責「都在這裡」，<br>老師負責「為什麼是這一個」。
+      <small>這是基礎設施與教育的分工。</small>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-no">06</span><h2>我们在建什么</h2></div>
-    <div class="sec-lead">法华合注，七卷二十八品。</div>
-    <p><b>28 品 × 26 家注 × 3 种汉译 × 2 部梵汉词典。</b><br>离线、手机、投影、页码回查、讲义输出；一品课，一个文件。</p>
-    <p><b>吸收法鼓山 SDP：</b>梵汉藏英对读、九种梵本校订、<br>品名差异、写本对照。<br>不重做，先谈合作，只做教学层——研究在法鼓山，教学在我们。</p>
-    <div class="quote" style="border-left-color:var(--teal)">下一站：维摩诘经 → 大般涅槃经 → 般若经。</div>
+    <div class="sec-head"><span class="sec-no">05</span><h2>規模，才讓這件事成立</h2></div>
+    <div class="sec-lead">單品，手工就好；<br>十三品以上，管線才划算。</div>
+    <div class="scale-row"><div class="scale-k">1 品</div><div class="scale-v">工時 60 對 14，<b>管線贏</b>；現金 ¥0.65 萬 對 ¥7.2 萬，管線反而貴——固定成本還沒攤開。</div></div>
+    <div class="scale-row"><div class="scale-k">13 品</div><div class="scale-v">打平；之後每多一品，管線多賺 <b>¥5,450</b>。</div></div>
+    <div class="scale-row"><div class="scale-k">28 品</div><div class="scale-v"><b>1,680h → 404h</b>；人工是管線的 4.2 倍。</div></div>
+    <div class="scale-row"><div class="scale-k">第二部典籍</div><div class="scale-v">同一個架構，固定成本降到<b>約三分之一</b>。</div></div>
+    <div class="bigline">做一條可以長到二十八品、<br>再長到第二部典籍的管線。
+      <small>不是做一個網站，是做一套可以反覆使用的基礎設施。</small>
+    </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-no">07</span><h2>邀请你，一起把这件事做成</h2></div>
-    <div class="sec-lead">AI 是这一代人的利器。我们想用它，把佛学研究做成一个<span style="color:var(--accent)">盛世</span>——不是更多的论文，是更好的课堂、更深的合注、更亮的灯。</div>
+    <div class="sec-head"><span class="sec-no">06</span><h2>我們在建什麼</h2></div>
+    <div class="sec-lead">法華合注，七卷二十八品。</div>
+    <p><b>28 品 × 26 家注 × 3 種漢譯 × 2 部梵漢詞典。</b><br>離線、手機、投影、頁碼回查、講義輸出；一品課，一個文件。</p>
+    <p><b>吸收法鼓山 SDP：</b>梵漢藏英對讀、九種梵本校訂、<br>品名差異、寫本對照。<br>不重做，先談合作，只做教學層——研究在法鼓山，教學在我們。</p>
+    <div class="quote" style="border-left-color:var(--teal)">下一站：維摩詰經 → 大般涅槃經 → 般若經。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">07</span><h2>邀請你，一起把這件事做成</h2></div>
+    <div class="sec-lead">AI 是這一代人的利器。我們想用它，把佛學研究做成一個<span style="color:var(--accent)">盛世</span>——不是更多的論文，是更好的課堂、更深的合注、更亮的燈。</div>
     <div class="asks">
-      <div class="ask"><b>佛学院老师</b><span>试用一学期，给我们 20 个备课案例</span></div>
-      <div class="ask"><b>道场与课堂</b><span>把下一门法华课搬上来</span></div>
-      <div class="ask"><b>校勘 / 梵汉 / 编程</b><span>一起把 26 家补齐</span></div>
-      <div class="ask"><b>支持者</b><span>让管线长到二十八品，再长到第二部典籍</span></div>
+      <div class="ask"><b>佛學院老師</b><span>試用一學期，給我們 20 個備課案例</span></div>
+      <div class="ask"><b>道場與課堂</b><span>把下一門法華課搬上來</span></div>
+      <div class="ask"><b>校勘 / 梵漢 / 編程</b><span>一起把 26 家補齊</span></div>
+      <div class="ask"><b>支持者</b><span>讓管線長到二十八品，再長到第二部典籍</span></div>
     </div>
     <div class="cta">
-      <div class="k">如果这件事值得</div>
-      <h3>把这张图，转给一位<br>佛学院老师。</h3>
-      <p>让下一部合注，<b>不再花十年</b>。</p>
-      <a class="btn" href="fahua-long.jpg" download>下载长图</a>
+      <div class="k">如果這件事值得</div>
+      <h3>把這張圖，轉給一位<br>佛學院老師。</h3>
+      <p>讓下一部合注，<b>不再花十年</b>。</p>
+      <a class="btn" href="fahua-long-hant.jpg" data-sim="fahua-long.jpg" data-trad="fahua-long-hant.jpg" download>下載長圖</a>
     </div>
     <details class="preview">
-      <summary>长图预览（点击展开，适合微信转发）</summary>
-      <img src="fahua-long.jpg" alt="法华合注邀请长图：一句经文，二十六家注" loading="lazy">
+      <summary>長圖預覽（點擊展開，適合微信轉發）</summary>
+      <img src="fahua-long-hant.jpg" data-sim="fahua-long.jpg" data-trad="fahua-long-hant.jpg" alt="法華合注邀請長圖：一句經文，二十六家注" loading="lazy">
     </details>
   </section>
 
   <footer>
-    <b>法华合注</b> · 2026 · 七卷二十八品的教学层<br>
-    数据：CBETA 大正藏／卍续藏；梵汉词典：辛嶋静志（DILA 数位版，CC BY-SA 3.0）；法鼓山 SDP 为研究层参照。<br>
-    数字为模型估算，方法见 <a href="teacher.html" style="border-bottom:1px solid var(--line)">《法华合注·教学评估》</a>。
-    <div class="end">AI 是利器，学问是主体。</div>
+    <b>法華合注</b> · 2026 · 七卷二十八品的教學層<br>
+    數據：CBETA 大正藏／卍續藏；梵漢詞典：辛嶋靜志（DILA 數位版，CC BY-SA 3.0）；法鼓山 SDP 為研究層參照。<br>
+    數字為模型估算，方法見 <a href="teacher.html" style="border-bottom:1px solid var(--line)">《法華合注·教學評估》</a>。
+    <div class="end">AI 是利器，學問是主體。</div>
   </footer>
 
 </div>
-<!--lang-toggle-->
-<a id="lang-toggle" href="#" hidden
-   style="position:fixed;right:14px;bottom:14px;z-index:60;background:var(--card,#fffdf8);color:var(--accent,#8c3b2c);border:1px solid var(--line,#ddd0bc);font:600 13px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;padding:9px 12px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.14)">简</a>
+
+<noscript><style>body{visibility:visible!important}</style></noscript>
 <script>
+/* 無損簡體：詞表內嵌，不連外；主站缺省簡體、鏡像缺省繁體，切換記在 localStorage */
 (function () {
-  var btn = document.getElementById('lang-toggle');
-  if (!btn) return;
-  var path = location.pathname;
-  var isHant = /-hant\.html$/.test(path);
-  var other, otherLang;
-  if (isHant) {
-    other = path.replace(/-hant\.html$/, '.html'); otherLang = 'zh-Hans';
-  } else if (/\/$/.test(path)) {
-    other = path + 'index-hant.html'; otherLang = 'zh-Hant';
-  } else if (/\/index\.html$/.test(path)) {
-    other = path.replace(/index\.html$/, 'index-hant.html'); otherLang = 'zh-Hant';
-  } else {
-    other = path.replace(/\.html$/, '-hant.html'); otherLang = 'zh-Hant';
+  var P = "傌㐷㑶㐹偑㐽㑳㑇倲㑈㑯㑔儸㑩儁俊劏㓥㓨刾劚㔉噚㖊喎㖞㘚㘎㜄㚯媰㛀㜏㛣孋㛤寯㝦㠏㟆嵾㟥幓㡎懧㤖㥮㤘懤㤽慺㥪掆㧏㩳㧐撝㧑擥㧛擓㧟擽㧰㩜㨫㩵擜棡㭎椲㭏樢㭤樫㭴殰㱩殨㱮瀇㲿濧㳔澾㳠濄㳡潚㴋鸂㶉燶㶶煱㶽獱㺍璯㻅㻽㻪䁻䀥瞜䁖碽䂵磾䃅䃮鿎稏䅉穇䅟筴䇲籔䉤䊷䌶䋙䌺䋚䌻䋹䌿䋻䌾紬䌷縳䌸絅䌹綐䌼綵彩繿䍀繸䍁䎱䎬膞䏝臇䐪膋䒿薵䓓薳䓕藭䓖罃䓨螮䗖䙡䙌䙰褵譼䛓䜀䜧訢䜣鿁䜤讌䜩貙䝙䝼䞍賰䞐躎䟢䥇䦂䥑鿏䥱䥾釾䥺鏺䥽鐯䦃鐥䦅钁镢䦛䦶䦟䦷靦腼䯀䯅騧䯄䰾鲃䱷䲣䱽䲝䲁鳚䲘鳤鮣䲟鰆䲠鰌䲡鰧䲢鿐䲤䴉鹮鳾䴓鵁䴔鴷䴕鶄䴖鶪䴗鸊䴙龑䶮萬万與与醜丑專专業业叢丛東东絲丝丟丢兩两嚴严喪丧個个豐丰臨临為为爲为麗丽舉举義义烏乌樂乐喬乔習习鄉乡書书亂乱爭争虧亏亞亚畝亩親亲褻亵嚲亸億亿僅仅從从侖仑倉仓儀仪們们價价眾众衆众優优夥伙會会傴伛傘伞偉伟傳传俥伡俔伣傷伤倀伥倫伦傖伧佇伫體体傭佣僉佥來来俠侠侶侣僥侥偵侦側侧僑侨儈侩儕侪儂侬俁俣儔俦儼俨倆俩儷俪倈俫儉俭債债傾倾傯偬僂偻僨偾償偿傑杰備备傢家儻傥儐傧儲储儺傩兒儿剋克兌兑兗兖黨党內内關关興兴茲兹養养獸兽囅冁岡冈冊册寫写軍军農农冪幂鼕冬馮冯決决況况凍冻凈净涼凉減减湊凑凜凛鳳凤憑凭凱凯擊击鑿凿芻刍劉刘則则剛刚創创刪删剗刬剄刭颳刮剎刹劊刽劌刿剴剀劑剂剮剐劍剑剝剥劇剧勸劝辦办務务勱劢動动勵励勁劲勞劳勢势勛勋勩勚勝胜勻匀匭匦匱匮區区醫医華华協协單单賣卖盧卢衛卫卻却廠厂廳厅曆历歷历厲厉壓压厭厌厙厍龎厐厠厕廁厕廂厢厴厣廈厦廚厨廄厩廝厮縣县叄叁參参靉叆靆叇雙双變变敘叙疊叠葉叶號号嘆叹嘰叽籲吁衕同吒咤嚇吓呂吕嗎吗唚吣噸吨聽听啓启啟启吳吴吶呐嘸呒囈呓嘔呕嚦呖唄呗員员咼呙嗆呛嗚呜詠咏嚨咙嚀咛噝咝響响啞哑噠哒嘵哓嗶哔噦哕嘩哗噲哙嚌哜噥哝喲哟嘜唛嗊唝嘮唠啢唡嗩唢喚唤問问嘖啧嗇啬囀啭嚙啮嘓啯囉啰嘽啴嘯啸噴喷嘍喽嚳喾囁嗫噯嗳嘗尝噓嘘嚶嘤囑嘱嚕噜囂嚣迴回囪囱園园圍围圇囵國国圖图圓圆聖圣壙圹場场壞坏塊块堅坚壢坜垻坝壩坝塢坞墳坟墜坠壟垄壠垅壚垆壘垒墾垦堊垩墊垫埡垭墶垯壋垱塏垲堖垴塒埘塤埙堝埚執执塹堑墮堕堯尧報报壪塆塋茔塵尘墻墙牆墙壯壮聲声殻壳殼壳壺壶壼壸壽寿處处夠够夢梦頭头夾夹奪夺奩奁奐奂奮奋獎奖奧奥姦奸奼姹妝妆婦妇媽妈嫵妩嫗妪媯妫嬀妫姍姗婁娄婭娅嬈娆嬌娇孌娈娛娱媧娲嫻娴嫿婳嬰婴嬋婵嬸婶媼媪嬃媭嬡嫒嬪嫔嬙嫱嬤嬷孫孙學学孿孪寧宁寶宝實实寵宠審审憲宪宮宫寬宽賓宾寢寝對对尋寻導导將将爾尔尷尴屍尸層层屓屃屆届屜屉屬属屢屡屨屦嶼屿歲岁豈岂嶇岖崗岗峴岘嶴岙嵐岚島岛嶺岭崬岽巋岿嶨峃嶧峄峽峡嶢峣嶠峤崢峥巒峦嶗崂崍崃嶮崄嶄崭嶸嵘嶔嵚嶁嵝巔巅鞏巩巰巯幣币帥帅師师幃帏帳帐簾帘幟帜帶带幀帧幫帮幬帱幘帻幗帼廣广莊庄慶庆廬庐廡庑庫库應应廟庙龐庞廢废廎庼廩廪異异棄弃弒弑張张弳弪彎弯強强彈弹歸归録录彞彝彠彟彥彦彲彨徹彻徑径徠徕憶忆懺忏憂忧愾忾懷怀態态慫怂憮怃慪怄悵怅愴怆憐怜總总懟怼懌怿恆恒戀恋恥耻懇恳慟恸懨恹愷恺惻恻惱恼惲恽悅悦悞悮懸悬慳悭憫悯悶闷驚惊懼惧慘惨懲惩憊惫愜惬慚惭憚惮慣惯愛爱慍愠憤愤憒愦慄栗懾慑憖慭慮虑懍懔懣懑懶懒戇戆戔戋戲戏戧戗戩戬戱戯戶户纔才撲扑擴扩捫扪掃扫揚扬擾扰撫抚拋抛摶抟摳抠掄抡搶抢護护擔担擬拟攏拢揀拣擁拥攔拦擰拧撥拨擇择掛挂摯挚攣挛掗挜撾挝撻挞挾挟撓挠擋挡撟挢掙挣擠挤揮挥撏挦挩捝撈捞損损撿捡換换搗捣據据擄掳摑掴擲掷撣掸摻掺摜掼攬揽搵揾撳揿攙搀擱搁摟搂攪搅搖摇攜携攝摄攄摅擯摈攤摊攖撄撐撑攆撵擷撷擼撸攛撺擻擞攢攒敵敌敗败斂敛斆敩數数斃毙齋斋斕斓鬥斗斬斩斷断無无舊旧時时曠旷暘旸曇昙晝昼曨昽顯显晉晋曬晒曉晓曄晔暈晕暉晖暫暂暢畅曖暧朧胧樸朴機机殺杀雜杂權权桿杆條条楊杨榪杩極极構构樅枞樞枢棗枣櫪枥梘枧棖枨槍枪楓枫梟枭櫃柜檸柠柵栅檉柽梔栀標标棧栈櫛栉櫳栊棟栋櫨栌櫟栎欄栏樹树棲栖樣样欒栾椏桠橈桡楨桢檔档榿桤橋桥樺桦檜桧槳桨樁桩樳桪梲棁檮梼棶梾槤梿檢检欞棂槨椁槼椝櫝椟槧椠槶椢欏椤樿椫橢椭槮椮樓楼欖榄榲榅櫬榇櫚榈櫸榉榮荣檟槚檻槛檳槟櫧槠橫横檣樯櫻樱櫫橥櫥橱櫓橹櫞橼檁檩櫱蘖歡欢歟欤歐欧欽钦殲歼歿殁殤殇殘残殞殒殮殓殫殚殯殡毆殴毀毁轂毂畢毕毿毵氂牦氌氇氣气氫氢氬氩氳氲漢汉湯汤洶汹澐沄沒没溝沟灃沣漚沤瀝沥淪沦滄沧渢沨溈沩潙沩滬沪濘泞淚泪澩泶瀧泷瀘泸濼泺瀉泻潑泼澤泽涇泾潔洁灑洒窪洼浹浃淺浅漿浆澆浇湞浈溮浉濁浊測测澮浍濟济瀏浏滻浐渾浑滸浒濃浓潯浔濜浕濤涛澇涝淶涞漣涟潿涠渦涡溳涢渙涣滌涤潤润澗涧漲涨澀涩澱淀淥渌淵渊漬渍瀆渎漸渐澠渑漁渔滲渗溫温灣湾濕湿濚溁潰溃濺溅漵溆漊溇滅灭滎荥潷滗滾滚滯滞灧滟灄滠滿满瀅滢濾滤濫滥灤滦濱滨灘滩澦滪灕漓潁颍瀠潆瀟潇瀲潋濰潍潛潜瀦潴瀂澛瀾澜瀨濑瀕濒灝灏燈灯靈灵竈灶災灾燦灿煬炀爐炉煒炜熗炝點点煉炼熾炽爍烁爛烂烴烃燭烛煙烟煩烦燒烧燁烨燴烩燙烫燼烬熱热煥焕燜焖燾焘煢茕熅煴熒荧熲颎營营爺爷牘牍牽牵犧牺犢犊犖荦狀状獷犷獁犸猶犹狽狈獮狝獰狞獨独狹狭獅狮獪狯猙狰獄狱猻狲獫猃獵猎獼猕玀猡豬猪貓猫蝟猬獻献獺獭璣玑璵玙瑒玚瑪玛瑋玮環环現现瑲玱璽玺琺珐瓏珑璫珰琿珲璡琎璉琏瑣琐瓊琼瑤瑶瑩莹璦瑷璸瑸瓔璎瓚瓒甌瓯電电畫画疇畴癤疖療疗瘧疟癘疠瘍疡癧疬瘲疭瘡疮瘋疯皰疱痾疴癥症癰痈痙痉癢痒瘂痖癆痨瘓痪癇痫癉瘅瘮瘆瘞瘗瘺瘘瘻瘘癟瘪癱瘫癮瘾癭瘿癩癞癬癣癲癫皚皑皺皱皸皲盞盏鹽盐監监蓋盖盜盗盤盘盪荡瞘眍眥眦矓眬睜睁睞睐瞼睑瞶瞆瞞瞒矚瞩矯矫磯矶礬矾礦矿碭砀碼码磚砖硨砗硯砚碸砜礪砺礱砻礫砾礎础硜硁碩硕硤硖磽硗磑硙礄硚確确磠硵礙碍磧碛磣碜禮礼禡祃禕祎禰祢禎祯禱祷禍祸祿禄稟禀禪禅離离禿秃稈秆秈籼種种積积稱称穢秽穠秾稅税穭稆穌稣穩稳穎颖穡穑窮穷竊窃竅窍窵窎窯窑竄窜窩窝窺窥竇窦窶窭竪竖豎竖競竞篤笃筍笋筆笔筧笕箋笺籠笼籩笾篳筚篩筛簹筜箏筝籌筹篔筼簡简籙箓簀箦篋箧籜箨籮箩簞箪簫箫節节範范簣篑簍篓籃篮籛篯籬篱籪簖籟籁糴籴類类糶粜糲粝粵粤糞粪糧粮糝糁糹纟糾纠紀纪紂纣約约紅红紆纡紇纥紈纨紉纫紋纹納纳紐纽紓纾純纯紕纰紖纼紗纱紘纮紙纸級级紛纷紜纭紝纴紡纺緊紧細细紱绂紲绁紳绅紵纻紹绍紺绀紼绋紿绐絀绌終终組组絆绊絎绗結结絕绝絝绔絞绞絡络絢绚給给絨绒絰绖統统絳绛絶绝縶絷絹绢綁绑綃绡綆绠綈绨綉绣綌绤綏绥經经綜综綞缍綢绸綣绻綫线綬绶維维綯绹綰绾綱纲網网綳绷綴缀綸纶綹绺綺绮綻绽綽绰綾绫綿绵緄绲緇缁緋绯緒绪緓绬緗缃緘缄緙缂線线緝缉緞缎締缔緡缗緣缘緦缌編编緩缓緬缅緯纬緱缑緲缈練练緶缏緹缇緻致縈萦縉缙縊缢縋缒縐绉縑缣縗缞縛缚縝缜縞缟縟缛縧绦縫缝縭缡縮缩縱纵縲缧縵缦縷缕縹缥績绩繃绷繅缫繆缪繒缯織织繕缮繚缭繞绕繡绣繢缋繩绳繪绘繭茧繮缰繯缳繰缲繳缴繹绎繼继繽缤繾缱纇颣纈缬纊纩續续纏缠纓缨纘缵纜缆韁缰缽钵罌罂羅罗罰罚罷罢羆罴羈羁羋芈羥羟翹翘翽翙翬翚耮耢耬耧聳耸聶聂聾聋職职聹聍聯联聞闻聵聩聰聪肅肃腸肠膚肤骯肮腎肾腫肿脹胀脅胁膽胆腖胨臚胪脛胫膠胶脈脉膾脍臍脐腦脑膿脓臠脔腳脚脫脱腡脶臉脸臘腊膕腘齶腭膩腻膃腽騰腾臏膑臢臜輿舆艤舣艦舰艙舱艫舻艱艰艷艳藝艺薌芗蕪芜蘆芦蓯苁葦苇藶苈莧苋萇苌蒼苍薴苧莖茎蘢茏蔦茑荊荆薦荐薘荙莢荚蕘荛蓽荜萴荝蕎荞薈荟薺荠蕩荡葷荤蕁荨藎荩蓀荪蔭荫蕒荬葒荭葤荮葯药藥药蒞莅萊莱蓮莲蒔莳萵莴薟莶蕕莸鶯莺蒓莼蓴莼蘀萚蘿萝螢萤蕭萧薩萨蔥葱蕆蒇蕢蒉蔣蒋蔞蒌醟蒏藍蓝薊蓟蘺蓠蕷蓣鎣蓥驀蓦虆蔂衊蔑薔蔷蘞蔹藺蔺藹蔼薀蕰蘄蕲藪薮蘚藓虜虏虛虚蟲虫虯虬蟣虮雖虽蝦虾蠆虿蝕蚀蟻蚁螞蚂蠁蚃蠶蚕蜆蚬蠱蛊蠣蛎蟶蛏蠻蛮蟄蛰蛺蛱蟯蛲螄蛳蠐蛴蛻蜕蝸蜗蠟蜡蠅蝇蟈蝈蟬蝉螻蝼蠑蝾螿螀蟎螨蠨蟏釁衅銜衔補补襯衬袞衮襖袄裊袅褘袆襪袜襲袭襏袯裝装襠裆褌裈褳裢襝裣褲裤襇裥褸褛襌褝襤褴襴襕見见覎觃規规覓觅視视覘觇覡觋覥觍覦觎覬觊覯觏覲觐覷觑覺觉覽览覿觌觀观觴觞觸触觶觯訁讠訂订訃讣計计訊讯訌讧討讨訐讦訒讱訓训訕讪訖讫託托記记誾訚訛讹訝讶訟讼訣诀訥讷訩讻訪访設设許许訴诉訶诃診诊詁诂詆诋詎讵詐诈詒诒詔诏評评詖诐詗诇詘诎詛诅詞词讋詟詡诩詢询詣诣試试詩诗詫诧詬诟詭诡詮诠詰诘話话該该詳详詵诜詼诙詿诖誄诔誅诛誆诓譽誉謄誊認认誑诳誒诶誕诞誘诱誚诮語语誠诚誡诫誣诬誤误誥诰誦诵誨诲說说説说誰谁課课誶谇誹诽誼谊調调諂谄諄谆談谈諉诿請请諍诤諏诹諑诼諒谅論论諗谂諛谀諜谍諝谞諞谝諢诨諤谔諦谛諧谐諫谏諭谕諮咨諱讳諳谙諶谌諷讽諸诸諺谚諼谖諾诺謀谋謁谒謂谓謅诌謊谎謎谜謐谧謔谑謖谡謗谤謙谦謚谥講讲謝谢謠谣謡谣謨谟謫谪謬谬謳讴謹谨謾谩證证譎谲譏讥譖谮識识譙谯譚谭譜谱譫谵譯译議议譴谴讀读讅谉讎雠讒谗讓让讕谰讖谶讜谠讞谳豶豮貝贝貞贞貟贠負负財财貢贡貧贫貨货販贩貪贪貫贯責责貯贮貰贳貲赀貳贰貴贵貶贬貸贷貺贶費费貼贴貽贻貿贸賀贺賁贲賂赂賃赁賄贿賅赅資资賈贾賊贼賑赈賒赊賕赇賙赒賚赉賜赐賞赏賠赔賡赓賢贤賤贱賦赋賧赕質质賫赍賭赌賴赖賵赗賺赚賻赙購购賽赛賾赜贄贽贅赘贇赟贈赠贊赞贋赝贍赡贏赢贐赆贓赃贔赑贖赎贗赝贛赣贜赃赬赪趙赵趕赶趨趋趲趱躉趸躍跃蹌跄躒跞跡迹踐践躂跶蹺跷蹕跸躚跹躋跻踴踊躊踌躓踬躑踯躡蹑蹣蹒躕蹰躥蹿躪躏躦躜軀躯車车軋轧軌轨軑轪軒轩軔轫軛轭軟软軤轷軫轸軲轱軸轴軹轵軺轺軻轲軼轶軾轼較较輅辂輇辁輈辀載载輊轾輒辄輔辅輕轻輛辆輜辎輝辉輞辋輟辍輥辊輦辇輩辈輪轮輬辌輯辑輳辏輸输輻辐輾辗轄辖轅辕轆辘轉转轍辙轎轿轔辚轟轰轡辔轢轹轤轳辭辞闢辟辯辩辮辫邊边遼辽達达遷迁過过邁迈運运還还這这進进遠远違违連连遲迟邇迩逕迳適适選选遜逊遞递邐逦邏逻遺遗遙遥鄧邓鄺邝鄔邬郵邮鄒邹鄴邺鄰邻郟郏鄶郐鄭郑鄆郓酈郦鄖郧鄲郸酇酂醱酦醬酱釅酽釃酾釀酿釋释釒钅釓钆釔钇釕钌釗钊釘钉釙钋針针釣钓釤钐釧钏釩钒釵钗釷钍釹钕釺钎鈀钯鈁钫鈃钘鈄钭鈈钚鈉钠鈍钝鈎钩鈐钤鈑钣鈒钑鈔钞鈕钮鈞钧鈣钙鈥钬鈦钛鈧钪鈮铌鈰铈鈳钶鈴铃鈷钴鈸钹鈹铍鈺钰鈽钸鈾铀鈿钿鉀钾鉅巨鉈铊鉉铉鉋铇鉍铋鉑铂鉕钷鉗钳鉚铆鉛铅鉞钺鉢钵鉤钩鉦钲鉬钼鉭钽鑒鉴鉶铏鉸铰鉺铒鉻铬鉿铪銀银銃铳銅铜銍铚銑铣銓铨銖铢銘铭銚铫銛铦銠铑銣铷銥铱銦铟銨铵銩铥銪铕銫铯銬铐鑾銮銱铞銳锐銷销銹锈銻锑銼锉鋁铝鋃锒鋅锌鋇钡鋌铤鋏铗鋒锋鋙铻鋝锊鋟锓鋣铘鋤锄鋥锃鋦锔鋨锇鋩铓鋪铺鋭锐鋮铖鋯锆鋰锂鋱铽鋶锍鋸锯鋼钢錁锞錆锖錇锫錈锩錏铔錐锥錒锕錕锟錘锤錙锱錚铮錛锛錟锬錠锭錡锜錢钱錦锦錨锚錩锠錫锡錮锢錯错錳锰錸铼鏨錾鍀锝鍁锨鍃锪鍆钔鍇锴鍈锳鍋锅鍍镀鍔锷鍘铡鍚钖鍛锻鍠锽鍤锸鍥锲鍩锘鍬锹鍰锾鍵键鍶锶鍺锗鎂镁鎄锿鎇镅鎊镑鎔镕鎖锁鎘镉鎛镈鎡镃鎢钨鎦镏鎧铠鎩铩鎪锼鎬镐鎮镇鎰镒鎳镍鎵镓鎶鿔鎿镎鏃镞鏈链鏌镆鏍镙鏐镠鏑镝鏗铿鏘锵鏜镗鏝镘鏞镛鏟铲鏡镜鏢镖鏤镂鏰镚鏵铧鏷镤鏹镪鏽锈鐃铙鐋铴鐐镣鐒铹鐓镦鐔镡鐙镫鐝镢鐠镨鐦锎鐧锏鐨镄鐮镰鐲镯鐳镭鐵铁鐶镮鐸铎鐺铛鐿镱鑄铸鑊镬鑌镔鑔镲鑕锧鑞镴鑠铄鑣镳鑥镥鑭镧鑰钥鑱镵鑲镶鑷镊鑹镩鑼锣鑽钻長长門门閂闩閃闪閆闫閈闬閉闭閌闶閎闳閏闰閑闲間间閔闵閘闸閡阂閣阁閥阀閨闺閩闽閫阃閬阆閭闾閶阊閹阉閻阎閼阏閽阍閾阈閿阌闃阒闈闱闊阔闋阕闌阑闍阇闐阗闒阘闓闿闔阖闕阙闖闯闞阚闠阓闡阐闤阛闥闼鬧闹鬮阄鬩阋隊队陽阳陰阴陣阵階阶際际陸陆隴陇陳陈陘陉陝陕隯陦隉陧隕陨險险隨随隱隐隸隶雋隽難难雛雏雞鸡靂雳霧雾霽霁霢霡靄霭靚靓靜静靨靥韃鞑鞽鞒韉鞯韋韦韌韧韍韨韓韩韙韪韜韬韞韫韻韵頁页頂顶頃顷項项順顺頇顸頊顼頌颂頎颀頏颃預预頑顽頒颁頓顿頗颇領领頜颌頡颉頤颐頦颏頮颒頰颊頲颋頴颕頷颔頸颈頻频顆颗題题額额顎颚顒颙顓颛顙颡顛颠顢颟顥颢顧顾顫颤顬颥顰颦顱颅顳颞顴颧風风颭飐颮飑颯飒颶飓颸飔颺飏颻飖颼飕飀飗飄飘飆飙飈飚飛飞飠饣飢饥飣饤飥饦饗飨飩饨飪饪飫饫飭饬飯饭飲饮飴饴飼饲飽饱飾饰飿饳餃饺餄饸餅饼餉饷餌饵饜餍餎饹餏饻餑饽餒馁餓饿餕馂餖饾餛馄餜馃餞饯餡馅館馆餳饧餶馉餷馇餺馎餼饩餾馏餿馊饁馌饃馍饅馒饈馐饉馑饊馓饋馈饌馔饑饥饒饶饞馋饢馕馬马馭驭馱驮馳驰馴驯馹驲駁驳駐驻駑驽駒驹駔驵駕驾駘骀駙驸駛驶駝驼駟驷駢骈駭骇駰骃駱骆駸骎駿骏騁骋騂骍騅骓騌骔騍骒騎骑騏骐騖骛騙骗騤骙騫骞騭骘騮骝騶驺騷骚騸骟騾骡驁骜驂骖驃骠驄骢驅驱驊骅驌骕驍骁驏骣驕骄驗验驛驿驟骤驢驴驤骧驥骥驦骦驪骊驫骉髏髅髖髋髕髌鬢鬓鬹鬶魘魇魎魉魚鱼魛鱽魢鱾魨鲀魯鲁魴鲂魷鱿魺鲄鮁鲅鮃鲆鮊鲌鮋鲉鮍鲏鮎鲇鮐鲐鮑鲍鮒鲋鮓鲊鮗鿴鮚鲒鮜鲘鮝鲞鮞鲕鮦鲖鮪鲔鮫鲛鮭鲑鮮鲜鮳鲓鮶鲪鮺鲝鯀鲧鯁鲠鯇鲩鯉鲤鯊鲨鯒鲬鯔鲻鯕鲯鯖鲭鯗鲞鯛鲷鯝鲴鯡鲱鯢鲵鯤鲲鯧鲳鯨鲸鯪鲮鯫鲰鯰鲶鯴鲺鯷鳀鯽鲫鯿鳊鰁鳈鰂鲗鰃鳂鰈鲽鰉鳇鰍鳅鰏鲾鰐鳄鰒鳆鰓鳃鰜鳒鰟鳑鰠鳋鰣鲥鰥鳏鰨鳎鰩鳐鰭鳍鰱鲢鰲鳌鰳鳓鰵鳘鰷鲦鰹鲣鰺鲹鰻鳗鰼鳛鰾鳔鱂鳉鱅鳙鱈鳕鱉鳖鱒鳟鱔鳝鱖鳜鱗鳞鱘鲟鱝鲼鱟鲎鱠鲙鱣鳣鱤鳡鱧鳢鱨鲿鱭鲚鱯鳠鱷鳄鱸鲈鱺鲡鳥鸟鳩鸠鳲鸤鳴鸣鳶鸢鴆鸩鴇鸨鴉鸦鴒鸰鴕鸵鴛鸳鴝鸲鴞鸮鴟鸱鴣鸪鴦鸯鴨鸭鴯鸸鴰鸹鴴鸻鴻鸿鴿鸽鵂鸺鵃鸼鵐鹀鵑鹃鵒鹆鵓鹁鵜鹈鵝鹅鵠鹄鵡鹉鵪鹌鵬鹏鵮鹐鵯鹎鵲鹊鵷鹓鵾鹍鶇鸫鶉鹑鶊鹒鶓鹋鶖鹙鶘鹕鶚鹗鶡鹖鶥鹛鶩鹜鶬鸧鶲鹟鶴鹤鶹鹠鶺鹡鶻鹘鶼鹣鷀鹚鷁鹢鷂鹞鷄鸡鷊鹝鷓鹧鷖鹥鷗鸥鷙鸷鷚鹨鷥鸶鷦鹪鷫鹔鷯鹩鷲鹫鷳鹇鷸鹬鷹鹰鷺鹭鷽鸴鸇鹯鸌鹱鸏鹲鸕鸬鸘鹴鸚鹦鸛鹳鸝鹂鸞鸾鹺鹾麥麦麩麸麴曲黃黄黌黉黶黡黷黩黲黪黽黾黿鼋鼂鼌鼉鼍鼴鼹齊齐齏齑齒齿齔龀齕龁齗龂齙龅齜龇齟龃齠龆齡龄齦龈齪龊齬龉齲龋齷龌龍龙龔龚龕龛龜龟鿓鿒鿠鿟鿳鿸週周並并劃划麼么臺台於于佔占", M = {};
+  for (var i = 0; i < P.length; i += 2) M[P.charAt(i)] = P.charAt(i + 1);
+  var SKIP_TAG = /^(SCRIPT|STYLE|CODE|PRE|TEXTAREA)$/;
+  var SKIP_CLASS = /(^|\s)(mono|ex-code|urlbox|no-sim)(\s|$)/;
+  var nodes = [], orig = [];
+  try {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n;
+    while ((n = w.nextNode())) {
+      var p = n.parentNode; if (!p) continue;
+      if (SKIP_TAG.test(p.nodeName)) continue;
+      var cn = p.className;
+      if (typeof cn === "string" && SKIP_CLASS.test(cn)) continue;
+      var v = n.nodeValue;
+      if (!v || !v.replace(/\s/g, "")) continue;
+      nodes.push(n); orig.push(v);
+    }
+  } catch (e) { /* 沒有 TreeWalker 就原樣顯示 */ }
+
+  var titleOrig = document.title;
+  function conv(s) {
+    var o = "", i;
+    for (i = 0; i < s.length; i++) { var c = s.charAt(i); o += M[c] || c; }
+    return o;
   }
-  btn.href = other + location.search + location.hash;
-  btn.textContent = otherLang === 'zh-Hant' ? '繁' : '简';
-  btn.title = otherLang === 'zh-Hant' ? '無損轉為繁體（僅字形，不改詞彙）' : '無損轉為簡體（僅字形，不改詞彙）';
-  btn.addEventListener('click', function () {
-    document.cookie = 'fahua-lang=' + otherLang + ';path=/;max-age=31536000;samesite=lax';
+  function apply(sim) {
+    var i;
+    for (i = 0; i < nodes.length; i++) nodes[i].nodeValue = sim ? conv(orig[i]) : orig[i];
+    document.title = sim ? conv(titleOrig) : titleOrig;
+    document.documentElement.lang = sim ? "zh-Hans" : "zh-Hant";
+    var b = document.getElementById("simToggle");
+    if (b) b.textContent = sim ? "繁體" : "简体";
+    var els = document.querySelectorAll("[data-sim]");
+    for (i = 0; i < els.length; i++) {
+      var el = els[i], a = el.getAttribute(sim ? "data-sim" : "data-trad");
+      if (a) { if (el.tagName === "IMG") el.src = a; else el.href = a; }
+    }
+  }
+
+  var host = location.hostname.toLowerCase();
+  var q = new URLSearchParams(location.search);
+  var saved = null;
+  try { saved = localStorage.getItem("rut.sim"); } catch (e) {}
+  var sim = saved
+    ? saved === "s"
+    : (q.get("sim") === "1" ? true
+      : q.get("sim") === "0" ? false
+      : (host === "shutonggui.cn" || host === "www.shutonggui.cn"));
+
+  try { apply(sim); } catch (e) {}
+  document.body.style.visibility = "visible";
+
+  var btn = document.getElementById("simToggle");
+  if (btn) btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    sim = !sim;
+    apply(sim);
+    try { localStorage.setItem("rut.sim", sim ? "s" : "t"); } catch (e2) {}
   });
-  btn.hidden = false;
-})();
+}());
 </script>
-<!--/lang-toggle--></body>
+</body>
 </html>
